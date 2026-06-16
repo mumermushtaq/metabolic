@@ -1,0 +1,57 @@
+name: Metabolic Portal - Playwright E2E Tests
+
+on:
+  # Run on every push to master
+  push:
+    branches: [master]
+  # Run on every pull request
+  pull_request:
+    branches: [master]
+  # Allow manual trigger from GitHub
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run Playwright Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      # Step 1 - Download your code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2 - Install Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      # Step 3 - Install project dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 4 - Install Playwright browsers
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium firefox
+
+      # Step 5 - Run the tests
+      - name: Run Playwright tests
+        run: npx playwright test
+        env:
+          BASE_URL: ${{ secrets.BASE_URL }}
+          TEST_PHONE: ${{ secrets.TEST_PHONE }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+          TEST_OTP: ${{ secrets.TEST_OTP }}
+          HEADLESS: true
+          CI: true
+
+      # Step 6 - Upload test report (even if tests fail)
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: reports/
+          retention-days: 30
