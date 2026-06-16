@@ -25,6 +25,10 @@ module.exports = defineConfig({
   // Reporting configuration
   reporter: [
     ['html', { outputFolder: 'reports/html', open: 'never' }],
+    ['allure-playwright', {
+      outputFolder: 'allure-results', 
+      suiteTitle: 'Metabolic Portal Test Suite'
+    }],
     ['list'],
     ['junit', { outputFile: 'reports/junit/results.xml' }],
   ],

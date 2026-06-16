@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:smoke": "playwright test --grep @smoke",
+    "report:html": "playwright show-report reports/html",
+    "report:allure": "allure generate reports/allure-results -o reports/allure-report --clean && allure open reports/allure-report"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +18,9 @@
   "dependencies": {
     "@playwright/test": "^1.61.0",
     "dotenv": "^17.4.2"
+  },
+  "devDependencies": {
+    "allure-commandline": "^2.42.1",
+    "allure-playwright": "^3.10.0"
   }
 }

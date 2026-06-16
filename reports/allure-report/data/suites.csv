@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","3647","should not allow login with empty fields","chromium","2026-06-16","passed","2026-06-16","Metabolic Portal - Login Flow","e2e\login.spec.js","",""
+"","3894","should show error with invalid password","chromium","2026-06-16","passed","2026-06-16","Metabolic Portal - Login Flow","e2e\login.spec.js","",""
+"","8068","should login successfully with valid credentials","firefox","2026-06-16","passed","2026-06-16","Metabolic Portal - Login Flow","e2e\login.spec.js","",""
+"","5422","should login successfully with valid credentials","chromium","2026-06-16","passed","2026-06-16","Metabolic Portal - Login Flow","e2e\login.spec.js","",""
+"","6437","should not allow login with empty fields","firefox","2026-06-16","passed","2026-06-16","Metabolic Portal - Login Flow","e2e\login.spec.js","",""
+"","6668","should show error with invalid password","firefox","2026-06-16","passed","2026-06-16","Metabolic Portal - Login Flow","e2e\login.spec.js","",""

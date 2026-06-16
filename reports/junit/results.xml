@@ -1,0 +1,18 @@
+<testsuites id="" name="" tests="6" failures="0" skipped="0" errors="0" time="19.429854">
+<testsuite name="e2e\login.spec.js" timestamp="2026-06-16T02:23:44.409Z" hostname="chromium" tests="3" failures="0" skipped="0" time="24.513" errors="0">
+<testcase name="Metabolic Portal - Login Flow › should login successfully with valid credentials" classname="e2e\login.spec.js" time="8.872">
+</testcase>
+<testcase name="Metabolic Portal - Login Flow › should show error with invalid password" classname="e2e\login.spec.js" time="8.204">
+</testcase>
+<testcase name="Metabolic Portal - Login Flow › should not allow login with empty fields" classname="e2e\login.spec.js" time="7.437">
+</testcase>
+</testsuite>
+<testsuite name="e2e\login.spec.js" timestamp="2026-06-16T02:23:44.409Z" hostname="firefox" tests="3" failures="0" skipped="0" time="22.4" errors="0">
+<testcase name="Metabolic Portal - Login Flow › should login successfully with valid credentials" classname="e2e\login.spec.js" time="10.7">
+</testcase>
+<testcase name="Metabolic Portal - Login Flow › should show error with invalid password" classname="e2e\login.spec.js" time="6.069">
+</testcase>
+<testcase name="Metabolic Portal - Login Flow › should not allow login with empty fields" classname="e2e\login.spec.js" time="5.631">
+</testcase>
+</testsuite>
+</testsuites>
