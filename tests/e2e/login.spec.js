@@ -3,9 +3,13 @@ const { LoginPage } = require('../../pages/LoginPage');
 
 test.describe('Metabolic Portal - Login Flow', () => {
 
+  // Login tests must start with no saved session —
+  // the chromium project injects storageState which redirects to /patient,
+  // making the login form invisible and causing all tests here to timeout.
+  test.use({ storageState: { cookies: [], origins: [] } });
+
   let loginPage;
 
-  // Runs before each test automatically
   test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
   });

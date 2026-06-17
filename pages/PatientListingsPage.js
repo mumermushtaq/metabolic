@@ -71,7 +71,7 @@ class PatientListingsPage {
       () => !document.querySelector('table tbody tr.loading, [class*="loading"]'),
       { timeout: 10000 }
     ).catch(() => {}); // ignore if no loading indicator exists
-    await this.page.waitForTimeout(800); // account for search debounce + render
+    await this.page.waitForTimeout(process.env.CI ? 2000 : 800); // CI needs longer for debounce + API
   }
 
   async clearSearch() {
