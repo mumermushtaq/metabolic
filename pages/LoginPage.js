@@ -21,6 +21,8 @@ class LoginPage {
   // Navigate to login page
   async goto() {
     await this.page.goto(process.env.BASE_URL);
+    // Wait for login form to render before any interaction
+    await this.phoneInput.waitFor({ state: 'visible', timeout: 30000 });
   }
 
   // Fill login credentials

@@ -19,10 +19,9 @@ setup('authenticate', async ({ page }) => {
 
   // Step 3 — Wait for patient listings page
   await page.waitForURL('**/patient**', { timeout: 30000 });
-  await page.waitForLoadState('networkidle');
 
-  // Step 4 — Confirm login using heading specifically
-  await page.waitForSelector('h3:has-text("Patients")', { timeout: 15000 });
+  // Step 4 — Confirm login using heading (networkidle never fires — chat widget)
+  await page.waitForSelector('h3:has-text("Patients")', { timeout: 30000 });
   console.log('✅ Login confirmed!');
 
   // Step 5 — Save session

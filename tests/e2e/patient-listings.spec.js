@@ -95,17 +95,14 @@ test.describe('Patient Listings — @patients', () => {
 
   test('should show no results for non-existent patient', async ({ page }) => {
     await listingsPage.searchPatient('ZZZZNONEXISTENTPATIENT99999');
-    await page.waitForLoadState('networkidle');
 
     // Only the header row should remain — no data rows
-    const rows = page.getByRole('row');
-    await expect(rows).toHaveCount(1);
+    await expect(page.getByRole('row')).toHaveCount(1, { timeout: 10000 });
   });
 
   test('should search is case-insensitive', async ({ page }) => {
     // Search uppercase
     await listingsPage.searchPatient('UMER MUSHTAQ');
-    await page.waitForLoadState('networkidle');
     const upperRows = await page.getByRole('row').count();
 
     await listingsPage.clearSearch();
@@ -113,7 +110,6 @@ test.describe('Patient Listings — @patients', () => {
 
     // Search lowercase
     await listingsPage.searchPatient('umer mushtaq');
-    await page.waitForLoadState('networkidle');
     const lowerRows = await page.getByRole('row').count();
 
     expect(upperRows).toBe(lowerRows);
@@ -170,16 +166,15 @@ test.describe('Patient Listings — @patients', () => {
   test('should apply filter and update patient list', async ({ page }) => {
     await listingsPage.openFilterModal();
     await listingsPage.applyFiltersBtn.click();
-    await page.waitForLoadState('networkidle');
 
-    // Clear Filter button should appear after applying filter
-    await expect(listingsPage.clearFilterBtn).toBeVisible();
+    // Clear Filter button appears once filter is applied
+    await expect(listingsPage.clearFilterBtn).toBeVisible({ timeout: 10000 });
   });
 
   test('should clear all filters and restore full list', async ({ page }) => {
     await listingsPage.openFilterModal();
     await listingsPage.applyFiltersBtn.click();
-    await page.waitForLoadState('networkidle');
+    await expect(listingsPage.clearFilterBtn).toBeVisible({ timeout: 10000 });
 
     await listingsPage.clearAllFilters();
 
@@ -246,7 +241,7 @@ test.describe('Patient Listings — @patients', () => {
 
   test('should open add patient form when clicking Add Patient', async ({ page }) => {
     await listingsPage.clickAddPatient();
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
     const isModalOpen = await page.locator('[role="dialog"]').isVisible().catch(() => false);
     const isNewUrl    = page.url().includes('add') || page.url().includes('new');
     expect(isModalOpen || isNewUrl).toBeTruthy();
@@ -254,7 +249,7 @@ test.describe('Patient Listings — @patients', () => {
 
   test('should open MRN search when clicking Add Patient (MRN)', async ({ page }) => {
     await listingsPage.clickAddPatientMRN();
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
     const isModalOpen = await page.locator('[role="dialog"]').isVisible().catch(() => false);
     const isNewUrl    = page.url().includes('mrn') || page.url().includes('add');
     expect(isModalOpen || isNewUrl).toBeTruthy();
