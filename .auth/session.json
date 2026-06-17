@@ -1,0 +1,92 @@
+{
+  "cookies": [
+    {
+      "name": "AMP_MKTG_f861d3dad9",
+      "value": "JTdCJTdE",
+      "domain": ".metabolichealth-app.com",
+      "path": "/",
+      "expires": 1813266113,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "vercel-experiment-uuid",
+      "value": "7KrLwjfH8c5xrgSaYI9VW",
+      "domain": "vercel.live",
+      "path": "/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None",
+      "partitionKey": "https://metabolichealth-app.com",
+      "_crHasCrossSiteAncestor": true
+    },
+    {
+      "name": "AMP_f861d3dad9",
+      "value": "JTdCJTIyZGV2aWNlSWQlMjIlM0ElMjIzMGVkMTNlZi1iZTYyLTRlNmQtOTliYS1mNzYxNDc1NDAwMDIlMjIlMkMlMjJ1c2VySWQlMjIlM0ElMjIyOTElMjIlMkMlMjJzZXNzaW9uSWQlMjIlM0ExNzgxNzMwMTEzMjQ3JTJDJTIyb3B0T3V0JTIyJTNBZmFsc2UlMkMlMjJsYXN0RXZlbnRUaW1lJTIyJTNBMTc4MTczMDExNzg2NiUyQyUyMmxhc3RFdmVudElkJTIyJTNBNyUyQyUyMnBhZ2VDb3VudGVyJTIyJTNBMyUyQyUyMmNvb2tpZURvbWFpbiUyMiUzQSUyMi5tZXRhYm9saWNoZWFsdGgtYXBwLmNvbSUyMiU3RA==",
+      "domain": ".metabolichealth-app.com",
+      "path": "/",
+      "expires": 1813266118,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://portal.dev.metabolichealth-app.com",
+      "localStorage": [
+        {
+          "name": "gluportal/refreshToken",
+          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMDQ3LCJ0b2tlbl90eXBlIjoiYWNjZXNzIiwic3ViIjoiMTA0NyIsImlhdCI6MTc4MTczMDExNiwiZXhwIjoxNzg0MzIyMTE2LCJqdGkiOiJkMzNiM2MxNy03MjhhLTQ2YzktYjE1Zi1kZGY5ZGU0YmEzZjkifQ.McUfJyHORrOnNScwkf_IusABG8ft-Q5i-mOzgvWaBNU"
+        },
+        {
+          "name": "AMP_unsent_f861d3dad9",
+          "value": "[{\"device_id\":\"30ed13ef-be62-4e6d-99ba-f76147540002\",\"session_id\":1781730113247,\"time\":1781730117866,\"platform\":\"Web\",\"language\":\"en-US\",\"ip\":\"$remote\",\"insert_id\":\"093fa3a4-6364-431e-8cc9-5a0389290a44\",\"event_type\":\"[Amplitude] Page Viewed\",\"event_properties\":{\"[Amplitude] Page Domain\":\"portal.dev.metabolichealth-app.com\",\"[Amplitude] Page Location\":\"https://portal.dev.metabolichealth-app.com/patient\",\"[Amplitude] Page Path\":\"/patient\",\"[Amplitude] Page Title\":\"\",\"[Amplitude] Page URL\":\"https://portal.dev.metabolichealth-app.com/patient\",\"[Amplitude] Page View ID\":\"91eae082-f07a-4200-b0fb-d5846acf03ba\",\"[Amplitude] Page Counter\":3,\"[Amplitude] Previous Page Location\":\"https://portal.dev.metabolichealth-app.com/otp-verification?phoneNumber=%2B9203311111111\",\"[Amplitude] Previous Page Type\":\"internal\"},\"event_id\":7,\"library\":\"amplitude-ts/2.40.0\",\"user_agent\":\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36\"}]"
+        },
+        {
+          "name": "AMP_remote_config_f861d3dad9",
+          "value": "{\"remoteConfig\":{\"configs\":{\"diagnostics\":{\"browserSDK\":{\"sampleRate\":0.02}},\"sessionReplay\":{},\"analyticsSDK\":{}}},\"lastFetch\":\"2026-06-17T21:01:53.256Z\"}"
+        },
+        {
+          "name": "gluportal/currentUser",
+          "value": "VTJGc2RHVmtYMS9oYWYxR1Y0Qk95eFNhWlFOYmZ4ZEVOejhEU2ZaQlJ3QUtRV3kvVHlmU1doWTl2OWVNaytNQ2g3Sm41UUFPV2FDSkMxeGZHYTlqTmNoWmMxK1RlRURBRGxtVWZ2eXBBcnpXbDFCbVVMQ2cxaU81UWN3TUI1YU1hTjJLZTFabnY1WiszWFBuaXltY2pTSUxyVVJpcVU5UjFWaWRRSGw2cHp4SFN1QXZVSjJEOUdpVkkwR1ZTVzZKOFFVTm9PSG5Sa0ozb0V0WFpZTEVENDBlWGluVFM4cFNuM2RiNDNDQWFtV2FPajQvaklRZEhFNGRLc1p5STh2MWxablRKUVJWZEhOMEVBbkJXVWtCSEc1V0oxRE1iZExmdDB2R2o5Tm12Nkx5RlBJekoyRHIzbU95cnBucHVvaEhlOW9zd2YrcmZSNzNtUGxVTEJOdnc1aFZRRTVvVlBDREdBRzlSMjdhaXF5Tzg4cTNMbzVYeWFGWkdwVHFOM1pkL0JyNFlUTUoyK0p2QzBjc2tjcnZwdjBKeDR6SGh5K0didjgvYWhsLzdHYWJQYjhkVE8wNmVLb2F1b1o5N0VHaWlrYXNYY21UV2FSdU1OSUllYkQ3MjU1T2U4cS9Ka3E1RFRjc1FheTF5TUdSSTVnOUNyODdsM093bDY3N1hiMGxINlpZUWZqdENhVmJyNjFuNzZjdnB4eFp0ZUEvZU00Nm55UEtwU0RTR2JaTWpkSUJveGh5cXFOK1hzYXYxUXpSVVl0Zm1hRzVSRkhSRHNlcndjR1kzUm8yWGk5WHd2akJSUW9IcnFUelo3N25lMlN6R3VxOXhBK3VaY3JEd1VYaUxhS09wMDZnRlphUFdGcGlBSDlSRUppT0tEOHNXd2dKZWpCY3JYNjE4WlJGZmExS1FIOXdjQTdDQmxQZEdiN2svOFQxeGJwRWdxMWVldXgxNDVTQVJMaHFvK09QNklvZjNLSzhtV09rVFBDbjhzdlJPeU9yRVVpaVJTWlU0L0s1MTJyQlJQNEdlWGdLNUdIYmVXeEMzOFpYR0Q5eVo3cDRMQzNhZlIrQlpsdy85a1dyeVl0cHl3Nm43L3FmV0Y5ckJ2QkJzODRVYjBSbkRmSDM5dUdSMFFJSDRkNWx2Qm1OMFlKUEZodkJpcjN5bUdZSmJIcldlaTlsK2R2MEdld1hKczZHV3lBNmtDRWg3Q0JnKzRVUW5XMnI0OTBtcFhQblJzOGo2REZIeDcrcHBFWU9vdHNJZVd1TEhmeEZqcHd5N2ErWUxvYUNvaVo0MlNvc0VFQ0xWUSs3MjBkZVg3Z2hoVmZvdEc2SVg2QkZ3emlSU2Q2NTZiUUVoVWJrYlFLSjJRNGlxUGdDeFZJd1ZSN0o4dHpPaGw5dmV5bXhPR0trV1dVVGh0VTJ6b2ZSVDFmTWErcTJsMWFrRzI5azhVYlRoc3BUUzNBeW11Z251U1hpQnBDYm9udmtHaGpqOXZYKzhtZ2pXdW5ROUpoR0VGdzZ2UUhqMUFZVUJiaW5qSk40cmh3TGltUUtTNFJ1UWVWS01FK1FEWjh6d2czdGVoVnBFMVRad2Q3dzVXSGF2emkzNldlZWp3SHRWdHpETW03UFNqY3VOOEVySlN6RFl6cVNRNGpmb3NFT1R0MlNVN2Zkc3FvekQ3YzN0c1hiRXg0Q21zSTE3MW5HdnpPdTRHZ1I5L2NCVTd5eDlhb25XVE9PNVZVaVJVQ1AyV1lvbHFUU3ppNlF5QzJkZ2s0NjYwZnVzQ3c2Z1cwRnI0dzZqenJmd3BRTnlVRlRRRDFyVFZjbFhwSExYTVJEWWpha3hMdUlETU1SK0J0V1pRNmlxVWdPME51Q3UxR1R3VUVMcDY1eDVCTG01VDJQNjhqcXVYWU5LS20vVktDcSt5S2VRd1ZjdEdyZFZtVVByR25KYWR4c1V4OXUrQ1h4eThSamVjUFNSa1JFbkljNVZLVmRMMEZISkNlMTV0QklseW9VN3RJNExUQ3g1V1ZSdVBtMjZTQ2ZBY0JVOHJPRis4dlo5dXlNcXVPREMzRHdwbTk4a2k2eGVJSTVvMzBhUW8xbGVPM0dKQ3hlcERHdWdoOEJHQ2NPbVBOV0lPZWZkR3k0M1hVNUYvRlExdVQ3UHp2dmdVSUxZeDFOSlBXb1FXQ3MzNUVuNTNRV2dtVVlQQm5GUHJSQUw1ZkNMbkxqZUUwZ1BvRm1YS094a1VRWk5ScUVwMnFVRHlCQlZEYUpmMWt1MDhpaEdhNEIrNDNUMUo2TEVxY01xWWRXV3hzc2RrVWc2a0tFWm92YjdXbmlVWWtKaG5zWC9zTXk3V1dZVHlTcmtWZ2lVWHlsT1Iya3gwQVFDNU9lTzJUSzBjSlYzUlBBSnJTWXZ1VmFvallUcjdaN05MRm1KU2NBL2YrMUpRbitMY0tuT2QyME8yenRuV3IyTDkyM0JYOFFMc0I4VjFqaUZFRTl5b0RGTitDTUlDM3M2V21DbHlRSG84eTBlempKN3p4OGtqMWQ3Z0gvTkxIRW4vSFR2K2h5aTVhRHZ5dWY4YUhBMTNyb2doUkhLWW4xTVlTOWZBS0RIM1VSbHNZaEJqTUpTb21oWk45U1gybGZWd01yTzdPSDEyY3Vka3VwMEFZU1ZTZWlBTXU1Q2xjN25DWE9LL1lSY0xzTzdIbkVnS0h6bTB6eUtnYm90QmpOdmxoSEdOcEtrYklVY3lzNDIwUjZnQm5WeVhhNno0ekRNK3NyK1hOQk9hWWUzTVRUNjVkYlVSOUJUSWdGZ29vQUErV0hYWXF0ZUd2T3BQM1Y4ZTByVW5ENUFXNGdVMk5nSjFLTUp4aDFWbXFoWEtyQjVzVS9MaThEaVI5Y1ZVY2NKK1d3RUpSWEpIYysyQStVa2tkKzlmbS9kMklVQkVHc3NMS2xjN2F1MW1qOEp0ck50OU02ZEFMRFVPTXJoRTNPVmYxSGQ4QnUxeDZ4YTMxQm8wa0M4Qm1HVlMrYkFNNlRtdW10RG0wTlVza3ZuU25wcEFpQ1BHSiszTFM4TTFheEpVSEx6cE82Mm8vTmhSVXBmMDRm"
+        },
+        {
+          "name": "userAgentIdentifiers",
+          "value": "[{\"phoneNumber\":\"9203311111111\",\"userAgentIdentifier\":\"630cf8b531078415330124fbde0af878\"}]"
+        },
+        {
+          "name": "gluportal/currentUserToken",
+          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMDQ3LCJ0b2tlbl90eXBlIjoiYWNjZXNzIiwic3ViIjoiMTA0NyIsImlhdCI6MTc4MTczMDExNiwiZXhwIjoxNzgxODE2NTE2LCJqdGkiOiI4YzAyNjQ5Yi02NDBlLTQ0M2UtOTFiYS1mMjVhZDQxMzIyYTgifQ.U2ONqmO3LQjYR_L_GWWR9faSTlQ1OqfSo7TGWhtGh2M"
+        },
+        {
+          "name": "access_token",
+          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMDQ3LCJ0b2tlbl90eXBlIjoiYWNjZXNzIiwic3ViIjoiMTA0NyIsImlhdCI6MTc4MTczMDExNiwiZXhwIjoxNzgxODE2NTE2LCJqdGkiOiI4YzAyNjQ5Yi02NDBlLTQ0M2UtOTFiYS1mMjVhZDQxMzIyYTgifQ.U2ONqmO3LQjYR_L_GWWR9faSTlQ1OqfSo7TGWhtGh2M"
+        },
+        {
+          "name": "refresh_token",
+          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMDQ3LCJ0b2tlbl90eXBlIjoiYWNjZXNzIiwic3ViIjoiMTA0NyIsImlhdCI6MTc4MTczMDExNiwiZXhwIjoxNzg0MzIyMTE2LCJqdGkiOiJkMzNiM2MxNy03MjhhLTQ2YzktYjE1Zi1kZGY5ZGU0YmEzZjkifQ.McUfJyHORrOnNScwkf_IusABG8ft-Q5i-mOzgvWaBNU"
+        },
+        {
+          "name": "persist:root",
+          "value": "{\"patientListFilter\":\"{\\\"loading\\\":false,\\\"success\\\":false,\\\"activeFilter\\\":null,\\\"patientSettingsList\\\":[{\\\"id\\\":1,\\\"name\\\":\\\"Patient\\\",\\\"check\\\":true},{\\\"id\\\":2,\\\"name\\\":\\\"Diagnosis\\\",\\\"check\\\":true},{\\\"id\\\":3,\\\"name\\\":\\\"TIR\\\",\\\"check\\\":true},{\\\"id\\\":6,\\\"name\\\":\\\"Food Log\\\",\\\"check\\\":true},{\\\"id\\\":7,\\\"name\\\":\\\"Weight\\\",\\\"check\\\":true},{\\\"id\\\":8,\\\"name\\\":\\\"Active Chats\\\",\\\"check\\\":true},{\\\"id\\\":9,\\\"name\\\":\\\"Status\\\",\\\"check\\\":true},{\\\"id\\\":10,\\\"name\\\":\\\"Readiness Status\\\",\\\"check\\\":false},{\\\"id\\\":12,\\\"name\\\":\\\"Insurance No\\\",\\\"check\\\":false},{\\\"id\\\":13,\\\"name\\\":\\\"Nationality\\\",\\\"check\\\":false},{\\\"id\\\":14,\\\"name\\\":\\\"Recent Activity\\\",\\\"check\\\":false},{\\\"id\\\":15,\\\"name\\\":\\\"Date of Birth\\\",\\\"check\\\":false},{\\\"id\\\":16,\\\"name\\\":\\\"Glucose\\\",\\\"check\\\":false},{\\\"id\\\":17,\\\"name\\\":\\\"Verification Date\\\",\\\"check\\\":true},{\\\"id\\\":18,\\\"name\\\":\\\"Patient Program\\\",\\\"check\\\":true},{\\\"id\\\":19,\\\"name\\\":\\\"Last BCA Scan\\\",\\\"check\\\":false}],\\\"patientDataPageSize\\\":10,\\\"patientListOrdering\\\":\\\"\\\",\\\"patientFilterParam\\\":{\\\"diagnoses\\\":[],\\\"gender\\\":null,\\\"preferred_language\\\":\\\"\\\",\\\"program\\\":[],\\\"age\\\":\\\"\\\",\\\"status\\\":[],\\\"verified_at_gte\\\":\\\"\\\",\\\"verified_at_lte\\\":\\\"\\\",\\\"primary_staff\\\":null}}\",\"staffSort\":\"{\\\"loading\\\":false,\\\"success\\\":false,\\\"staffDataPageSize\\\":10,\\\"staffListOrdering\\\":\\\"\\\"}\",\"consultationVisit\":\"{\\\"hasContext\\\":false,\\\"patientId\\\":\\\"\\\",\\\"visitId\\\":\\\"\\\",\\\"visitNumber\\\":null,\\\"title\\\":null,\\\"appointmentType\\\":null,\\\"episodeDateTime\\\":null,\\\"dateLabel\\\":null,\\\"physicianName\\\":null}\",\"_persist\":\"{\\\"version\\\":-1,\\\"rehydrated\\\":true}\"}"
+        }
+      ]
+    },
+    {
+      "origin": "https://vercel.live",
+      "localStorage": [
+        {
+          "name": "vid-https://portal.dev.metabolichealth-app.com",
+          "value": "\"17817301135650.21799523971829082\""
+        },
+        {
+          "name": "vercel-toolbar-experiment-uuid-https://portal.dev.metabolichealth-app.com",
+          "value": "\"7KrLwjfH8c5xrgSaYI9VW\""
+        }
+      ]
+    }
+  ]
+}

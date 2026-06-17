@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add Patient Module — Study Notes</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: #1a1a2e;
+      background: #fff;
+      padding: 48px 60px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    /* ── Cover ── */
+    .cover {
+      text-align: center;
+      padding: 60px 0 40px;
+      border-bottom: 3px solid #4361ee;
+      margin-bottom: 40px;
+    }
+    .cover h1 {
+      font-size: 28px;
+      color: #4361ee;
+      letter-spacing: 0.5px;
+    }
+    .cover .subtitle {
+      font-size: 14px;
+      color: #666;
+      margin-top: 8px;
+    }
+    .cover .meta {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #999;
+    }
+
+    /* ── Headings ── */
+    h2 {
+      font-size: 18px;
+      color: #4361ee;
+      border-left: 4px solid #4361ee;
+      padding-left: 12px;
+      margin: 36px 0 14px;
+      page-break-after: avoid;
+    }
+    h3 {
+      font-size: 14px;
+      color: #3a3a5c;
+      margin: 22px 0 8px;
+      page-break-after: avoid;
+    }
+
+    /* ── Paragraphs ── */
+    p { margin-bottom: 10px; }
+
+    /* ── Tables ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 18px;
+      font-size: 12.5px;
+      page-break-inside: avoid;
+    }
+    th {
+      background: #4361ee;
+      color: #fff;
+      padding: 8px 12px;
+      text-align: left;
+      font-weight: 600;
+    }
+    td {
+      padding: 7px 12px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    tr:nth-child(even) td { background: #f5f7ff; }
+
+    /* ── Code blocks ── */
+    pre {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      padding: 16px 18px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      line-height: 1.6;
+      overflow-x: auto;
+      margin: 12px 0 18px;
+      page-break-inside: avoid;
+    }
+    code {
+      font-family: 'Cascadia Code', 'Consolas', monospace;
+    }
+    p code, li code {
+      background: #eef0fb;
+      color: #4361ee;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 12px;
+    }
+
+    /* ── Callout boxes ── */
+    .callout {
+      border-left: 4px solid #f72585;
+      background: #fff0f6;
+      padding: 10px 14px;
+      border-radius: 0 6px 6px 0;
+      margin: 12px 0 18px;
+      font-size: 13px;
+      page-break-inside: avoid;
+    }
+    .callout.info {
+      border-color: #4cc9f0;
+      background: #f0fbff;
+    }
+    .callout.success {
+      border-color: #06d6a0;
+      background: #f0fdf8;
+    }
+    .callout strong { display: block; margin-bottom: 4px; }
+
+    /* ── Lists ── */
+    ul, ol {
+      padding-left: 22px;
+      margin-bottom: 12px;
+    }
+    li { margin-bottom: 5px; }
+
+    /* ── Section divider ── */
+    hr {
+      border: none;
+      border-top: 1px solid #e5e7eb;
+      margin: 32px 0;
+    }
+
+    /* ── Badge ── */
+    .badge {
+      display: inline-block;
+      background: #4361ee;
+      color: #fff;
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 10px;
+      vertical-align: middle;
+      margin-left: 6px;
+    }
+    .badge.skip { background: #aaa; }
+
+    /* ── Page breaks ── */
+    .page-break { page-break-before: always; }
+  </style>
+</head>
+<body>
+
+  <!-- COVER -->
+  <div class="cover">
+    <h1>Add Patient Module</h1>
+    <div class="subtitle">Playwright E2E Automation — Study Notes</div>
+    <div class="meta">Metabolic Staff Portal &nbsp;|&nbsp; June 2026</div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <h2>1. What We Built</h2>
+
+  <p>The Add Patient module automates the process of creating a new patient in the Metabolic Staff Portal and verifying them. Two files make up the entire module:</p>
+
+  <table>
+    <tr><th>File</th><th>Role</th></tr>
+    <tr><td><code>pages/AddPatientPage.js</code></td><td>Page Object Model — all locators and actions for the Add Patient form</td></tr>
+    <tr><td><code>tests/e2e/add-patient.spec.js</code></td><td>Test file — 9 tests covering the full Add Patient flow</td></tr>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <h2>2. The Page Object Model (POM) Pattern</h2>
+
+  <p><strong>The core idea:</strong> Never write locators (CSS selectors, XPaths, role finders) directly inside test files. Instead, put them in a separate "Page" class. Tests only call methods — they never know about selectors.</p>
+
+  <pre><code>// ✅ Good — test reads like a sentence
+await addPage.fillForm(patient);
+await addPage.submit();
+
+// ❌ Bad — locator logic mixed into test
+await page.getByRole('textbox', { name: 'First Name' }).fill('Auto');
+await page.getByRole('dialog').getByRole('button', { name: 'Add Patient' }).click();</code></pre>
+
+  <div class="callout info">
+    <strong>Why this matters</strong>
+    If the app changes a button's ID tomorrow, you fix it in ONE place (the page object), not in every test that uses it.
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <h2>3. AddPatientPage.js — Key Concepts</h2>
+
+  <h3>3a. Constructor — Defining Locators</h3>
+  <p>The constructor runs when you do <code>new AddPatientPage(page)</code>. It sets up every locator as a class property so any method or test can reuse them.</p>
+
+  <pre><code>constructor(page) {
+  this.page = page;
+
+  // Always prefer getByRole — it works like a real user would
+  this.firstNameInput = page.getByRole('textbox', { name: 'First Name' });
+  this.modal          = page.getByRole('dialog');
+
+  // Scoped to the dialog — avoids matching the "Add Patient" button in the header
+  this.submitBtn = page.getByRole('dialog').getByRole('button', { name: 'Add Patient' });
+}</code></pre>
+
+  <div class="callout info">
+    <strong>Why <code>getByRole</code>?</strong>
+    It's the most stable selector — it finds elements the same way a user (or screen reader) would. It doesn't break when CSS classes change.
+  </div>
+
+  <h3>3b. React-Select Dropdowns</h3>
+  <p>The form uses a library called <strong>React-Select</strong> for dropdowns (Insurance Provider, Language, Nationality, Diagnosis, Teams). These are NOT native <code>&lt;select&gt;</code> elements — they are custom-built React components.</p>
+
+  <pre><code>// ❌ This doesn't work — not a native select element
+await page.selectOption('AXA Insurance');
+
+// ✅ Correct approach — type into hidden input, pick from options list
+async selectLanguage(searchText) {
+  await this.languageInput.fill(searchText);   // type to search
+  await this.languageInput.press('Enter');      // confirm selection
+}</code></pre>
+
+  <p>Each React-Select has a hidden <code>&lt;input&gt;</code> with a generated ID like <code>react-select-3-input</code>. You type into it, matching options appear in a dropdown list, then you press Enter or click an option.</p>
+
+  <h3>3c. The Date of Birth Field — <code>pressSequentially</code> + <code>Tab</code></h3>
+
+  <pre><code>async fillDateOfBirth(dateString) {
+  await this.dobInput.click();
+  await this.dobInput.pressSequentially(dateString);
+  await this.dobInput.press('Tab');   // ← NOT Escape
+}</code></pre>
+
+  <table>
+    <tr><th>Decision</th><th>Reason</th></tr>
+    <tr><td><code>pressSequentially</code> not <code>fill()</code></td><td>The date field is a masked input (DD-MM-YYYY). It needs keystrokes one at a time to move through each segment: day → month → year.</td></tr>
+    <tr><td><code>Tab</code> not <code>Escape</code></td><td>The form uses a Bootstrap Offcanvas (slide-in panel). Bootstrap listens for Escape globally — pressing it closes the ENTIRE modal. Tab just moves focus safely to the next field.</td></tr>
+  </table>
+
+  <h3>3d. The React Re-render Problem — Fill Email LAST</h3>
+
+  <div class="callout">
+    <strong>This was the hardest bug in the entire module.</strong>
+    The form would appear to fill correctly, but on submission the email field was always empty.
+  </div>
+
+  <p><strong>What happened:</strong> Each React-Select interaction caused React to re-render the form. When React re-renders, it resets any input it doesn't currently "own" — meaning our previously typed email value was wiped from the DOM.</p>
+
+  <pre><code>async fillForm(...) {
+  // STEP 1 — Fill stable text fields (not affected by re-renders)
+  await this.firstNameInput.fill(firstName);
+  await this.lastNameInput.fill(lastName);
+  await this.fillDateOfBirth(dob);
+  await this.mrnInput.fill(mrn);
+
+  // STEP 2 — React-selects (each one triggers a re-render)
+  await this.selectInsuranceProvider(insuranceProvider);
+  await this.selectLanguage(language);
+  await this.selectNationality(nationality);
+  await this.selectDiagnosis(diagnosis);
+  await this.selectPrimaryTeam(primaryTeam);
+  await this.selectSecondaryTeam(...secondaryTeam);
+
+  // STEP 3 — Email and phone filled LAST
+  // Re-renders from Step 2 would wipe these if filled earlier
+  await this.phoneCountrySelect.selectOption(phoneCountry);
+  await this.emailInput.click();
+  await this.emailInput.fill(email);
+  await this.phoneInput.fill(phone);
+}</code></pre>
+
+  <div class="callout success">
+    <strong>Rule to remember</strong>
+    In React forms, always fill fields that trigger re-renders (dropdowns) before fields that get wiped by those re-renders (plain text inputs like email).
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="page-break"></div>
+  <h2>4. Test File — Key Concepts</h2>
+
+  <h3>4a. Serial Mode</h3>
+
+  <pre><code>test.describe.configure({ mode: 'serial' });</code></pre>
+
+  <p>Tests inside this describe block run <strong>one after another</strong>, never in parallel. This is required because:</p>
+  <ul>
+    <li>Test 7 (happy path) <strong>creates</strong> the patient</li>
+    <li>Test 8 (verify patient) <strong>depends on</strong> that patient existing</li>
+  </ul>
+  <p>Without serial mode, Test 8 could start before Test 7 finishes — and fail because the patient doesn't exist yet.</p>
+
+  <h3>4b. Unique Test Data Per Run</h3>
+
+  <pre><code>const uid     = Date.now();                // e.g. 1750000123456  (13 digits)
+const shortId = uid.toString().slice(-6);  // e.g. "123456"        (last 6 digits)
+
+const patient = {
+  lastName: `AT${shortId}`,                // AT123456
+  email:    `at${shortId}@getnada.com`,    // at123456@getnada.com
+  mrn:      `AT${shortId}`,               // AT123456
+  phone:    '3' + Math.floor(Math.random() * 1_000_000_000)
+                      .toString().padStart(9, '0'),
+};</code></pre>
+
+  <table>
+    <tr><th>Field</th><th>Why it must be unique</th><th>Strategy used</th></tr>
+    <tr><td>Email</td><td>App rejects duplicate emails</td><td>Last 6 digits of timestamp</td></tr>
+    <tr><td>MRN</td><td>App rejects duplicate MRNs</td><td>Last 6 digits of timestamp</td></tr>
+    <tr><td>Phone</td><td>App rejects duplicate phones</td><td>Random 9-digit number starting with 3</td></tr>
+  </table>
+
+  <div class="callout">
+    <strong>Why last 6 digits, not all 13?</strong>
+    The MRN field has a character limit. Using all 13 digits of <code>Date.now()</code> would get truncated to 10 characters — and the first digits of a timestamp repeat across days, causing collisions. The last 6 digits change every millisecond and fit within the limit.
+  </div>
+
+  <h3>4c. beforeEach — Shared Setup</h3>
+
+  <pre><code>test.beforeEach(async ({ page }) => {
+  listingsPage = new PatientListingsPage(page);
+  addPage      = new AddPatientPage(page);
+  await listingsPage.goto();
+  // Wait for a table row — NOT networkidle (see section 4d)
+  await page.getByRole('row').nth(1).waitFor({ state: 'visible', timeout: 15000 });
+});</code></pre>
+
+  <p><code>beforeEach</code> runs automatically before every single test. It navigates to the patient listings and waits for the table to load.</p>
+
+  <h3>4d. Why We Never Use <code>waitForLoadState('networkidle')</code></h3>
+
+  <div class="callout">
+    <strong>This app has a live chat widget</strong> that holds a permanent open WebSocket connection. Playwright's <code>networkidle</code> waits until ALL network activity stops — but it never does. Every test that used <code>networkidle</code> would hang until the 30-second timeout expired.
+  </div>
+
+  <table>
+    <tr><th>Instead of</th><th>Use</th></tr>
+    <tr><td><code>waitForLoadState('networkidle')</code> — page load</td><td><code>waitFor({ state: 'visible' })</code> on a specific element</td></tr>
+    <tr><td><code>waitForLoadState('networkidle')</code> — after navigation</td><td><code>waitForLoadState('domcontentloaded')</code></td></tr>
+    <tr><td><code>waitForLoadState('networkidle')</code> — after search</td><td><code>waitForTimeout(800)</code> for debounced inputs</td></tr>
+  </table>
+
+  <h3>4e. The Promise.all Pattern</h3>
+
+  <p>When an action (like filling a search box) triggers an API call, you need to wait for the response. But there's a timing trap:</p>
+
+  <pre><code>// ❌ WRONG — Race condition
+// The response might arrive BEFORE the listener is registered
+await this.searchInput.fill(name);
+await this.page.waitForResponse(...);   // too late — already missed it
+
+// ✅ CORRECT — Both start at the same instant
+// Listener is registered before the browser processes the fill event
+await Promise.all([
+  this.page.waitForResponse(...),   // registers listener
+  this.searchInput.fill(name),      // triggers the action
+]);</code></pre>
+
+  <div class="callout info">
+    <strong>How Promise.all works here</strong>
+    JavaScript is single-threaded. <code>Promise.all</code> initialises both promises synchronously before either runs. So the response listener is always registered before the fill event is dispatched to the browser.
+  </div>
+
+  <h3>4f. Happy Path Assertion — Why Not <code>toHaveURL</code>?</h3>
+
+  <pre><code>// ❌ WRONG — URL was already /patient before the modal opened
+await expect(page).toHaveURL(/\/patient/);
+
+// ✅ CORRECT — Modal disappearing proves the form submitted successfully
+await expect(addPage.modal).not.toBeVisible({ timeout: 30000 });</code></pre>
+
+  <p>The page URL was <code>/patient</code> before and after adding a patient. Checking URL told us nothing. The modal only closes when the app receives a successful API response — so asserting it's gone is the real proof of success.</p>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <div class="page-break"></div>
+  <h2>5. Verify Patient — Locator Lessons</h2>
+
+  <h3>Problem 1: Wrong button found for three-dots menu</h3>
+  <p>The profile header has a three-dots action button. It uses a Bootstrap Dropdown which gives it <code>id="dropdown-basic"</code>. But the Primary Team section's avatar button ALSO uses a Bootstrap Dropdown with the same ID. After verification, both are on the page simultaneously.</p>
+
+  <pre><code>// ❌ Fails — strict mode: 2 elements found
+await page.locator('#dropdown-basic').click();
+
+// ✅ Fix — always target the first one (header action button loads first)
+await page.locator('#dropdown-basic').first().waitFor({ state: 'visible', timeout: 10000 });
+await page.locator('#dropdown-basic').first().click();</code></pre>
+
+  <h3>Problem 2: <code>getByText('Verify')</code> matching wrong elements</h3>
+
+  <pre><code>// ❌ Can match any text on the page containing "Verify"
+await page.getByText('Verify', { exact: true }).click();
+
+// ✅ Scoped to dropdown menu items specifically
+// data-rr-ui-dropdown-item is a React Bootstrap internal attribute — stable
+await page.locator('[data-rr-ui-dropdown-item]')
+          .filter({ hasText: 'Verify' })
+          .click();</code></pre>
+
+  <h3>Problem 3: Asserting VERIFIED on the wrong page</h3>
+  <p>After verifying, the test was looking for a "VERIFIED" badge on the patient profile. But that badge only exists in the listings table.</p>
+
+  <pre><code>// ❌ Wrong — profile page doesn't have a VERIFIED badge
+await expect(page.getByText('VERIFIED')).toBeVisible();
+
+// ✅ Correct — go back to listings, search, check the badge there
+await listingsPage.goto();
+await listingsPage.searchPatient(patient.lastName);
+await expect(page.getByText('VERIFIED').first()).toBeVisible({ timeout: 10000 });</code></pre>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <h2>6. All Tests at a Glance</h2>
+
+  <table>
+    <tr><th>#</th><th>Test Name</th><th>What It Checks</th></tr>
+    <tr><td>1</td><td>Open modal</td><td>Clicking "Add Patient" shows the offcanvas form</td></tr>
+    <tr><td>2</td><td>Close modal</td><td>Clicking "Cancel" hides the form</td></tr>
+    <tr><td>3</td><td>Form fields visible</td><td>All required inputs are present in the modal</td></tr>
+    <tr><td>4</td><td>Empty form validation</td><td>Form doesn't submit with no data — modal stays open</td></tr>
+    <tr><td>5</td><td>Missing First Name</td><td>Validation fires, modal stays open</td></tr>
+    <tr><td>6</td><td>Missing Last Name</td><td>Validation fires, modal stays open</td></tr>
+    <tr><td>7</td><td>Happy path — Add Patient</td><td>Full form fills and submits, patient appears in search results</td></tr>
+    <tr><td>8</td><td>Verify patient</td><td>Three-dots → Verify → Yes → VERIFIED badge visible in listings</td></tr>
+    <tr><td>9</td><td>MRN Lookup <span class="badge skip">SKIPPED</span></td><td>Details to be provided separately</td></tr>
+    <tr><td>10</td><td>Invalid MRN Error <span class="badge skip">SKIPPED</span></td><td>Details to be provided separately</td></tr>
+  </table>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <h2>7. Key Takeaways</h2>
+
+  <ol>
+    <li><strong>POM keeps tests clean</strong> — locators live in one place, tests read like plain English sentences.</li>
+    <li><strong>React re-renders wipe inputs</strong> — always fill email and phone AFTER all dropdowns.</li>
+    <li><strong><code>networkidle</code> is broken here</strong> — the live chat widget holds a permanent network connection. Use element-based waits instead.</li>
+    <li><strong><code>Promise.all</code> prevents race conditions</strong> — the response listener must be registered before the action fires.</li>
+    <li><strong><code>pressSequentially</code> for masked inputs</strong> — <code>fill()</code> doesn't work on character-by-character date fields.</li>
+    <li><strong><code>Tab</code> not <code>Escape</code></strong> — Bootstrap Offcanvas hijacks the Escape key globally and closes the modal.</li>
+    <li><strong>Unique data per run</strong> — use <code>Date.now().slice(-6)</code> for MRN/email and <code>Math.random()</code> for phone to avoid app-level uniqueness rejections.</li>
+    <li><strong>Assert what actually changes</strong> — check the modal closes (not the URL); check the VERIFIED badge in listings (not on the profile page).</li>
+  </ol>
+
+  <hr>
+  <p style="text-align:center; color:#aaa; font-size:11px; margin-top:24px;">
+    Metabolic Staff Portal — Playwright Automation &nbsp;|&nbsp; Stage 1 Complete
+  </p>
+
+</body>
+</html>
