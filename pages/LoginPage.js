@@ -21,7 +21,9 @@ class LoginPage {
   // Navigate to login page
   async goto() {
     await this.page.goto(process.env.BASE_URL);
-    // Wait for login form to render before any interaction
+    // 'load' waits for all scripts to execute so React finishes its first render
+    // before we check for the phone input — prevents detach on re-render
+    await this.page.waitForLoadState('load');
     await this.phoneInput.waitFor({ state: 'visible', timeout: 30000 });
   }
 

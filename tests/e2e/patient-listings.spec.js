@@ -96,8 +96,9 @@ test.describe('Patient Listings — @patients', () => {
   test('should show no results for non-existent patient', async ({ page }) => {
     await listingsPage.searchPatient('ZZZZNONEXISTENTPATIENT99999');
 
-    // Only the header row should remain — no data rows
-    await expect(page.getByRole('row')).toHaveCount(1, { timeout: 10000 });
+    // App removes the entire table (incl. header) when there are no results —
+    // row count goes to 0, not 1. Assert no data rows exist in tbody.
+    await expect(page.locator('table tbody tr')).toHaveCount(0, { timeout: 15000 });
   });
 
   test('should search is case-insensitive', async ({ page }) => {

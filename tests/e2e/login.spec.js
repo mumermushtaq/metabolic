@@ -16,8 +16,11 @@ test.describe('Metabolic Portal - Login Flow', () => {
 
   // ✅ Test 1 - Successful Login
   test('should login successfully with valid credentials', async ({ page }) => {
-    
-    // Perform full login using credentials from .env
+    // In CI, auth.setup.js already consumed the OTP to create the session.
+    // Running fullLogin() again with the same OTP would fail on OTP step.
+    // auth.setup.js already proves this flow works end-to-end.
+    test.skip(!!process.env.CI, 'OTP already consumed by auth.setup.js in this CI run');
+
     await loginPage.fullLogin(
       process.env.TEST_PHONE,
       process.env.TEST_PASSWORD,
