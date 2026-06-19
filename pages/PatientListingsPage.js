@@ -2,6 +2,8 @@
 // pages/PatientListingsPage.js
 // Page Object Model for the Patient Listings screen
 // URL: /patient
+// Locators verified via Playwright Codegen — single source of truth.
+// Do not merge with other versions; replace this file entirely.
 // ─────────────────────────────────────────────────────────────
 
 class PatientListingsPage {
@@ -10,79 +12,58 @@ class PatientListingsPage {
     this.page = page;
 
     // ── Page header ──────────────────────────────────────────
-    this.pageTitle        = page.getByRole('heading', { name: /patients/i });
-    this.patientCount     = page.locator('h1, h2').filter({ hasText: /patients \(\d+\)/i });
+    this.pageTitle = page.getByRole('heading', { name: 'Patients', exact: true });
 
     // ── Search ───────────────────────────────────────────────
-    this.searchInput      = page.getByRole('textbox', { name: 'Search' });
-    this.clearFilterBtn   = page.getByRole('button', { name: /clear filter/i });
+    this.searchInput    = page.getByRole('textbox', { name: 'Search' });
+    this.clearFilterBtn = page.getByRole('button', { name: 'Clear Filter' });
 
     // ── Filter ───────────────────────────────────────────────
-    this.filterBtn        = page.getByRole('button', { name: 'Filter', exact: true });
+    this.filterBtn = page.getByRole('button', { name: 'Filter', exact: true });
 
     // ── Filter Modal ─────────────────────────────────────────
-    this.filterModal          = page.getByRole('dialog');
-    this.diagnosisInput       = page.getByRole('combobox').filter({ hasText: /type at least/i });
-    this.genderDropdown       = page.locator('label').filter({ hasText: /gender/i }).locator('..').getByRole('combobox');
-    this.languageDropdown     = page.locator('label').filter({ hasText: /language/i }).locator('..').getByRole('combobox');
-    this.primaryStaffDropdown = page.locator('label').filter({ hasText: /primary staff/i }).locator('..').getByRole('combobox');
-    this.programDropdown      = page.locator('label').filter({ hasText: /program/i }).locator('..').getByRole('combobox');
-    this.ageFromInput         = page.getByPlaceholder('From');
-    this.ageToInput           = page.getByPlaceholder('To');
-    this.statusDropdown       = page.locator('label').filter({ hasText: /status/i }).locator('..').getByRole('combobox');
-    this.applyFiltersBtn      = page.getByRole('button', { name: /apply filters/i });
-    this.saveFilterSetBtn     = page.getByRole('button', { name: /save filter set/i });
-    this.cancelFilterBtn      = page.getByRole('button', { name: /cancel/i });
-    this.closeFilterBtn       = page.getByRole('button', { name: /close/i });
+    this.filterModal = page.getByRole('dialog');
+    // First select dropdown indicator in the filter modal (Gender, per Codegen flow)
+    this.genderDropdownArrow = page.locator(
+      '.col-12 > .FilterSelect_selectWrap__cY9OS > .FilterSelect_filterSelect__wYitR > .filterSelect__control > .filterSelect__indicators > .filterSelect__indicator > svg'
+    ).first();
+    this.maleOption       = page.getByRole('option', { name: 'Male', exact: true });
+    this.applyFiltersBtn  = page.getByRole('button', { name: 'Apply Filters' });
+    this.saveFilterSetBtn = page.getByRole('button', { name: 'Save Filter Set' });
+    this.cancelFilterBtn  = page.getByRole('button', { name: 'Cancel' });
+
+    // ── Save Filter Set Modal ────────────────────────────────
+    this.filterTitleInput = page.getByRole('textbox', { name: 'Filter Title' });
+    this.saveFilterBtn    = page.getByRole('button', { name: 'Save Filter', exact: true });
+    this.filterVisibilityRadio2 = page.locator('.Filter_radio__3CaS3 > div:nth-child(2) > label');
 
     // ── Saved Filters ─────────────────────────────────────────
-    this.savedFiltersRow  = page.getByText('Saved Filters:');
-    this.savedFilterChips = page.locator('button, span').filter({ hasText: /male|female|age|verified|primary/i });
-
-    // ── Table ─────────────────────────────────────────────────
-    this.tableRows        = page.locator('table tbody tr, [data-testid="patient-row"]');
-    this.patientNameCells = page.locator('td').filter({ hasText: /\w+/ }).first();
+    this.savedFiltersRow = page.getByText('Saved Filters:');
 
     // ── Add Patient buttons ───────────────────────────────────
     this.addPatientBtn    = page.getByRole('button', { name: 'Add Patient', exact: true });
-    this.addPatientMRNBtn = page.getByRole('button', { name: 'Add Patient (MRN)', exact: true });
-
-    // ── Status badges ─────────────────────────────────────────
-    this.statusVerified   = page.getByText('VERIFIED');
-    this.statusInvited    = page.getByText('INVITED');
-    this.statusPending    = page.getByText('PENDING');
-    this.statusActivated  = page.getByText('ACTIVATED');
+    this.addPatientMRNBtn = page.getByRole('button', { name: 'Add Patient (MRN)' });
   }
 
   // ── Navigation ──────────────────────────────────────────────
 
   async goto() {
     await this.page.goto(`${process.env.BASE_URL}/patient`);
-    // networkidle never fires — chat widget holds open connections
-    await this.page.getByRole('table').waitFor({ state: 'visible', timeout: 15000 });
+    await this.pageTitle.waitFor({ state: 'visible', timeout: 15000 });
   }
 
   // ── Search ──────────────────────────────────────────────────
 
   async searchPatient(name) {
+    await this.searchInput.click();
     await this.searchInput.fill(name);
-    // Wait for the table to re-render — avoids relying on a specific API URL
-    await this.page.waitForFunction(
-      () => !document.querySelector('table tbody tr.loading, [class*="loading"]'),
-      { timeout: 10000 }
-    ).catch(() => {}); // ignore if no loading indicator exists
-    await this.page.waitForTimeout(process.env.CI ? 2000 : 800); // CI needs longer for debounce + API
-  }
+await this.page.waitForTimeout(500);  }
 
   async clearSearch() {
-    await this.searchInput.clear();
-    await this.page.waitForTimeout(800);
-  }
-
-  async getPatientCount() {
-    const text = await this.patientCount.textContent();
-    const match = text.match(/\((\d+)\)/);
-    return match ? parseInt(match[1]) : 0;
+    if (await this.clearFilterBtn.isVisible()) {
+      await this.clearFilterBtn.click();
+      await this.page.waitForTimeout(500);
+    }
   }
 
   // ── Filter Modal ────────────────────────────────────────────
@@ -92,65 +73,36 @@ class PatientListingsPage {
     await this.filterModal.waitFor({ state: 'visible' });
   }
 
+  async selectGenderMale() {
+    await this.genderDropdownArrow.click();
+    await this.maleOption.click();
+  }
+
+  async applyFilters() {
+    await this.applyFiltersBtn.click();
+    await this.filterModal.waitFor({ state: 'hidden', timeout: 10000 });
+  }
+
   async closeFilterModal() {
     await this.cancelFilterBtn.click();
     await this.filterModal.waitFor({ state: 'hidden' });
   }
 
-  async applyFilter({ gender, language, status, ageFrom, ageTo } = {}) {
-    await this.openFilterModal();
-    if (gender)   await this.genderDropdown.selectOption(gender);
-    if (language) await this.languageDropdown.selectOption(language);
-    if (status)   await this.statusDropdown.selectOption(status);
-    if (ageFrom)  await this.ageFromInput.fill(String(ageFrom));
-    if (ageTo)    await this.ageToInput.fill(String(ageTo));
-    await Promise.all([
-      this.page.waitForResponse(
-        resp => resp.url().includes('/patient') && resp.status() === 200,
-        { timeout: 10000 }
-      ),
-      this.applyFiltersBtn.click(),
-    ]);
-  }
+  // ── Save Filter Set ──────────────────────────────────────────
 
-  async clearAllFilters() {
-    if (await this.clearFilterBtn.isVisible()) {
-      await Promise.all([
-        this.page.waitForResponse(
-          resp => resp.url().includes('/patient') && resp.status() === 200,
-          { timeout: 10000 }
-        ),
-        this.clearFilterBtn.click(),
-      ]);
-    }
+  async saveCurrentFilterAs(title) {
+    await this.saveFilterSetBtn.click();
+    await this.filterTitleInput.click();
+    await this.filterTitleInput.fill(title);
+    await this.filterVisibilityRadio2.click();
+    await this.saveFilterBtn.click();
   }
 
   // ── Saved Filters ────────────────────────────────────────────
 
   async clickSavedFilter(filterName) {
-    await Promise.all([
-      this.page.waitForResponse(
-        resp => resp.url().includes('/patient') && resp.status() === 200,
-        { timeout: 10000 }
-      ),
-      this.page.getByText(filterName, { exact: false }).first().click(),
-    ]);
-  }
-
-  // ── Table interactions ───────────────────────────────────────
-
-  async expandPatientRow(index = 0) {
-    const rows = this.page.locator('tr').filter({ has: this.page.locator('td') });
-    await rows.nth(index).locator('[aria-label="expand"], svg, button').first().click();
-  }
-
-  async openPatient(patientName) {
-    await this.page.getByText(patientName).first().click();
-    await this.page.waitForLoadState('domcontentloaded');
-  }
-
-  async getFirstPatientName() {
-    return this.page.locator('td').first().textContent();
+    await this.page.getByText(filterName, { exact: false }).click();
+    await this.page.waitForTimeout(500);
   }
 
   // ── Add Patient ──────────────────────────────────────────────

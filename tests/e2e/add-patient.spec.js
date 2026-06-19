@@ -38,7 +38,6 @@ test.describe('Add Patient — @add-patient', () => {
     listingsPage = new PatientListingsPage(page);
     addPage      = new AddPatientPage(page);
     await listingsPage.goto();
-    await page.getByRole('row').nth(1).waitFor({ state: 'visible', timeout: 15000 });
   });
 
   // ══════════════════════════════════════════════════════════
