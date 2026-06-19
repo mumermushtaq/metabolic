@@ -85,14 +85,17 @@ test.describe('Patient Listings — @patients', () => {
   // 4. SAVE FILTER SET
   // ══════════════════════════════════════════════════════════
 
-  test('should save a custom filter set with a title', async ({ page }) => {
-    await listingsPage.openFilterModal();
-    await listingsPage.selectGenderMale();
-    await listingsPage.saveCurrentFilterAs('Male Users Test');
+ test('should save a custom filter set with a title', async ({ page }) => {
+  await listingsPage.openFilterModal();
+  await listingsPage.selectGenderMale();
 
-    // After saving, the new filter chip should be visible
-    await expect(page.getByText('Male Users Test')).toBeVisible({ timeout: 10000 });
-  });
+  // Unique title per run avoids collisions across CI retries/old runs
+  const filterTitle = `Male Users Test ${Date.now()}`;
+  await listingsPage.saveCurrentFilterAs(filterTitle);
+
+  // After saving, the new filter chip should be visible
+  await expect(page.getByText(filterTitle)).toBeVisible({ timeout: 10000 });
+});
 
   test('should apply a saved filter chip and show Clear Filter button', async ({ page }) => {
     // Assumes 'Male Users Test' filter was created in a prior test run,
