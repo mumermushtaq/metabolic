@@ -55,3 +55,41 @@ jobs:
           name: playwright-report
           path: reports/
           retention-days: 30
+
+
+          # Generate Allure HTML report
+      - name: Generate Allure report
+        if: always()
+        run: |
+          npm install -D allure-commandline
+          npx allure generate allure-results -o allure-report --clean
+
+      # Upload Allure report as a downloadable artifact
+      - name: Upload Allure report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report/
+          retention-days: 30
+
+      # Send email with summary + link to download the report
+      - name: Send email notification
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "Metabolic Tests — ${{ job.status }} — ${{ github.ref_name }}"
+          to: umermushtaq@live.com
+          from: Metabolic CI Bot
+          body: |
+            Test run completed with status: ${{ job.status }}
+            Branch: ${{ github.ref_name }}
+            Commit: ${{ github.sha }}
+            
+            View full results: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            
+            The Allure report is attached as a downloadable artifact in the GitHub Actions run.
