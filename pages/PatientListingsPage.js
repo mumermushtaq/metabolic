@@ -54,17 +54,28 @@ class PatientListingsPage {
 
   // ── Search ──────────────────────────────────────────────────
 
-  async searchPatient(name) {
-    await this.searchInput.click();
-    await this.searchInput.fill(name);
-await this.page.waitForTimeout(500);  }
+ async searchPatient(name) {
+  const responsePromise = this.page.waitForResponse(
+    resp => resp.url().includes('/patient') && resp.status() === 200,
+    { timeout: 10000 }
+  ).catch(() => {}); // don't fail if no matching response (e.g. cached)
 
-  async clearSearch() {
-    if (await this.clearFilterBtn.isVisible()) {
-      await this.clearFilterBtn.click();
-      await this.page.waitForTimeout(500);
-    }
+  await this.searchInput.click();
+  await this.searchInput.fill(name);
+  await responsePromise;
+}
+
+async clearSearch() {
+  if (await this.clearFilterBtn.isVisible()) {
+    const responsePromise = this.page.waitForResponse(
+      resp => resp.url().includes('/patient') && resp.status() === 200,
+      { timeout: 10000 }
+    ).catch(() => {});
+
+    await this.clearFilterBtn.click();
+    await responsePromise;
   }
+}
 
   // ── Filter Modal ────────────────────────────────────────────
 
