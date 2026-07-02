@@ -2,130 +2,120 @@
   constructor(page) {
     this.page = page;
 
-    this.addCouponTab = page.getByRole('link', { name: 'Add Coupon' });
+    // Add Coupon tab (patient profile)
+    this.addCouponTab        = page.getByRole('link', { name: 'Add Coupon' });
     this.generateNewCouponBtn = page.getByRole('button', { name: 'Generate New Coupon' });
-    this.redeemCouponBtn = page.getByRole('button', { name: 'Redeem Coupon' });
+    this.redeemCouponBtn     = page.getByRole('button', { name: 'Redeem Coupon' });
     this.enterCouponCodeInput = page.getByRole('textbox', { name: 'Enter coupon code' });
-    this.pinInput = page.getByRole('textbox', { name: 'PIN' });
-    this.redeemCodeBtn = page.getByRole('button', { name: 'Redeem Code' });
+    this.pinInput            = page.getByRole('textbox', { name: 'PIN' });
+    this.redeemCodeBtn       = page.getByRole('button', { name: 'Redeem Code' });
 
-    this.couponsSideNavLink = page.getByRole('link', { name: 'Coupons' });
-    this.patientsSideNavLink = page.getByRole('link', { name: 'sidebarIcon2 Patients' });
-    this.couponSearchInput = page.getByRole('textbox', { name: 'Search with Patient Name or' });
-    this.statusFilterBtn = page.getByRole('button', { name: /^(All|OPEN|REDEEMED|ACTIVE)$/ });
-    this.openDatePickerBtn = page.getByRole('button', { name: 'Open date picker' });
-    this.firstDateInput = page.locator('input[type="date"]').first();
+    // Sidebar nav
+    this.couponsSideNavLink   = page.getByRole('link', { name: 'Coupons' });
+    this.patientsSideNavLink  = page.getByRole('link', { name: 'sidebarIcon2 Patients' });
 
-    this.patientSearchInput = page.getByRole('textbox', { name: 'Search' });
+    // Patient search (patients list page)
+    this.patientSearchInput  = page.getByRole('textbox', { name: 'Search' });
   }
 
+  // ── Navigate directly to a patient's Add Coupon tab ───────────
   async openPatientAddCouponTab(patientId) {
     await this.page.goto(`${process.env.BASE_URL}/patient/profile/add-coupon/${patientId}`);
-    await this.generateNewCouponBtn.or(this.redeemCouponBtn).first().waitFor({ state: 'visible', timeout: 15000 });
+    await this.page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
+    await this.generateNewCouponBtn.or(this.redeemCouponBtn).first()
+      .waitFor({ state: 'visible', timeout: 15000 });
   }
 
+  // ── Generate a new coupon and return the active coupon code ───
+  // Codegen: click Generate New Coupon, then read the "Active Coupon" text above.
+  // The code appears as a paragraph (e.g. "MH-YC9WK6") after generation.
   async generateNewCoupon() {
     await this.generateNewCouponBtn.waitFor({ state: 'visible', timeout: 10000 });
+
+    // Read the current active coupon code BEFORE clicking generate
+    // so we can detect when it changes to a new one
+    const codeEl = this.page.getByText(/^MH-[A-Z0-9]{6,7}$/).first();
+    const previousCode = await codeEl.textContent({ timeout: 2000 }).catch(() => null);
+
     await this.generateNewCouponBtn.click();
-    await this.page.getByText(/Active Coupon|MH-/i).first().waitFor({ state: 'visible', timeout: 15000 });
-  }
 
-  async openCouponsList() {
-    await this.couponsSideNavLink.click();
-    await this.couponSearchInput.waitFor({ state: 'visible', timeout: 15000 });
-  }
+    // Poll until the active coupon code changes to a NEW code
+    let code = null;
+    for (let attempt = 0; attempt < 30; attempt++) {
+      const text = await codeEl.textContent({ timeout: 2000 }).catch(() => null);
+      const trimmed = text?.trim();
+      if (trimmed && !trimmed.includes('X') && trimmed !== previousCode) {
+        code = trimmed;
+        break;
+      }
+      await this.page.waitForTimeout(1000);
+    }
 
-  async searchCouponsByPatient(patientName) {
-    const responsePromise = this.page.waitForResponse(
-      resp => resp.url().includes('/coupon') && resp.status() === 200,
-      { timeout: 10000 }
-    ).catch(() => {});
-
-    await this.couponSearchInput.click();
-    await this.couponSearchInput.fill(patientName);
-    await this.couponSearchInput.press('Enter');
-    await responsePromise;
-  }
-
-  async filterByStatus(statusName) {
-    await this.statusFilterBtn.click();
-    await this.page.getByRole('option', { name: statusName, exact: true }).click();
-    await this.couponSearchInput.waitFor({ state: 'visible', timeout: 10000 });
-  }
-
-  async setDateFilter(dateString) {
-    await this.openDatePickerBtn.click();
-    await this.firstDateInput.fill(dateString);
-    await this.couponSearchInput.waitFor({ state: 'visible', timeout: 10000 });
-  }
-
-  async getFirstCouponCodeFromList() {
-    const rows = this.page.getByRole('row').filter({ hasText: /MH-[A-Z0-9]+/ });
-    await rows.first().waitFor({ state: 'visible', timeout: 15000 });
-    const text = await rows.first().textContent();
-    const code = text?.match(/MH-[A-Z0-9]+/)?.[0];
-    if (!code) throw new Error('No coupon code found in the coupon list');
+    if (!code) throw new Error('Coupon code did not change after 30s — generation may have failed');
     return code;
   }
 
-  async getCouponStatus(couponCode) {
-    const row = this.page.getByRole('row').filter({ hasText: couponCode }).first();
-    await row.waitFor({ state: 'visible', timeout: 15000 });
-    const text = await row.textContent();
-
-    if (/REDEEMED/i.test(text)) return 'REDEEMED';
-    if (/OPEN/i.test(text)) return 'OPEN';
-    if (/ACTIVE/i.test(text)) return 'ACTIVE';
-    return null;
+  // ── Navigate to Coupon List ───────────────────────────────────
+  // Use goto instead of clicking the sidebar link — clicking the Coupons nav
+  // while on a patient profile triggers an "Invalid patient id" error toast.
+  async openCouponsList() {
+    await this.page.goto(`${process.env.BASE_URL}/coupon`);
+    await this.page.waitForURL('**/coupon', { timeout: 15000 });
+    // Wait for at least one coupon row to appear
+    await this.page.getByRole('cell', { name: /MH-[A-Z0-9]{6}/ }).first()
+      .waitFor({ state: 'visible', timeout: 15000 }).catch(() => {});
   }
 
-  async openPatientFromList(patientName) {
-    await this.patientsSideNavLink.click();
-    await this.patientSearchInput.waitFor({ state: 'visible', timeout: 15000 });
-
-    const responsePromise = this.page.waitForResponse(
-      resp => resp.url().includes('/patient') && resp.status() === 200,
-      { timeout: 10000 }
-    ).catch(() => {});
-
-    await this.patientSearchInput.click();
-    await this.patientSearchInput.fill(patientName);
-    await this.patientSearchInput.press('Enter');
-    await responsePromise;
-
-    const patientLink = this.page.getByRole('link', { name: new RegExp(`^${patientName}`, 'i') }).first();
-    await patientLink.waitFor({ state: 'visible', timeout: 15000 });
-    await patientLink.click();
+  // ── Navigate back to patient's Add Coupon tab directly by ID ──
+  // Using goto is simpler and more reliable than searching through the patient list
+  async goToPatientAddCoupon(patientId) {
+    await this.openPatientAddCouponTab(patientId);
   }
 
-  async clickAddCouponTab() {
-    await this.addCouponTab.waitFor({ state: 'visible', timeout: 15000 });
-    await this.addCouponTab.click();
-    await this.generateNewCouponBtn.or(this.redeemCouponBtn).first().waitFor({ state: 'visible', timeout: 15000 });
-  }
-
+  // ── Redeem a coupon ───────────────────────────────────────────
   async redeemCoupon(couponCode, pin = '1234') {
     await this.redeemCouponBtn.click();
     await this.enterCouponCodeInput.waitFor({ state: 'visible', timeout: 10000 });
     await this.enterCouponCodeInput.click();
     await this.enterCouponCodeInput.fill(couponCode);
+    // Wait for dialog to stabilize after code entry — Redeem Code button detaches briefly
+    await this.pinInput.waitFor({ state: 'visible', timeout: 10000 });
     await this.pinInput.click();
     await this.pinInput.fill(pin);
+    await this.redeemCodeBtn.waitFor({ state: 'visible', timeout: 10000 });
     await this.redeemCodeBtn.click();
+    // Wait for success toast
+    await this.page.getByText('Coupon redeemed successfully')
+      .waitFor({ state: 'visible', timeout: 15000 });
   }
 
-  async waitForRedeemResult() {
-    await Promise.race([
-      this.page.getByText(/redeemed/i).first().waitFor({ state: 'visible', timeout: 15000 }),
-      this.page.getByText(/already redeemed|invalid|not valid|does not belong|different patient|error/i).first().waitFor({ state: 'visible', timeout: 15000 }),
-      this.generateNewCouponBtn.waitFor({ state: 'visible', timeout: 15000 }),
-    ]);
+  // ── Get a coupon row from the list by coupon code ─────────────
+  async getCouponRow(couponCode) {
+    const row = this.page.getByRole('cell', { name: couponCode }).locator('..');
+    await row.waitFor({ state: 'visible', timeout: 15000 });
+    return row;
   }
 
-  async expectRedeemError() {
-    const error = this.page.getByText(/already redeemed|invalid|not valid|does not belong|different patient|error/i).first();
-    await error.waitFor({ state: 'visible', timeout: 15000 });
-    return error;
+  // ── Get status of a coupon from the list ─────────────────────
+  // Codegen: status is in #cell-7-{rowId} — we find it via the coupon code cell
+  async getCouponStatus(couponCode) {
+    const codeCell = this.page.getByRole('cell', { name: couponCode });
+    await codeCell.waitFor({ state: 'visible', timeout: 15000 });
+    const row = this.page.getByRole('row').filter({ has: codeCell });
+    const text = await row.textContent();
+    if (/REDEEMED/i.test(text)) return 'REDEEMED';
+    if (/OPEN/i.test(text)) return 'OPEN';
+    return null;
+  }
+
+  // ── Get redeemed-by name from the coupon row ──────────────────
+  async getCouponRedeemedBy(couponCode) {
+    const codeCell = this.page.getByRole('cell', { name: couponCode });
+    const row = this.page.getByRole('row').filter({ has: codeCell });
+    const text = await row.textContent();
+    // Redeemed by is a name — extract non-code, non-status, non-date text
+    const match = text?.match(/[A-Z][a-z]+ [A-Z][a-z]+/);
+    return match?.[0] ?? null;
   }
 }
 

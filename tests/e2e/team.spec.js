@@ -20,7 +20,7 @@ test.describe('Team', () => {
       firstName: 'Test',
       lastName: uniqueLastName,
       gender: 'Male',
-      phone: '(555) 123-4567', // valid 10-digit US format
+     // phone: '(555) 123-4567', // valid 10-digit US format
       jobCategory: 'Physician',
       jobTitle: 'Diabetologist',
     });

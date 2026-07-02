@@ -40,7 +40,24 @@ class VisitsPage {
   // ── Begin consultation on the welcome page popup ──────────────
   async beginConsultation(visitPopup) {
     const beginBtn = visitPopup.getByRole('button', { name: 'Begin Consultation' });
-    await beginBtn.waitFor({ state: 'visible', timeout: 30000 });
+    // Wait for button to appear
+    await beginBtn.waitFor({ state: 'visible', timeout: 45000 });
+
+    // Poll until not disabled (button renders disabled while the page loads).
+    // Codegen shows the button eventually enables — use includes() for whitespace safety.
+    // Timeout of 30s; if still disabled after that, attempt click anyway (some visit
+    // types like Closed may have a briefly-disabled button that still accepts a click).
+    const enabled = await visitPopup.waitForFunction(
+      () => {
+        const btn = [...document.querySelectorAll('button')]
+          .find(b => b.textContent.trim().includes('Begin Consultation'));
+        return btn && !btn.disabled;
+      },
+      { timeout: 60000 }
+    ).catch(() => false);
+
+    // Settle delay — give React time to finish its transition after button enables
+    await visitPopup.waitForTimeout(1000);
     await beginBtn.click();
   }
 

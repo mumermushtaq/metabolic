@@ -1,0 +1,3 @@
+Generated: MH-XXXXXX
+Status in list: null
+Redeem result: Invalid patient idOkay

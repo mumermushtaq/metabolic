@@ -30,9 +30,18 @@ class ChatPage {
   // conversation is on top, which is sufficient for exercising the chat flow.
   async openFirstConversation() {
     await this.channelList.waitFor({ state: 'visible', timeout: 15000 });
-    const firstRow = this.channelList.locator('> *').first().locator('> *').first();
-    await firstRow.waitFor({ state: 'visible', timeout: 15000 });
-    await firstRow.click();
+
+    // Guard: channel list may be empty ("You have no channels currently")
+    const isEmpty = await this.channelList.getByText(/no channels/i).isVisible({ timeout: 3000 }).catch(() => false);
+    if (isEmpty) return false;
+
+    // Codegen confirmed: click the preview text of the first conversation directly
+    const firstConvo = this.channelList.locator('> div').first();
+    const hasConvo = await firstConvo.isVisible({ timeout: 5000 }).catch(() => false);
+    if (!hasConvo) return false;
+
+    await firstConvo.click();
+    return true;
   }
 
   // ── Open a conversation by partial preview text (e.g. patient name) ──
@@ -58,11 +67,9 @@ class ChatPage {
     await this.messageInput.click();
     await this.messageInput.fill(text);
 
-    // Send button is the last empty-text button in the message bar —
-    // index varies depending on which icons (attachment, emoji, etc.) are rendered,
-    // so we click the last one to reliably hit Send
-    const count = await this.sendBtn.count();
-    await this.sendBtn.nth(count - 1).click();
+    // Codegen confirmed: send button is .nth(3) among empty-text buttons.
+    // nth(2) resolves to the hidden file input — nth(3) is the actual send button.
+    await this.sendBtn.nth(3).click();
   }
 
   // ── Open a conversation and send a message in one step ───────────

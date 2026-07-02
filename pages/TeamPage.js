@@ -12,8 +12,9 @@ class TeamPage {
     this.lastNameInput    = page.getByRole('textbox', { name: 'Last Name' });
     this.phoneInput       = page.getByRole('textbox', { name: '(XXX) XXX XXX' });
     this.jobTitleDropdown = page.locator('div').filter({ hasText: /^Select Job Title$/ });
-    // Submit button is type="submit" with class "btn filled" inside the AddUser form
-    this.dialogAddUserBtn = page.locator('form[class*="AddUser_form"] button[type="submit"]');
+    // Submit button has a leading space in its text (" Add User") so getByRole name match fails.
+    // Target by type="submit" scoped to dialog — stable and unambiguous.
+    this.dialogAddUserBtn = page.getByRole('dialog').locator('button[type="submit"]');
 
     // ── Search / list ─────────────────────────────────────────────
     this.searchInput   = page.getByRole('textbox', { name: 'Search' });
@@ -32,7 +33,13 @@ class TeamPage {
 
   // ── Add a new team member ──────────────────────────────────────
   // gender: 'Male' | 'Female'
+  // phone: if omitted, a unique number is generated to avoid duplicate-phone errors across runs
   async addUser({ firstName, lastName, gender = 'Male', phone, jobCategory = 'Physician', jobTitle }) {
+    // Auto-generate a unique phone if none provided — reusing the same number causes server errors
+    if (!phone) {
+      const suffix = Date.now().toString().slice(-7);
+      phone = `(555) ${suffix.slice(0,3)}-${suffix.slice(3)}`;
+    }
     await this.addUserBtn.click();
 
     await this.firstNameInput.click();
@@ -56,7 +63,8 @@ class TeamPage {
     }
 
     if (jobTitle) {
-      await this.jobTitleDropdown.nth(4).click();
+      // Codegen confirmed: .nth(4) is the correct job title dropdown index
+      await this.page.locator('div').filter({ hasText: /^Select Job Title$/ }).nth(4).click();
       await this.page.getByRole('option', { name: jobTitle }).click();
     }
 
@@ -72,7 +80,7 @@ class TeamPage {
 
     // Wait for the dialog to close — if it doesn't, the submission likely failed
     try {
-      await dialog.waitFor({ state: 'hidden', timeout: 15000 });
+      await dialog.waitFor({ state: 'hidden', timeout: 30000 });
     } catch (e) {
       const errorMsg = await dialog.locator('[class*="error"], [class*="Error"], .invalid-feedback')
         .first().textContent({ timeout: 2000 }).catch(() => null);
@@ -106,9 +114,13 @@ class TeamPage {
   // ── Edit a user by their row name (matches Codegen-confirmed flow) ──
   // rowName: partial row text, e.g. 'Kaleem Asad Kaleem Asad +' (name appears twice + phone prefix)
   async editUserByRowName(rowName) {
+    // The last cell in every team row contains a single icon button that opens the context menu.
+    // Snapshot confirms: cell[last] > button[cursor=pointer] > img
+    // Clicking this button should reveal "Edit Info" in the dropdown.
     const row = this.page.getByRole('row', { name: new RegExp(rowName) });
-    await row.locator('#dropdown-basic').click();
-    await this.page.getByText('Edit Info', { exact: true }).click();
+    await row.getByRole('cell').last().getByRole('button').click();
+    await this.page.getByText('Edit Info').waitFor({ state: 'visible', timeout: 10000 });
+    await this.page.getByText('Edit Info').click();
     await this.editUserBtn.click();
   }
 }

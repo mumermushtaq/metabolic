@@ -1,0 +1,129 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: e2e\visits.spec.js >> Visits >> opens a visit popup and clicks Begin Consultation
+- Location: tests\e2e\visits.spec.js:26:3
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: getByRole('button', { name: 'Start Review' })
+Expected: visible
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" with timeout 5000ms
+  - waiting for getByRole('button', { name: 'Start Review' })
+
+```
+
+```yaml
+- dialog "Welcome to your consultation, Ihsan.":
+  - paragraph: 20:10
+  - paragraph: FRIDAY 26 JUNE 2026
+  - img "Metabolic"
+  - text: METABOLIC BASELINE PROTOCOL- 40 TO 50 Apr 2027 METABOLIC BASELINE PROTOCOL- 40 TO 50 Apr 2027 CARDIOLOGY ASSESSMENT Apr 2027 CARDIOLOGY ASSESSMENT Apr 2027 CARDIOLOGY ASSESSMENT May 2027
+  - heading "Welcome to your consultation, Ihsan." [level=1]
+  - paragraph: Dr. Abdulrahman AlQaderi
+  - button [disabled]
+- alert
+```
+
+# Test source
+
+```ts
+  1  | const { test, expect } = require('@playwright/test');
+  2  | const { VisitsPage } = require('../../pages/VisitsPage');
+  3  | 
+  4  | const PATIENT_ID      = '1402';
+  5  | const ACTIVE_VISIT_ID = '371050';
+  6  | const PAST_VISIT_ID   = '282539';
+  7  | 
+  8  | test.describe('Visits', () => {
+  9  | 
+  10 |   test('navigates to Visits tab', async ({ page }) => {
+  11 |     const visitsPage = new VisitsPage(page);
+  12 |     await visitsPage.openVisitsTab(PATIENT_ID);
+  13 |     await expect(visitsPage.visitsTab).toBeVisible();
+  14 |   });
+  15 | 
+  16 |   test('visits tab shows visit cards and Start Consultation links', async ({ page }) => {
+  17 |     const visitsPage = new VisitsPage(page);
+  18 |     await visitsPage.openVisitsTab(PATIENT_ID);
+  19 | 
+  20 |     const links = page.getByRole('link', { name: 'Start Consultation' });
+  21 |     const count = await links.count();
+  22 |     console.log('Start Consultation links:', count);
+  23 |     expect(count).toBeGreaterThan(0);
+  24 |   });
+  25 | 
+  26 |   test('opens a visit popup and clicks Begin Consultation', async ({ page }) => {
+  27 |     const visitsPage = new VisitsPage(page);
+  28 |     await visitsPage.openVisitsTab(PATIENT_ID);
+  29 | 
+  30 |     const visitPopup = await visitsPage.openVisitByIndex(0);
+  31 |     await visitsPage.beginConsultation(visitPopup);
+  32 | 
+  33 |     const startBtn = visitPopup.getByRole('button', { name: 'Start Review' });
+> 34 |     await expect(startBtn).toBeVisible();
+     |                            ^ Error: expect(locator).toBeVisible() failed
+  35 | 
+  36 |     await visitPopup.close();
+  37 |   });
+  38 | 
+  39 |   test('opens consultation, starts review and navigates through steps', async ({ page }) => {
+  40 |     const visitsPage = new VisitsPage(page);
+  41 |     await visitsPage.openVisitsTab(PATIENT_ID);
+  42 | 
+  43 |     const visitPopup = await visitsPage.openVisitByIndex(0);
+  44 |     await visitsPage.beginConsultation(visitPopup);
+  45 |     await visitsPage.startReview(visitPopup);
+  46 | 
+  47 |     const steps = await visitsPage.clickNextUntilEnd(visitPopup);
+  48 |     console.log('Steps completed:', steps);
+  49 |     expect(steps).toBeGreaterThan(0);
+  50 | 
+  51 |     await visitPopup.close();
+  52 |   });
+  53 | 
+  54 |   test('opens a specific active visit directly by URL', async ({ page }) => {
+  55 |     const visitsPage = new VisitsPage(page);
+  56 |     await visitsPage.openVisitsTab(PATIENT_ID);
+  57 | 
+  58 |     // Open any popup first, then navigate directly to the known visit
+  59 |     const visitPopup = await visitsPage.openVisitByIndex(0);
+  60 |     await visitsPage.openVisitDirect(visitPopup, PATIENT_ID, ACTIVE_VISIT_ID);
+  61 |     await visitsPage.beginConsultation(visitPopup);
+  62 | 
+  63 |     const startBtn = visitPopup.getByRole('button', { name: 'Start Review' });
+  64 |     await expect(startBtn).toBeVisible();
+  65 | 
+  66 |     await visitPopup.close();
+  67 |   });
+  68 | 
+  69 |   test('opens a past visit directly by URL', async ({ page }) => {
+  70 |     const visitsPage = new VisitsPage(page);
+  71 |     await visitsPage.openVisitsTab(PATIENT_ID);
+  72 | 
+  73 |     const visitPopup = await visitsPage.openVisitByIndex(0);
+  74 |     await visitsPage.openVisitDirect(visitPopup, PATIENT_ID, PAST_VISIT_ID);
+  75 |     await visitsPage.beginConsultation(visitPopup);
+  76 |     await visitsPage.startReview(visitPopup);
+  77 | 
+  78 |     const steps = await visitsPage.clickNextUntilEnd(visitPopup);
+  79 |     console.log('Past visit steps:', steps);
+  80 |     expect(steps).toBeGreaterThan(0);
+  81 | 
+  82 |     await visitPopup.close();
+  83 |   });
+  84 | 
+  85 | });
+```

@@ -1,0 +1,3208 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: e2e\visits.spec.js >> Visits >> opens consultation, starts review and navigates through steps
+- Location: tests\e2e\visits.spec.js:39:3
+
+# Error details
+
+```
+ReferenceError: expect is not defined
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - img "sidebarLogoImg" [ref=e7]
+        - generic:
+          - img "sidebarLogoTxt"
+      - generic [ref=e8]:
+        - link "sidebarIcon2 Patients" [ref=e10] [cursor=pointer]:
+          - /url: /patient
+          - generic [ref=e11]:
+            - img "sidebarIcon2" [ref=e12]
+            - generic: Patients
+        - link "sidebarIcon3 Chat" [ref=e14] [cursor=pointer]:
+          - /url: /chat
+          - generic [ref=e15]:
+            - img "sidebarIcon3" [ref=e16]
+            - generic: Chat
+        - link "sidebarIcon4 Team" [ref=e18] [cursor=pointer]:
+          - /url: /team
+          - generic [ref=e19]:
+            - img "sidebarIcon4" [ref=e20]
+            - generic: Team
+        - link "Survey" [ref=e22] [cursor=pointer]:
+          - /url: /survey#templates
+          - generic [ref=e23]:
+            - img [ref=e24]
+            - generic: Survey
+        - link "Tasks" [ref=e27] [cursor=pointer]:
+          - /url: /tasks
+          - generic [ref=e28]:
+            - img [ref=e29]
+            - generic: Tasks
+        - link "Coupons" [ref=e32] [cursor=pointer]:
+          - /url: /coupon
+          - generic [ref=e33]:
+            - img [ref=e34]
+            - generic: Coupons
+    - generic [ref=e39]:
+      - generic [ref=e41]:
+        - link "Patients" [ref=e42] [cursor=pointer]:
+          - /url: /patient
+          - heading "Patients" [level=3] [ref=e43]
+        - generic [ref=e44]:
+          - img [ref=e45]
+          - text: Pradeep Test - Dev
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - button "notification" [ref=e50] [cursor=pointer]:
+            - img "notification" [ref=e51]
+          - generic: "0"
+        - generic [ref=e52]:
+          - img [ref=e54]
+          - generic [ref=e59] [cursor=pointer]:
+            - heading "Umer Mushtaq" [level=6] [ref=e60]
+            - generic [ref=e61]: Admin • Diabetologist
+    - generic [ref=e62]:
+      - list [ref=e65]:
+        - link "Patient Info" [ref=e66] [cursor=pointer]:
+          - /url: /patient/profile/1402
+          - listitem [ref=e67]: Patient Info
+        - link "Visits" [ref=e68] [cursor=pointer]:
+          - /url: /patient/profile/visits/1402
+          - listitem [ref=e69]: Visits
+        - link "Consent & Intake" [ref=e70] [cursor=pointer]:
+          - /url: /patient/profile/consent-intake/1402
+          - listitem [ref=e71]: Consent & Intake
+        - link "Health Info" [ref=e72] [cursor=pointer]:
+          - /url: /patient/profile/health-info/1402
+          - listitem [ref=e73]: Health Info
+        - link "Documents" [ref=e74] [cursor=pointer]:
+          - /url: /patient/profile/medical-reports/1402
+          - listitem [ref=e75]: Documents
+        - link "BCA Scans" [ref=e76] [cursor=pointer]:
+          - /url: /patient/profile/bca-scans/1402
+          - listitem [ref=e77]: BCA Scans
+        - link "Glucose Analysis" [ref=e78] [cursor=pointer]:
+          - /url: /patient/profile/glucose-analysis/1402
+          - listitem [ref=e79]: Glucose Analysis
+        - link "Add Coupon" [ref=e80] [cursor=pointer]:
+          - /url: /patient/profile/add-coupon/1402
+          - listitem [ref=e81]: Add Coupon
+        - link "GLP-1 Protocol" [ref=e82] [cursor=pointer]:
+          - /url: /patient/profile/glp-protocol/1402
+          - listitem [ref=e83]: GLP-1 Protocol
+      - generic [ref=e85]:
+        - complementary "Visit statistics" [ref=e86]:
+          - heading "Visit Stats" [level=2] [ref=e87]
+          - generic [ref=e88]:
+            - generic [ref=e89]:
+              - generic [ref=e91]: First Visit
+              - generic [ref=e92]: 13 Aug 2020
+            - generic [ref=e93]:
+              - generic [ref=e95]: Last Visit
+              - generic [ref=e96]: 5 days ago
+            - generic [ref=e97]:
+              - generic [ref=e99]: Total Visits
+              - generic [ref=e100]: 126 visits
+            - generic [ref=e101]:
+              - generic [ref=e103]: Average Frequency
+              - generic [ref=e104]: 2 weeks, 3 days
+            - generic [ref=e105]:
+              - generic [ref=e107]: Time since last visit risk
+              - generic [ref=e108]: "5"
+            - generic [ref=e109]:
+              - generic [ref=e111]: Visit frequency decay risk
+              - generic [ref=e112]: "-"
+        - generic [ref=e113]:
+          - region "Current Visits (40)" [ref=e114]:
+            - heading "Current Visits (40)" [level=2] [ref=e115]
+            - generic [ref=e116]:
+              - button "Metabolic Baseline Protocol- 40 to 50 371050 Jumeirah First Active June 26, 2026 4:07 PM 5 days ago Start Consultation" [ref=e117] [cursor=pointer]:
+                - generic [ref=e118]:
+                  - generic [ref=e119]:
+                    - generic [ref=e120]:
+                      - generic [ref=e121]:
+                        - heading "Metabolic Baseline Protocol- 40 to 50" [level=3] [ref=e122]
+                        - generic [ref=e123]: "371050"
+                      - generic [ref=e124]:
+                        - generic [ref=e125]: Jumeirah
+                        - generic [ref=e126]: First
+                    - generic [ref=e127]: Active
+                  - generic [ref=e128]:
+                    - generic [ref=e129]:
+                      - generic [ref=e130]:
+                        - img [ref=e131]
+                        - generic [ref=e133]: June 26, 2026
+                      - generic [ref=e134]:
+                        - img [ref=e135]
+                        - generic [ref=e138]: 4:07 PM
+                    - generic [ref=e139]: 5 days ago
+                  - link "Start Consultation" [active] [ref=e140]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=371050
+                    - img [ref=e142]
+                    - text: Start Consultation
+              - button "Cardiology Assessment 373769 Jumeirah Active May 6, 2026 4:00 PM 1 month ago Start Consultation" [ref=e144] [cursor=pointer]:
+                - generic [ref=e145]:
+                  - generic [ref=e146]:
+                    - generic [ref=e147]:
+                      - generic [ref=e148]:
+                        - heading "Cardiology Assessment" [level=3] [ref=e149]
+                        - generic [ref=e150]: "373769"
+                      - generic [ref=e152]: Jumeirah
+                    - generic [ref=e153]: Active
+                  - generic [ref=e154]:
+                    - generic [ref=e155]:
+                      - generic [ref=e156]:
+                        - img [ref=e157]
+                        - generic [ref=e159]: May 6, 2026
+                      - generic [ref=e160]:
+                        - img [ref=e161]
+                        - generic [ref=e164]: 4:00 PM
+                    - generic [ref=e165]: 1 month ago
+                  - link "Start Consultation" [ref=e166]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=373769
+                    - img [ref=e168]
+                    - text: Start Consultation
+              - button "Cardiology Assessment 370027 Jumeirah F/up w cons. Active May 6, 2026 3:00 PM 1 month ago Start Consultation" [ref=e170] [cursor=pointer]:
+                - generic [ref=e171]:
+                  - generic [ref=e172]:
+                    - generic [ref=e173]:
+                      - generic [ref=e174]:
+                        - heading "Cardiology Assessment" [level=3] [ref=e175]
+                        - generic [ref=e176]: "370027"
+                      - generic [ref=e177]:
+                        - generic [ref=e178]: Jumeirah
+                        - generic [ref=e179]: F/up w cons.
+                    - generic [ref=e180]: Active
+                  - generic [ref=e181]:
+                    - generic [ref=e182]:
+                      - generic [ref=e183]:
+                        - img [ref=e184]
+                        - generic [ref=e186]: May 6, 2026
+                      - generic [ref=e187]:
+                        - img [ref=e188]
+                        - generic [ref=e191]: 3:00 PM
+                    - generic [ref=e192]: 1 month ago
+                  - link "Start Consultation" [ref=e193]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=370027
+                    - img [ref=e195]
+                    - text: Start Consultation
+              - button "Medication Refill 373154 Jumeirah Active April 28, 2026 7:02 PM 2 months ago Start Consultation" [ref=e197] [cursor=pointer]:
+                - generic [ref=e198]:
+                  - generic [ref=e199]:
+                    - generic [ref=e200]:
+                      - generic [ref=e201]:
+                        - heading "Medication Refill" [level=3] [ref=e202]
+                        - generic [ref=e203]: "373154"
+                      - generic [ref=e205]: Jumeirah
+                    - generic [ref=e206]: Active
+                  - generic [ref=e207]:
+                    - generic [ref=e208]:
+                      - generic [ref=e209]:
+                        - img [ref=e210]
+                        - generic [ref=e212]: April 28, 2026
+                      - generic [ref=e213]:
+                        - img [ref=e214]
+                        - generic [ref=e217]: 7:02 PM
+                    - generic [ref=e218]: 2 months ago
+                  - link "Start Consultation" [ref=e219]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=373154
+                    - img [ref=e221]
+                    - text: Start Consultation
+              - button "Medication Refill 372319 Al Barsha Active April 27, 2026 4:06 PM 2 months ago Start Consultation" [ref=e223] [cursor=pointer]:
+                - generic [ref=e224]:
+                  - generic [ref=e225]:
+                    - generic [ref=e226]:
+                      - generic [ref=e227]:
+                        - heading "Medication Refill" [level=3] [ref=e228]
+                        - generic [ref=e229]: "372319"
+                      - generic [ref=e231]: Al Barsha
+                    - generic [ref=e232]: Active
+                  - generic [ref=e233]:
+                    - generic [ref=e234]:
+                      - generic [ref=e235]:
+                        - img [ref=e236]
+                        - generic [ref=e238]: April 27, 2026
+                      - generic [ref=e239]:
+                        - img [ref=e240]
+                        - generic [ref=e243]: 4:06 PM
+                    - generic [ref=e244]: 2 months ago
+                  - link "Start Consultation" [ref=e245]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=372319
+                    - img [ref=e247]
+                    - text: Start Consultation
+              - button "Medication Refill 370307 Jumeirah Active April 24, 2026 1:01 PM 2 months ago Start Consultation" [ref=e249] [cursor=pointer]:
+                - generic [ref=e250]:
+                  - generic [ref=e251]:
+                    - generic [ref=e252]:
+                      - generic [ref=e253]:
+                        - heading "Medication Refill" [level=3] [ref=e254]
+                        - generic [ref=e255]: "370307"
+                      - generic [ref=e257]: Jumeirah
+                    - generic [ref=e258]: Active
+                  - generic [ref=e259]:
+                    - generic [ref=e260]:
+                      - generic [ref=e261]:
+                        - img [ref=e262]
+                        - generic [ref=e264]: April 24, 2026
+                      - generic [ref=e265]:
+                        - img [ref=e266]
+                        - generic [ref=e269]: 1:01 PM
+                    - generic [ref=e270]: 2 months ago
+                  - link "Start Consultation" [ref=e271]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=370307
+                    - img [ref=e273]
+                    - text: Start Consultation
+              - button "Metabolic Baseline Protocol- 40 to 50 282533 Jumeirah Active October 23, 2025 8:10 AM 8 months ago Start Consultation" [ref=e275] [cursor=pointer]:
+                - generic [ref=e276]:
+                  - generic [ref=e277]:
+                    - generic [ref=e278]:
+                      - generic [ref=e279]:
+                        - heading "Metabolic Baseline Protocol- 40 to 50" [level=3] [ref=e280]
+                        - generic [ref=e281]: "282533"
+                      - generic [ref=e283]: Jumeirah
+                    - generic [ref=e284]: Active
+                  - generic [ref=e285]:
+                    - generic [ref=e286]:
+                      - generic [ref=e287]:
+                        - img [ref=e288]
+                        - generic [ref=e290]: October 23, 2025
+                      - generic [ref=e291]:
+                        - img [ref=e292]
+                        - generic [ref=e295]: 8:10 AM
+                    - generic [ref=e296]: 8 months ago
+                  - link "Start Consultation" [ref=e297]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=282533
+                    - img [ref=e299]
+                    - text: Start Consultation
+              - button "Diabetologist New Consultation 244875 Jumeirah Active October 16, 2025 7:50 AM 8 months ago Start Consultation" [ref=e301] [cursor=pointer]:
+                - generic [ref=e302]:
+                  - generic [ref=e303]:
+                    - generic [ref=e304]:
+                      - generic [ref=e305]:
+                        - heading "Diabetologist New Consultation" [level=3] [ref=e306]
+                        - generic [ref=e307]: "244875"
+                      - generic [ref=e309]: Jumeirah
+                    - generic [ref=e310]: Active
+                  - generic [ref=e311]:
+                    - generic [ref=e312]:
+                      - generic [ref=e313]:
+                        - img [ref=e314]
+                        - generic [ref=e316]: October 16, 2025
+                      - generic [ref=e317]:
+                        - img [ref=e318]
+                        - generic [ref=e321]: 7:50 AM
+                    - generic [ref=e322]: 8 months ago
+                  - link "Start Consultation" [ref=e323]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=244875
+                    - img [ref=e325]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270497 Jumeirah Follow-up Active May 13, 2025 7:10 AM 1 year ago Start Consultation" [ref=e327] [cursor=pointer]:
+                - generic [ref=e328]:
+                  - generic [ref=e329]:
+                    - generic [ref=e330]:
+                      - generic [ref=e331]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e332]
+                        - generic [ref=e333]: "270497"
+                      - generic [ref=e334]:
+                        - generic [ref=e335]: Jumeirah
+                        - generic [ref=e336]: Follow-up
+                    - generic [ref=e337]: Active
+                  - generic [ref=e338]:
+                    - generic [ref=e339]:
+                      - generic [ref=e340]:
+                        - img [ref=e341]
+                        - generic [ref=e343]: May 13, 2025
+                      - generic [ref=e344]:
+                        - img [ref=e345]
+                        - generic [ref=e348]: 7:10 AM
+                    - generic [ref=e349]: 1 year ago
+                  - link "Start Consultation" [ref=e350]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270497
+                    - img [ref=e352]
+                    - text: Start Consultation
+              - button "— 187096 Jumeirah Active May 9, 2025 11:34 AM 1 year ago Start Consultation" [ref=e354] [cursor=pointer]:
+                - generic [ref=e355]:
+                  - generic [ref=e356]:
+                    - generic [ref=e357]:
+                      - generic [ref=e358]:
+                        - heading "—" [level=3] [ref=e359]
+                        - generic [ref=e360]: "187096"
+                      - generic [ref=e362]: Jumeirah
+                    - generic [ref=e363]: Active
+                  - generic [ref=e364]:
+                    - generic [ref=e365]:
+                      - generic [ref=e366]:
+                        - img [ref=e367]
+                        - generic [ref=e369]: May 9, 2025
+                      - generic [ref=e370]:
+                        - img [ref=e371]
+                        - generic [ref=e374]: 11:34 AM
+                    - generic [ref=e375]: 1 year ago
+                  - link "Start Consultation" [ref=e376]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187096
+                    - img [ref=e378]
+                    - text: Start Consultation
+              - button "— 187095 Jumeirah Active October 22, 2024 11:51 AM 1 year ago Start Consultation" [ref=e380] [cursor=pointer]:
+                - generic [ref=e381]:
+                  - generic [ref=e382]:
+                    - generic [ref=e383]:
+                      - generic [ref=e384]:
+                        - heading "—" [level=3] [ref=e385]
+                        - generic [ref=e386]: "187095"
+                      - generic [ref=e388]: Jumeirah
+                    - generic [ref=e389]: Active
+                  - generic [ref=e390]:
+                    - generic [ref=e391]:
+                      - generic [ref=e392]:
+                        - img [ref=e393]
+                        - generic [ref=e395]: October 22, 2024
+                      - generic [ref=e396]:
+                        - img [ref=e397]
+                        - generic [ref=e400]: 11:51 AM
+                    - generic [ref=e401]: 1 year ago
+                  - link "Start Consultation" [ref=e402]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187095
+                    - img [ref=e404]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270503 Jumeirah Follow-up Active October 1, 2024 10:00 AM 1 year ago Start Consultation" [ref=e406] [cursor=pointer]:
+                - generic [ref=e407]:
+                  - generic [ref=e408]:
+                    - generic [ref=e409]:
+                      - generic [ref=e410]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e411]
+                        - generic [ref=e412]: "270503"
+                      - generic [ref=e413]:
+                        - generic [ref=e414]: Jumeirah
+                        - generic [ref=e415]: Follow-up
+                    - generic [ref=e416]: Active
+                  - generic [ref=e417]:
+                    - generic [ref=e418]:
+                      - generic [ref=e419]:
+                        - img [ref=e420]
+                        - generic [ref=e422]: October 1, 2024
+                      - generic [ref=e423]:
+                        - img [ref=e424]
+                        - generic [ref=e427]: 10:00 AM
+                    - generic [ref=e428]: 1 year ago
+                  - link "Start Consultation" [ref=e429]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270503
+                    - img [ref=e431]
+                    - text: Start Consultation
+              - button "Medication Refill 301973 Jumeirah Follow-up Active September 9, 2024 1:40 PM 1 year ago Start Consultation" [ref=e433] [cursor=pointer]:
+                - generic [ref=e434]:
+                  - generic [ref=e435]:
+                    - generic [ref=e436]:
+                      - generic [ref=e437]:
+                        - heading "Medication Refill" [level=3] [ref=e438]
+                        - generic [ref=e439]: "301973"
+                      - generic [ref=e440]:
+                        - generic [ref=e441]: Jumeirah
+                        - generic [ref=e442]: Follow-up
+                    - generic [ref=e443]: Active
+                  - generic [ref=e444]:
+                    - generic [ref=e445]:
+                      - generic [ref=e446]:
+                        - img [ref=e447]
+                        - generic [ref=e449]: September 9, 2024
+                      - generic [ref=e450]:
+                        - img [ref=e451]
+                        - generic [ref=e454]: 1:40 PM
+                    - generic [ref=e455]: 1 year ago
+                  - link "Start Consultation" [ref=e456]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301973
+                    - img [ref=e458]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270496 Jumeirah Follow-up Active June 13, 2024 3:20 PM 2 years ago Start Consultation" [ref=e460] [cursor=pointer]:
+                - generic [ref=e461]:
+                  - generic [ref=e462]:
+                    - generic [ref=e463]:
+                      - generic [ref=e464]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e465]
+                        - generic [ref=e466]: "270496"
+                      - generic [ref=e467]:
+                        - generic [ref=e468]: Jumeirah
+                        - generic [ref=e469]: Follow-up
+                    - generic [ref=e470]: Active
+                  - generic [ref=e471]:
+                    - generic [ref=e472]:
+                      - generic [ref=e473]:
+                        - img [ref=e474]
+                        - generic [ref=e476]: June 13, 2024
+                      - generic [ref=e477]:
+                        - img [ref=e478]
+                        - generic [ref=e481]: 3:20 PM
+                    - generic [ref=e482]: 2 years ago
+                  - link "Start Consultation" [ref=e483]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270496
+                    - img [ref=e485]
+                    - text: Start Consultation
+              - button "Endocrinologist New Consultation 255589 Jumeirah Follow-up Active April 4, 2024 7:50 AM 2 years ago Start Consultation" [ref=e487] [cursor=pointer]:
+                - generic [ref=e488]:
+                  - generic [ref=e489]:
+                    - generic [ref=e490]:
+                      - generic [ref=e491]:
+                        - heading "Endocrinologist New Consultation" [level=3] [ref=e492]
+                        - generic [ref=e493]: "255589"
+                      - generic [ref=e494]:
+                        - generic [ref=e495]: Jumeirah
+                        - generic [ref=e496]: Follow-up
+                    - generic [ref=e497]: Active
+                  - generic [ref=e498]:
+                    - generic [ref=e499]:
+                      - generic [ref=e500]:
+                        - img [ref=e501]
+                        - generic [ref=e503]: April 4, 2024
+                      - generic [ref=e504]:
+                        - img [ref=e505]
+                        - generic [ref=e508]: 7:50 AM
+                    - generic [ref=e509]: 2 years ago
+                  - link "Start Consultation" [ref=e510]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=255589
+                    - img [ref=e512]
+                    - text: Start Consultation
+              - button "Cardiology Assessment 208722 Jumeirah Follow-up Active March 31, 2024 1:40 PM 2 years ago Start Consultation" [ref=e514] [cursor=pointer]:
+                - generic [ref=e515]:
+                  - generic [ref=e516]:
+                    - generic [ref=e517]:
+                      - generic [ref=e518]:
+                        - heading "Cardiology Assessment" [level=3] [ref=e519]
+                        - generic [ref=e520]: "208722"
+                      - generic [ref=e521]:
+                        - generic [ref=e522]: Jumeirah
+                        - generic [ref=e523]: Follow-up
+                    - generic [ref=e524]: Active
+                  - generic [ref=e525]:
+                    - generic [ref=e526]:
+                      - generic [ref=e527]:
+                        - img [ref=e528]
+                        - generic [ref=e530]: March 31, 2024
+                      - generic [ref=e531]:
+                        - img [ref=e532]
+                        - generic [ref=e535]: 1:40 PM
+                    - generic [ref=e536]: 2 years ago
+                  - link "Start Consultation" [ref=e537]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=208722
+                    - img [ref=e539]
+                    - text: Start Consultation
+              - button "Medication Refill 301972 Jumeirah Follow-up Active March 25, 2024 9:00 AM 2 years ago Start Consultation" [ref=e541] [cursor=pointer]:
+                - generic [ref=e542]:
+                  - generic [ref=e543]:
+                    - generic [ref=e544]:
+                      - generic [ref=e545]:
+                        - heading "Medication Refill" [level=3] [ref=e546]
+                        - generic [ref=e547]: "301972"
+                      - generic [ref=e548]:
+                        - generic [ref=e549]: Jumeirah
+                        - generic [ref=e550]: Follow-up
+                    - generic [ref=e551]: Active
+                  - generic [ref=e552]:
+                    - generic [ref=e553]:
+                      - generic [ref=e554]:
+                        - img [ref=e555]
+                        - generic [ref=e557]: March 25, 2024
+                      - generic [ref=e558]:
+                        - img [ref=e559]
+                        - generic [ref=e562]: 9:00 AM
+                    - generic [ref=e563]: 2 years ago
+                  - link "Start Consultation" [ref=e564]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301972
+                    - img [ref=e566]
+                    - text: Start Consultation
+              - button "Diabetologist New Consultation 244873 Jumeirah Follow-up Active March 14, 2024 1:20 PM 2 years ago Start Consultation" [ref=e568] [cursor=pointer]:
+                - generic [ref=e569]:
+                  - generic [ref=e570]:
+                    - generic [ref=e571]:
+                      - generic [ref=e572]:
+                        - heading "Diabetologist New Consultation" [level=3] [ref=e573]
+                        - generic [ref=e574]: "244873"
+                      - generic [ref=e575]:
+                        - generic [ref=e576]: Jumeirah
+                        - generic [ref=e577]: Follow-up
+                    - generic [ref=e578]: Active
+                  - generic [ref=e579]:
+                    - generic [ref=e580]:
+                      - generic [ref=e581]:
+                        - img [ref=e582]
+                        - generic [ref=e584]: March 14, 2024
+                      - generic [ref=e585]:
+                        - img [ref=e586]
+                        - generic [ref=e589]: 1:20 PM
+                    - generic [ref=e590]: 2 years ago
+                  - link "Start Consultation" [ref=e591]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=244873
+                    - img [ref=e593]
+                    - text: Start Consultation
+              - button "Medication Refill 301971 Jumeirah Follow-up Active January 25, 2024 6:40 AM 2 years ago Start Consultation" [ref=e595] [cursor=pointer]:
+                - generic [ref=e596]:
+                  - generic [ref=e597]:
+                    - generic [ref=e598]:
+                      - generic [ref=e599]:
+                        - heading "Medication Refill" [level=3] [ref=e600]
+                        - generic [ref=e601]: "301971"
+                      - generic [ref=e602]:
+                        - generic [ref=e603]: Jumeirah
+                        - generic [ref=e604]: Follow-up
+                    - generic [ref=e605]: Active
+                  - generic [ref=e606]:
+                    - generic [ref=e607]:
+                      - generic [ref=e608]:
+                        - img [ref=e609]
+                        - generic [ref=e611]: January 25, 2024
+                      - generic [ref=e612]:
+                        - img [ref=e613]
+                        - generic [ref=e616]: 6:40 AM
+                    - generic [ref=e617]: 2 years ago
+                  - link "Start Consultation" [ref=e618]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301971
+                    - img [ref=e620]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270502 Jumeirah Follow-up Active December 7, 2023 10:00 AM 2 years ago Start Consultation" [ref=e622] [cursor=pointer]:
+                - generic [ref=e623]:
+                  - generic [ref=e624]:
+                    - generic [ref=e625]:
+                      - generic [ref=e626]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e627]
+                        - generic [ref=e628]: "270502"
+                      - generic [ref=e629]:
+                        - generic [ref=e630]: Jumeirah
+                        - generic [ref=e631]: Follow-up
+                    - generic [ref=e632]: Active
+                  - generic [ref=e633]:
+                    - generic [ref=e634]:
+                      - generic [ref=e635]:
+                        - img [ref=e636]
+                        - generic [ref=e638]: December 7, 2023
+                      - generic [ref=e639]:
+                        - img [ref=e640]
+                        - generic [ref=e643]: 10:00 AM
+                    - generic [ref=e644]: 2 years ago
+                  - link "Start Consultation" [ref=e645]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270502
+                    - img [ref=e647]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270501 Jumeirah Follow-up Active July 31, 2023 11:10 AM 2 years ago Start Consultation" [ref=e649] [cursor=pointer]:
+                - generic [ref=e650]:
+                  - generic [ref=e651]:
+                    - generic [ref=e652]:
+                      - generic [ref=e653]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e654]
+                        - generic [ref=e655]: "270501"
+                      - generic [ref=e656]:
+                        - generic [ref=e657]: Jumeirah
+                        - generic [ref=e658]: Follow-up
+                    - generic [ref=e659]: Active
+                  - generic [ref=e660]:
+                    - generic [ref=e661]:
+                      - generic [ref=e662]:
+                        - img [ref=e663]
+                        - generic [ref=e665]: July 31, 2023
+                      - generic [ref=e666]:
+                        - img [ref=e667]
+                        - generic [ref=e670]: 11:10 AM
+                    - generic [ref=e671]: 2 years ago
+                  - link "Start Consultation" [ref=e672]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270501
+                    - img [ref=e674]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270500 Jumeirah Follow-up Active June 19, 2023 12:10 PM 3 years ago Start Consultation" [ref=e676] [cursor=pointer]:
+                - generic [ref=e677]:
+                  - generic [ref=e678]:
+                    - generic [ref=e679]:
+                      - generic [ref=e680]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e681]
+                        - generic [ref=e682]: "270500"
+                      - generic [ref=e683]:
+                        - generic [ref=e684]: Jumeirah
+                        - generic [ref=e685]: Follow-up
+                    - generic [ref=e686]: Active
+                  - generic [ref=e687]:
+                    - generic [ref=e688]:
+                      - generic [ref=e689]:
+                        - img [ref=e690]
+                        - generic [ref=e692]: June 19, 2023
+                      - generic [ref=e693]:
+                        - img [ref=e694]
+                        - generic [ref=e697]: 12:10 PM
+                    - generic [ref=e698]: 3 years ago
+                  - link "Start Consultation" [ref=e699]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270500
+                    - img [ref=e701]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270499 Jumeirah Follow-up Active April 20, 2023 12:00 PM 3 years ago Start Consultation" [ref=e703] [cursor=pointer]:
+                - generic [ref=e704]:
+                  - generic [ref=e705]:
+                    - generic [ref=e706]:
+                      - generic [ref=e707]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e708]
+                        - generic [ref=e709]: "270499"
+                      - generic [ref=e710]:
+                        - generic [ref=e711]: Jumeirah
+                        - generic [ref=e712]: Follow-up
+                    - generic [ref=e713]: Active
+                  - generic [ref=e714]:
+                    - generic [ref=e715]:
+                      - generic [ref=e716]:
+                        - img [ref=e717]
+                        - generic [ref=e719]: April 20, 2023
+                      - generic [ref=e720]:
+                        - img [ref=e721]
+                        - generic [ref=e724]: 12:00 PM
+                    - generic [ref=e725]: 3 years ago
+                  - link "Start Consultation" [ref=e726]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270499
+                    - img [ref=e728]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270498 Jumeirah Follow-up Active March 23, 2023 3:00 PM 3 years ago Start Consultation" [ref=e730] [cursor=pointer]:
+                - generic [ref=e731]:
+                  - generic [ref=e732]:
+                    - generic [ref=e733]:
+                      - generic [ref=e734]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e735]
+                        - generic [ref=e736]: "270498"
+                      - generic [ref=e737]:
+                        - generic [ref=e738]: Jumeirah
+                        - generic [ref=e739]: Follow-up
+                    - generic [ref=e740]: Active
+                  - generic [ref=e741]:
+                    - generic [ref=e742]:
+                      - generic [ref=e743]:
+                        - img [ref=e744]
+                        - generic [ref=e746]: March 23, 2023
+                      - generic [ref=e747]:
+                        - img [ref=e748]
+                        - generic [ref=e751]: 3:00 PM
+                    - generic [ref=e752]: 3 years ago
+                  - link "Start Consultation" [ref=e753]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270498
+                    - img [ref=e755]
+                    - text: Start Consultation
+              - button "Diabetologist New Consultation 244872 Jumeirah First Active January 5, 2023 8:40 AM 3 years ago Start Consultation" [ref=e757] [cursor=pointer]:
+                - generic [ref=e758]:
+                  - generic [ref=e759]:
+                    - generic [ref=e760]:
+                      - generic [ref=e761]:
+                        - heading "Diabetologist New Consultation" [level=3] [ref=e762]
+                        - generic [ref=e763]: "244872"
+                      - generic [ref=e764]:
+                        - generic [ref=e765]: Jumeirah
+                        - generic [ref=e766]: First
+                    - generic [ref=e767]: Active
+                  - generic [ref=e768]:
+                    - generic [ref=e769]:
+                      - generic [ref=e770]:
+                        - img [ref=e771]
+                        - generic [ref=e773]: January 5, 2023
+                      - generic [ref=e774]:
+                        - img [ref=e775]
+                        - generic [ref=e778]: 8:40 AM
+                    - generic [ref=e779]: 3 years ago
+                  - link "Start Consultation" [ref=e780]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=244872
+                    - img [ref=e782]
+                    - text: Start Consultation
+              - button "Thyroid Follow Up Bundle Self Pay 334206 Jumeirah Follow-up Active August 22, 2022 7:50 AM 3 years ago Start Consultation" [ref=e784] [cursor=pointer]:
+                - generic [ref=e785]:
+                  - generic [ref=e786]:
+                    - generic [ref=e787]:
+                      - generic [ref=e788]:
+                        - heading "Thyroid Follow Up Bundle Self Pay" [level=3] [ref=e789]
+                        - generic [ref=e790]: "334206"
+                      - generic [ref=e791]:
+                        - generic [ref=e792]: Jumeirah
+                        - generic [ref=e793]: Follow-up
+                    - generic [ref=e794]: Active
+                  - generic [ref=e795]:
+                    - generic [ref=e796]:
+                      - generic [ref=e797]:
+                        - img [ref=e798]
+                        - generic [ref=e800]: August 22, 2022
+                      - generic [ref=e801]:
+                        - img [ref=e802]
+                        - generic [ref=e805]: 7:50 AM
+                    - generic [ref=e806]: 3 years ago
+                  - link "Start Consultation" [ref=e807]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=334206
+                    - img [ref=e809]
+                    - text: Start Consultation
+              - button "Cardiology Assessment 208723 Jumeirah First Active April 25, 2022 2:10 PM 4 years ago Start Consultation" [ref=e811] [cursor=pointer]:
+                - generic [ref=e812]:
+                  - generic [ref=e813]:
+                    - generic [ref=e814]:
+                      - generic [ref=e815]:
+                        - heading "Cardiology Assessment" [level=3] [ref=e816]
+                        - generic [ref=e817]: "208723"
+                      - generic [ref=e818]:
+                        - generic [ref=e819]: Jumeirah
+                        - generic [ref=e820]: First
+                    - generic [ref=e821]: Active
+                  - generic [ref=e822]:
+                    - generic [ref=e823]:
+                      - generic [ref=e824]:
+                        - img [ref=e825]
+                        - generic [ref=e827]: April 25, 2022
+                      - generic [ref=e828]:
+                        - img [ref=e829]
+                        - generic [ref=e832]: 2:10 PM
+                    - generic [ref=e833]: 4 years ago
+                  - link "Start Consultation" [ref=e834]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=208723
+                    - img [ref=e836]
+                    - text: Start Consultation
+              - button "Thyroid Follow Up Bundle Self Pay 334207 Jumeirah Follow-up Active April 7, 2022 3:10 PM 4 years ago Start Consultation" [ref=e838] [cursor=pointer]:
+                - generic [ref=e839]:
+                  - generic [ref=e840]:
+                    - generic [ref=e841]:
+                      - generic [ref=e842]:
+                        - heading "Thyroid Follow Up Bundle Self Pay" [level=3] [ref=e843]
+                        - generic [ref=e844]: "334207"
+                      - generic [ref=e845]:
+                        - generic [ref=e846]: Jumeirah
+                        - generic [ref=e847]: Follow-up
+                    - generic [ref=e848]: Active
+                  - generic [ref=e849]:
+                    - generic [ref=e850]:
+                      - generic [ref=e851]:
+                        - img [ref=e852]
+                        - generic [ref=e854]: April 7, 2022
+                      - generic [ref=e855]:
+                        - img [ref=e856]
+                        - generic [ref=e859]: 3:10 PM
+                    - generic [ref=e860]: 4 years ago
+                  - link "Start Consultation" [ref=e861]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=334207
+                    - img [ref=e863]
+                    - text: Start Consultation
+              - button "— 187094 Jumeirah Active February 2, 2022 3:07 PM 4 years ago Start Consultation" [ref=e865] [cursor=pointer]:
+                - generic [ref=e866]:
+                  - generic [ref=e867]:
+                    - generic [ref=e868]:
+                      - generic [ref=e869]:
+                        - heading "—" [level=3] [ref=e870]
+                        - generic [ref=e871]: "187094"
+                      - generic [ref=e873]: Jumeirah
+                    - generic [ref=e874]: Active
+                  - generic [ref=e875]:
+                    - generic [ref=e876]:
+                      - generic [ref=e877]:
+                        - img [ref=e878]
+                        - generic [ref=e880]: February 2, 2022
+                      - generic [ref=e881]:
+                        - img [ref=e882]
+                        - generic [ref=e885]: 3:07 PM
+                    - generic [ref=e886]: 4 years ago
+                  - link "Start Consultation" [ref=e887]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187094
+                    - img [ref=e889]
+                    - text: Start Consultation
+              - button "Diabetologist New Consultation 244866 Jumeirah Active December 20, 2021 11:30 AM 4 years ago Start Consultation" [ref=e891] [cursor=pointer]:
+                - generic [ref=e892]:
+                  - generic [ref=e893]:
+                    - generic [ref=e894]:
+                      - generic [ref=e895]:
+                        - heading "Diabetologist New Consultation" [level=3] [ref=e896]
+                        - generic [ref=e897]: "244866"
+                      - generic [ref=e899]: Jumeirah
+                    - generic [ref=e900]: Active
+                  - generic [ref=e901]:
+                    - generic [ref=e902]:
+                      - generic [ref=e903]:
+                        - img [ref=e904]
+                        - generic [ref=e906]: December 20, 2021
+                      - generic [ref=e907]:
+                        - img [ref=e908]
+                        - generic [ref=e911]: 11:30 AM
+                    - generic [ref=e912]: 4 years ago
+                  - link "Start Consultation" [ref=e913]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=244866
+                    - img [ref=e915]
+                    - text: Start Consultation
+              - button "Diabetologist New Consultation 244865 Jumeirah Active October 14, 2021 12:30 PM 4 years ago Start Consultation" [ref=e917] [cursor=pointer]:
+                - generic [ref=e918]:
+                  - generic [ref=e919]:
+                    - generic [ref=e920]:
+                      - generic [ref=e921]:
+                        - heading "Diabetologist New Consultation" [level=3] [ref=e922]
+                        - generic [ref=e923]: "244865"
+                      - generic [ref=e925]: Jumeirah
+                    - generic [ref=e926]: Active
+                  - generic [ref=e927]:
+                    - generic [ref=e928]:
+                      - generic [ref=e929]:
+                        - img [ref=e930]
+                        - generic [ref=e932]: October 14, 2021
+                      - generic [ref=e933]:
+                        - img [ref=e934]
+                        - generic [ref=e937]: 12:30 PM
+                    - generic [ref=e938]: 4 years ago
+                  - link "Start Consultation" [ref=e939]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=244865
+                    - img [ref=e941]
+                    - text: Start Consultation
+              - button "— 187093 Jumeirah Active October 7, 2021 4:04 PM 4 years ago Start Consultation" [ref=e943] [cursor=pointer]:
+                - generic [ref=e944]:
+                  - generic [ref=e945]:
+                    - generic [ref=e946]:
+                      - generic [ref=e947]:
+                        - heading "—" [level=3] [ref=e948]
+                        - generic [ref=e949]: "187093"
+                      - generic [ref=e951]: Jumeirah
+                    - generic [ref=e952]: Active
+                  - generic [ref=e953]:
+                    - generic [ref=e954]:
+                      - generic [ref=e955]:
+                        - img [ref=e956]
+                        - generic [ref=e958]: October 7, 2021
+                      - generic [ref=e959]:
+                        - img [ref=e960]
+                        - generic [ref=e963]: 4:04 PM
+                    - generic [ref=e964]: 4 years ago
+                  - link "Start Consultation" [ref=e965]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187093
+                    - img [ref=e967]
+                    - text: Start Consultation
+              - button "Diabetologist New Consultation 244868 Jumeirah Active September 15, 2021 2:10 PM 4 years ago Start Consultation" [ref=e969] [cursor=pointer]:
+                - generic [ref=e970]:
+                  - generic [ref=e971]:
+                    - generic [ref=e972]:
+                      - generic [ref=e973]:
+                        - heading "Diabetologist New Consultation" [level=3] [ref=e974]
+                        - generic [ref=e975]: "244868"
+                      - generic [ref=e977]: Jumeirah
+                    - generic [ref=e978]: Active
+                  - generic [ref=e979]:
+                    - generic [ref=e980]:
+                      - generic [ref=e981]:
+                        - img [ref=e982]
+                        - generic [ref=e984]: September 15, 2021
+                      - generic [ref=e985]:
+                        - img [ref=e986]
+                        - generic [ref=e989]: 2:10 PM
+                    - generic [ref=e990]: 4 years ago
+                  - link "Start Consultation" [ref=e991]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=244868
+                    - img [ref=e993]
+                    - text: Start Consultation
+              - button "Adult Vaccination Package 196424 Jumeirah Active September 14, 2021 12:10 PM 4 years ago Start Consultation" [ref=e995] [cursor=pointer]:
+                - generic [ref=e996]:
+                  - generic [ref=e997]:
+                    - generic [ref=e998]:
+                      - generic [ref=e999]:
+                        - heading "Adult Vaccination Package" [level=3] [ref=e1000]
+                        - generic [ref=e1001]: "196424"
+                      - generic [ref=e1003]: Jumeirah
+                    - generic [ref=e1004]: Active
+                  - generic [ref=e1005]:
+                    - generic [ref=e1006]:
+                      - generic [ref=e1007]:
+                        - img [ref=e1008]
+                        - generic [ref=e1010]: September 14, 2021
+                      - generic [ref=e1011]:
+                        - img [ref=e1012]
+                        - generic [ref=e1015]: 12:10 PM
+                    - generic [ref=e1016]: 4 years ago
+                  - link "Start Consultation" [ref=e1017]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=196424
+                    - img [ref=e1019]
+                    - text: Start Consultation
+              - button "Diabetologist New Consultation 244867 Jumeirah Follow-up Active May 10, 2021 9:50 AM 5 years ago Start Consultation" [ref=e1021] [cursor=pointer]:
+                - generic [ref=e1022]:
+                  - generic [ref=e1023]:
+                    - generic [ref=e1024]:
+                      - generic [ref=e1025]:
+                        - heading "Diabetologist New Consultation" [level=3] [ref=e1026]
+                        - generic [ref=e1027]: "244867"
+                      - generic [ref=e1028]:
+                        - generic [ref=e1029]: Jumeirah
+                        - generic [ref=e1030]: Follow-up
+                    - generic [ref=e1031]: Active
+                  - generic [ref=e1032]:
+                    - generic [ref=e1033]:
+                      - generic [ref=e1034]:
+                        - img [ref=e1035]
+                        - generic [ref=e1037]: May 10, 2021
+                      - generic [ref=e1038]:
+                        - img [ref=e1039]
+                        - generic [ref=e1042]: 9:50 AM
+                    - generic [ref=e1043]: 5 years ago
+                  - link "Start Consultation" [ref=e1044]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=244867
+                    - img [ref=e1046]
+                    - text: Start Consultation
+              - button "— 187092 Jumeirah Active April 12, 2021 10:00 AM 5 years ago Start Consultation" [ref=e1048] [cursor=pointer]:
+                - generic [ref=e1049]:
+                  - generic [ref=e1050]:
+                    - generic [ref=e1051]:
+                      - generic [ref=e1052]:
+                        - heading "—" [level=3] [ref=e1053]
+                        - generic [ref=e1054]: "187092"
+                      - generic [ref=e1056]: Jumeirah
+                    - generic [ref=e1057]: Active
+                  - generic [ref=e1058]:
+                    - generic [ref=e1059]:
+                      - generic [ref=e1060]:
+                        - img [ref=e1061]
+                        - generic [ref=e1063]: April 12, 2021
+                      - generic [ref=e1064]:
+                        - img [ref=e1065]
+                        - generic [ref=e1068]: 10:00 AM
+                    - generic [ref=e1069]: 5 years ago
+                  - link "Start Consultation" [ref=e1070]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187092
+                    - img [ref=e1072]
+                    - text: Start Consultation
+              - button "— 187091 Jumeirah Active March 24, 2021 5:05 PM 5 years ago Start Consultation" [ref=e1074] [cursor=pointer]:
+                - generic [ref=e1075]:
+                  - generic [ref=e1076]:
+                    - generic [ref=e1077]:
+                      - generic [ref=e1078]:
+                        - heading "—" [level=3] [ref=e1079]
+                        - generic [ref=e1080]: "187091"
+                      - generic [ref=e1082]: Jumeirah
+                    - generic [ref=e1083]: Active
+                  - generic [ref=e1084]:
+                    - generic [ref=e1085]:
+                      - generic [ref=e1086]:
+                        - img [ref=e1087]
+                        - generic [ref=e1089]: March 24, 2021
+                      - generic [ref=e1090]:
+                        - img [ref=e1091]
+                        - generic [ref=e1094]: 5:05 PM
+                    - generic [ref=e1095]: 5 years ago
+                  - link "Start Consultation" [ref=e1096]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187091
+                    - img [ref=e1098]
+                    - text: Start Consultation
+              - button "— 187090 Jumeirah Active March 16, 2021 11:10 AM 5 years ago Start Consultation" [ref=e1100] [cursor=pointer]:
+                - generic [ref=e1101]:
+                  - generic [ref=e1102]:
+                    - generic [ref=e1103]:
+                      - generic [ref=e1104]:
+                        - heading "—" [level=3] [ref=e1105]
+                        - generic [ref=e1106]: "187090"
+                      - generic [ref=e1108]: Jumeirah
+                    - generic [ref=e1109]: Active
+                  - generic [ref=e1110]:
+                    - generic [ref=e1111]:
+                      - generic [ref=e1112]:
+                        - img [ref=e1113]
+                        - generic [ref=e1115]: March 16, 2021
+                      - generic [ref=e1116]:
+                        - img [ref=e1117]
+                        - generic [ref=e1120]: 11:10 AM
+                    - generic [ref=e1121]: 5 years ago
+                  - link "Start Consultation" [ref=e1122]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187090
+                    - img [ref=e1124]
+                    - text: Start Consultation
+              - button "Adult Pump - 3 Months Follow-Up 196421 Jumeirah Active November 1, 2020 10:20 AM 5 years ago Start Consultation" [ref=e1126] [cursor=pointer]:
+                - generic [ref=e1127]:
+                  - generic [ref=e1128]:
+                    - generic [ref=e1129]:
+                      - generic [ref=e1130]:
+                        - heading "Adult Pump - 3 Months Follow-Up" [level=3] [ref=e1131]
+                        - generic [ref=e1132]: "196421"
+                      - generic [ref=e1134]: Jumeirah
+                    - generic [ref=e1135]: Active
+                  - generic [ref=e1136]:
+                    - generic [ref=e1137]:
+                      - generic [ref=e1138]:
+                        - img [ref=e1139]
+                        - generic [ref=e1141]: November 1, 2020
+                      - generic [ref=e1142]:
+                        - img [ref=e1143]
+                        - generic [ref=e1146]: 10:20 AM
+                    - generic [ref=e1147]: 5 years ago
+                  - link "Start Consultation" [ref=e1148]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=196421
+                    - img [ref=e1150]
+                    - text: Start Consultation
+              - button "Pre-Diabetes New Package 326067 Jumeirah Active August 13, 2020 10:10 AM 5 years ago Start Consultation" [ref=e1152] [cursor=pointer]:
+                - generic [ref=e1153]:
+                  - generic [ref=e1154]:
+                    - generic [ref=e1155]:
+                      - generic [ref=e1156]:
+                        - heading "Pre-Diabetes New Package" [level=3] [ref=e1157]
+                        - generic [ref=e1158]: "326067"
+                      - generic [ref=e1160]: Jumeirah
+                    - generic [ref=e1161]: Active
+                  - generic [ref=e1162]:
+                    - generic [ref=e1163]:
+                      - generic [ref=e1164]:
+                        - img [ref=e1165]
+                        - generic [ref=e1167]: August 13, 2020
+                      - generic [ref=e1168]:
+                        - img [ref=e1169]
+                        - generic [ref=e1172]: 10:10 AM
+                    - generic [ref=e1173]: 5 years ago
+                  - link "Start Consultation" [ref=e1174]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=326067
+                    - img [ref=e1176]
+                    - text: Start Consultation
+          - generic [ref=e1178]:
+            - heading "Upcoming Visits (22)" [level=2] [ref=e1179]
+            - generic [ref=e1180]:
+              - generic [ref=e1182]:
+                - generic [ref=e1183]:
+                  - generic [ref=e1184]:
+                    - generic [ref=e1185]:
+                      - heading "Metabolic Baseline Protocol- 40 to 50" [level=3] [ref=e1186]
+                      - generic [ref=e1187]: "371040"
+                    - generic [ref=e1188]:
+                      - generic [ref=e1189]: Jumeirah
+                      - generic [ref=e1190]: First
+                  - generic [ref=e1191]: Pending
+                - generic [ref=e1192]:
+                  - generic [ref=e1193]:
+                    - generic [ref=e1194]:
+                      - img [ref=e1195]
+                      - generic [ref=e1197]: July 24, 2026
+                    - generic [ref=e1198]:
+                      - img [ref=e1199]
+                      - generic [ref=e1202]: 1:48 PM
+                  - generic [ref=e1203]: In 23 days
+              - generic [ref=e1205]:
+                - generic [ref=e1206]:
+                  - generic [ref=e1207]:
+                    - generic [ref=e1208]:
+                      - heading "Cardiology Assessment" [level=3] [ref=e1209]
+                      - generic [ref=e1210]: "369683"
+                    - generic [ref=e1212]: Jumeirah
+                  - generic [ref=e1213]: Pending
+                - generic [ref=e1214]:
+                  - generic [ref=e1215]:
+                    - generic [ref=e1216]:
+                      - img [ref=e1217]
+                      - generic [ref=e1219]: July 26, 2026
+                    - generic [ref=e1220]:
+                      - img [ref=e1221]
+                      - generic [ref=e1224]: 10:00 AM
+                  - generic [ref=e1225]: In 25 days
+              - generic [ref=e1227]:
+                - generic [ref=e1228]:
+                  - generic [ref=e1229]:
+                    - generic [ref=e1230]:
+                      - heading "Cardiology Assessment" [level=3] [ref=e1231]
+                      - generic [ref=e1232]: "370028"
+                    - generic [ref=e1234]: Al Barsha
+                  - generic [ref=e1235]: Pending
+                - generic [ref=e1236]:
+                  - generic [ref=e1237]:
+                    - generic [ref=e1238]:
+                      - img [ref=e1239]
+                      - generic [ref=e1241]: July 28, 2026
+                    - generic [ref=e1242]:
+                      - img [ref=e1243]
+                      - generic [ref=e1246]: 10:00 AM
+                  - generic [ref=e1247]: In 27 days
+              - generic [ref=e1249]:
+                - generic [ref=e1250]:
+                  - generic [ref=e1251]:
+                    - generic [ref=e1252]:
+                      - heading "Cardiology Assessment" [level=3] [ref=e1253]
+                      - generic [ref=e1254]: "373770"
+                    - generic [ref=e1256]: Jumeirah
+                  - generic [ref=e1257]: Pending
+                - generic [ref=e1258]:
+                  - generic [ref=e1259]:
+                    - generic [ref=e1260]:
+                      - img [ref=e1261]
+                      - generic [ref=e1263]: August 4, 2026
+                    - generic [ref=e1264]:
+                      - img [ref=e1265]
+                      - generic [ref=e1268]: 3:00 PM
+                  - generic [ref=e1269]: In 34 days
+              - generic [ref=e1271]:
+                - generic [ref=e1272]:
+                  - generic [ref=e1273]:
+                    - generic [ref=e1274]:
+                      - heading "Metabolic Baseline Protocol- 40 to 50" [level=3] [ref=e1275]
+                      - generic [ref=e1276]: "282535"
+                    - generic [ref=e1278]: Jumeirah
+                  - generic [ref=e1279]: Pending
+                - generic [ref=e1280]:
+                  - generic [ref=e1281]:
+                    - generic [ref=e1282]:
+                      - img [ref=e1283]
+                      - generic [ref=e1285]: August 18, 2026
+                    - generic [ref=e1286]:
+                      - img [ref=e1287]
+                      - generic [ref=e1290]: 7:50 AM
+                  - generic [ref=e1291]: In 48 days
+              - generic [ref=e1293]:
+                - generic [ref=e1294]:
+                  - generic [ref=e1295]:
+                    - generic [ref=e1296]:
+                      - heading "Metabolic Baseline Protocol- 40 to 50" [level=3] [ref=e1297]
+                      - generic [ref=e1298]: "371051"
+                    - generic [ref=e1300]: Jumeirah
+                  - generic [ref=e1301]: Pending
+                - generic [ref=e1302]:
+                  - generic [ref=e1303]:
+                    - generic [ref=e1304]:
+                      - img [ref=e1305]
+                      - generic [ref=e1307]: October 22, 2026
+                    - generic [ref=e1308]:
+                      - img [ref=e1309]
+                      - generic [ref=e1312]: 12:00 AM
+                  - generic [ref=e1313]: In 113 days
+              - generic [ref=e1315]:
+                - generic [ref=e1316]:
+                  - generic [ref=e1317]:
+                    - generic [ref=e1318]:
+                      - heading "Metabolic Baseline Protocol- 40 to 50" [level=3] [ref=e1319]
+                      - generic [ref=e1320]: "371041"
+                    - generic [ref=e1322]: Jumeirah
+                  - generic [ref=e1323]: Pending
+                - generic [ref=e1324]:
+                  - generic [ref=e1325]:
+                    - generic [ref=e1326]:
+                      - img [ref=e1327]
+                      - generic [ref=e1329]: October 22, 2026
+                    - generic [ref=e1330]:
+                      - img [ref=e1331]
+                      - generic [ref=e1334]: 12:00 AM
+                  - generic [ref=e1335]: In 113 days
+              - generic [ref=e1337]:
+                - generic [ref=e1338]:
+                  - generic [ref=e1339]:
+                    - generic [ref=e1340]:
+                      - heading "Cardiology Assessment" [level=3] [ref=e1341]
+                      - generic [ref=e1342]: "369684"
+                    - generic [ref=e1344]: Jumeirah
+                  - generic [ref=e1345]: Pending
+                - generic [ref=e1346]:
+                  - generic [ref=e1347]:
+                    - generic [ref=e1348]:
+                      - img [ref=e1349]
+                      - generic [ref=e1351]: October 24, 2026
+                    - generic [ref=e1352]:
+                      - img [ref=e1353]
+                      - generic [ref=e1356]: 10:00 AM
+                  - generic [ref=e1357]: In 115 days
+              - generic [ref=e1359]:
+                - generic [ref=e1360]:
+                  - generic [ref=e1361]:
+                    - generic [ref=e1362]:
+                      - heading "Cardiology Assessment" [level=3] [ref=e1363]
+                      - generic [ref=e1364]: "370029"
+                    - generic [ref=e1366]: Al Barsha
+                  - generic [ref=e1367]: Pending
+                - generic [ref=e1368]:
+                  - generic [ref=e1369]:
+                    - generic [ref=e1370]:
+                      - img [ref=e1371]
+                      - generic [ref=e1373]: October 26, 2026
+                    - generic [ref=e1374]:
+                      - img [ref=e1375]
+                      - generic [ref=e1378]: 10:00 AM
+                  - generic [ref=e1379]: In 117 days
+              - generic [ref=e1381]:
+                - generic [ref=e1382]:
+                  - generic [ref=e1383]:
+                    - generic [ref=e1384]:
+                      - heading "Cardiology Assessment" [level=3] [ref=e1385]
+                      - generic [ref=e1386]: "373771"
+                    - generic [ref=e1388]: Jumeirah
+                  - generic [ref=e1389]: Pending
+                - generic [ref=e1390]:
+                  - generic [ref=e1391]:
+                    - generic [ref=e1392]:
+                      - img [ref=e1393]
+                      - generic [ref=e1395]: November 2, 2026
+                    - generic [ref=e1396]:
+                      - img [ref=e1397]
+                      - generic [ref=e1400]: 3:00 PM
+                  - generic [ref=e1401]: In 124 days
+              - generic [ref=e1403]:
+                - generic [ref=e1404]:
+                  - generic [ref=e1405]:
+                    - generic [ref=e1406]:
+                      - heading "Metabolic Baseline Protocol- 40 to 50" [level=3] [ref=e1407]
+                      - generic [ref=e1408]: "282536"
+                    - generic [ref=e1410]: Jumeirah
+                  - generic [ref=e1411]: Pending
+                - generic [ref=e1412]:
+                  - generic [ref=e1413]:
+                    - generic [ref=e1414]:
+                      - img [ref=e1415]
+                      - generic [ref=e1417]: November 16, 2026
+                    - generic [ref=e1418]:
+                      - img [ref=e1419]
+                      - generic [ref=e1422]: 7:50 AM
+                  - generic [ref=e1423]: In 138 days
+              - generic [ref=e1425]:
+                - generic [ref=e1426]:
+                  - generic [ref=e1427]:
+                    - generic [ref=e1428]:
+                      - heading "Metabolic Baseline Protocol- 40 to 50" [level=3] [ref=e1429]
+                      - generic [ref=e1430]: "371052"
+                    - generic [ref=e1432]: Jumeirah
+                  - generic [ref=e1433]: Pending
+                - generic [ref=e1434]:
+                  - generic [ref=e1435]:
+                    - generic [ref=e1436]:
+                      - img [ref=e1437]
+                      - generic [ref=e1439]: January 20, 2027
+                    - generic [ref=e1440]:
+                      - img [ref=e1441]
+                      - generic [ref=e1444]: 12:00 AM
+                  - generic [ref=e1445]: In 203 days
+              - generic [ref=e1447]:
+                - generic [ref=e1448]:
+                  - generic [ref=e1449]:
+                    - generic [ref=e1450]:
+                      - heading "Metabolic Baseline Protocol- 40 to 50" [level=3] [ref=e1451]
+                      - generic [ref=e1452]: "371042"
+                    - generic [ref=e1454]: Jumeirah
+                  - generic [ref=e1455]: Pending
+                - generic [ref=e1456]:
+                  - generic [ref=e1457]:
+                    - generic [ref=e1458]:
+                      - img [ref=e1459]
+                      - generic [ref=e1461]: January 20, 2027
+                    - generic [ref=e1462]:
+                      - img [ref=e1463]
+                      - generic [ref=e1466]: 12:00 AM
+                  - generic [ref=e1467]: In 203 days
+              - generic [ref=e1469]:
+                - generic [ref=e1470]:
+                  - generic [ref=e1471]:
+                    - generic [ref=e1472]:
+                      - heading "Cardiology Assessment" [level=3] [ref=e1473]
+                      - generic [ref=e1474]: "369685"
+                    - generic [ref=e1476]: Jumeirah
+                  - generic [ref=e1477]: Pending
+                - generic [ref=e1478]:
+                  - generic [ref=e1479]:
+                    - generic [ref=e1480]:
+                      - img [ref=e1481]
+                      - generic [ref=e1483]: January 22, 2027
+                    - generic [ref=e1484]:
+                      - img [ref=e1485]
+                      - generic [ref=e1488]: 10:00 AM
+                  - generic [ref=e1489]: In 205 days
+              - generic [ref=e1491]:
+                - generic [ref=e1492]:
+                  - generic [ref=e1493]:
+                    - generic [ref=e1494]:
+                      - heading "Cardiology Assessment" [level=3] [ref=e1495]
+                      - generic [ref=e1496]: "370030"
+                    - generic [ref=e1498]: Al Barsha
+                  - generic [ref=e1499]: Pending
+                - generic [ref=e1500]:
+                  - generic [ref=e1501]:
+                    - generic [ref=e1502]:
+                      - img [ref=e1503]
+                      - generic [ref=e1505]: January 24, 2027
+                    - generic [ref=e1506]:
+                      - img [ref=e1507]
+                      - generic [ref=e1510]: 10:00 AM
+                  - generic [ref=e1511]: In 207 days
+              - generic [ref=e1513]:
+                - generic [ref=e1514]:
+                  - generic [ref=e1515]:
+                    - generic [ref=e1516]:
+                      - heading "Cardiology Assessment" [level=3] [ref=e1517]
+                      - generic [ref=e1518]: "373772"
+                    - generic [ref=e1520]: Jumeirah
+                  - generic [ref=e1521]: Pending
+                - generic [ref=e1522]:
+                  - generic [ref=e1523]:
+                    - generic [ref=e1524]:
+                      - img [ref=e1525]
+                      - generic [ref=e1527]: January 31, 2027
+                    - generic [ref=e1528]:
+                      - img [ref=e1529]
+                      - generic [ref=e1532]: 3:00 PM
+                  - generic [ref=e1533]: In 214 days
+              - generic [ref=e1535]:
+                - generic [ref=e1536]:
+                  - generic [ref=e1537]:
+                    - generic [ref=e1538]:
+                      - heading "Metabolic Baseline Protocol- 40 to 50" [level=3] [ref=e1539]
+                      - generic [ref=e1540]: "282537"
+                    - generic [ref=e1542]: Jumeirah
+                  - generic [ref=e1543]: Pending
+                - generic [ref=e1544]:
+                  - generic [ref=e1545]:
+                    - generic [ref=e1546]:
+                      - img [ref=e1547]
+                      - generic [ref=e1549]: February 14, 2027
+                    - generic [ref=e1550]:
+                      - img [ref=e1551]
+                      - generic [ref=e1554]: 7:50 AM
+                  - generic [ref=e1555]: In 228 days
+              - generic [ref=e1557]:
+                - generic [ref=e1558]:
+                  - generic [ref=e1559]:
+                    - generic [ref=e1560]:
+                      - heading "Metabolic Baseline Protocol- 40 to 50" [level=3] [ref=e1561]
+                      - generic [ref=e1562]: "371053"
+                    - generic [ref=e1564]: Jumeirah
+                  - generic [ref=e1565]: Pending
+                - generic [ref=e1566]:
+                  - generic [ref=e1567]:
+                    - generic [ref=e1568]:
+                      - img [ref=e1569]
+                      - generic [ref=e1571]: April 20, 2027
+                    - generic [ref=e1572]:
+                      - img [ref=e1573]
+                      - generic [ref=e1576]: 12:00 AM
+                  - generic [ref=e1577]: In 293 days
+              - generic [ref=e1579]:
+                - generic [ref=e1580]:
+                  - generic [ref=e1581]:
+                    - generic [ref=e1582]:
+                      - heading "Metabolic Baseline Protocol- 40 to 50" [level=3] [ref=e1583]
+                      - generic [ref=e1584]: "371043"
+                    - generic [ref=e1586]: Jumeirah
+                  - generic [ref=e1587]: Pending
+                - generic [ref=e1588]:
+                  - generic [ref=e1589]:
+                    - generic [ref=e1590]:
+                      - img [ref=e1591]
+                      - generic [ref=e1593]: April 20, 2027
+                    - generic [ref=e1594]:
+                      - img [ref=e1595]
+                      - generic [ref=e1598]: 12:00 AM
+                  - generic [ref=e1599]: In 293 days
+              - generic [ref=e1601]:
+                - generic [ref=e1602]:
+                  - generic [ref=e1603]:
+                    - generic [ref=e1604]:
+                      - heading "Cardiology Assessment" [level=3] [ref=e1605]
+                      - generic [ref=e1606]: "369686"
+                    - generic [ref=e1608]: Jumeirah
+                  - generic [ref=e1609]: Pending
+                - generic [ref=e1610]:
+                  - generic [ref=e1611]:
+                    - generic [ref=e1612]:
+                      - img [ref=e1613]
+                      - generic [ref=e1615]: April 27, 2027
+                    - generic [ref=e1616]:
+                      - img [ref=e1617]
+                      - generic [ref=e1620]: 10:00 AM
+                  - generic [ref=e1621]: In 300 days
+              - generic [ref=e1623]:
+                - generic [ref=e1624]:
+                  - generic [ref=e1625]:
+                    - generic [ref=e1626]:
+                      - heading "Cardiology Assessment" [level=3] [ref=e1627]
+                      - generic [ref=e1628]: "370031"
+                    - generic [ref=e1630]: Al Barsha
+                  - generic [ref=e1631]: Pending
+                - generic [ref=e1632]:
+                  - generic [ref=e1633]:
+                    - generic [ref=e1634]:
+                      - img [ref=e1635]
+                      - generic [ref=e1637]: April 29, 2027
+                    - generic [ref=e1638]:
+                      - img [ref=e1639]
+                      - generic [ref=e1642]: 10:00 AM
+                  - generic [ref=e1643]: In 302 days
+              - generic [ref=e1645]:
+                - generic [ref=e1646]:
+                  - generic [ref=e1647]:
+                    - generic [ref=e1648]:
+                      - heading "Cardiology Assessment" [level=3] [ref=e1649]
+                      - generic [ref=e1650]: "373773"
+                    - generic [ref=e1652]: Jumeirah
+                  - generic [ref=e1653]: Pending
+                - generic [ref=e1654]:
+                  - generic [ref=e1655]:
+                    - generic [ref=e1656]:
+                      - img [ref=e1657]
+                      - generic [ref=e1659]: May 6, 2027
+                    - generic [ref=e1660]:
+                      - img [ref=e1661]
+                      - generic [ref=e1664]: 3:00 PM
+                  - generic [ref=e1665]: In 309 days
+          - generic [ref=e1666]:
+            - heading "Past Visits (80)" [level=2] [ref=e1667]
+            - generic [ref=e1668]:
+              - button "Metabolic Baseline Protocol- 40 to 50 282539 Jumeirah Closed February 19, 2026 7:50 AM Start Consultation" [ref=e1669] [cursor=pointer]:
+                - generic [ref=e1670]:
+                  - generic [ref=e1671]:
+                    - generic [ref=e1672]:
+                      - generic [ref=e1673]:
+                        - heading "Metabolic Baseline Protocol- 40 to 50" [level=3] [ref=e1674]
+                        - generic [ref=e1675]: "282539"
+                      - generic [ref=e1677]: Jumeirah
+                    - generic [ref=e1678]: Closed
+                  - generic [ref=e1680]:
+                    - generic [ref=e1681]:
+                      - img [ref=e1682]
+                      - generic [ref=e1684]: February 19, 2026
+                    - generic [ref=e1685]:
+                      - img [ref=e1686]
+                      - generic [ref=e1689]: 7:50 AM
+                  - link "Start Consultation" [ref=e1691]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=282539
+                    - img [ref=e1693]
+                    - text: Start Consultation
+              - button "Medication Refill 301986 Jumeirah Closed January 23, 2026 7:50 AM Start Consultation" [ref=e1695] [cursor=pointer]:
+                - generic [ref=e1696]:
+                  - generic [ref=e1697]:
+                    - generic [ref=e1698]:
+                      - generic [ref=e1699]:
+                        - heading "Medication Refill" [level=3] [ref=e1700]
+                        - generic [ref=e1701]: "301986"
+                      - generic [ref=e1703]: Jumeirah
+                    - generic [ref=e1704]: Closed
+                  - generic [ref=e1706]:
+                    - generic [ref=e1707]:
+                      - img [ref=e1708]
+                      - generic [ref=e1710]: January 23, 2026
+                    - generic [ref=e1711]:
+                      - img [ref=e1712]
+                      - generic [ref=e1715]: 7:50 AM
+                  - link "Start Consultation" [ref=e1717]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301986
+                    - img [ref=e1719]
+                    - text: Start Consultation
+              - button "Medication Refill 301985 Jumeirah Closed January 21, 2026 2:50 PM Start Consultation" [ref=e1721] [cursor=pointer]:
+                - generic [ref=e1722]:
+                  - generic [ref=e1723]:
+                    - generic [ref=e1724]:
+                      - generic [ref=e1725]:
+                        - heading "Medication Refill" [level=3] [ref=e1726]
+                        - generic [ref=e1727]: "301985"
+                      - generic [ref=e1729]: Jumeirah
+                    - generic [ref=e1730]: Closed
+                  - generic [ref=e1732]:
+                    - generic [ref=e1733]:
+                      - img [ref=e1734]
+                      - generic [ref=e1736]: January 21, 2026
+                    - generic [ref=e1737]:
+                      - img [ref=e1738]
+                      - generic [ref=e1741]: 2:50 PM
+                  - link "Start Consultation" [ref=e1743]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301985
+                    - img [ref=e1745]
+                    - text: Start Consultation
+              - button "Medication Refill 301984 Jumeirah Follow-up Closed January 12, 2026 10:50 AM Start Consultation" [ref=e1747] [cursor=pointer]:
+                - generic [ref=e1748]:
+                  - generic [ref=e1749]:
+                    - generic [ref=e1750]:
+                      - generic [ref=e1751]:
+                        - heading "Medication Refill" [level=3] [ref=e1752]
+                        - generic [ref=e1753]: "301984"
+                      - generic [ref=e1754]:
+                        - generic [ref=e1755]: Jumeirah
+                        - generic [ref=e1756]: Follow-up
+                    - generic [ref=e1757]: Closed
+                  - generic [ref=e1759]:
+                    - generic [ref=e1760]:
+                      - img [ref=e1761]
+                      - generic [ref=e1763]: January 12, 2026
+                    - generic [ref=e1764]:
+                      - img [ref=e1765]
+                      - generic [ref=e1768]: 10:50 AM
+                  - link "Start Consultation" [ref=e1770]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301984
+                    - img [ref=e1772]
+                    - text: Start Consultation
+              - button "Medication Refill 301983 Jumeirah Follow-up Closed January 7, 2026 6:30 PM Start Consultation" [ref=e1774] [cursor=pointer]:
+                - generic [ref=e1775]:
+                  - generic [ref=e1776]:
+                    - generic [ref=e1777]:
+                      - generic [ref=e1778]:
+                        - heading "Medication Refill" [level=3] [ref=e1779]
+                        - generic [ref=e1780]: "301983"
+                      - generic [ref=e1781]:
+                        - generic [ref=e1782]: Jumeirah
+                        - generic [ref=e1783]: Follow-up
+                    - generic [ref=e1784]: Closed
+                  - generic [ref=e1786]:
+                    - generic [ref=e1787]:
+                      - img [ref=e1788]
+                      - generic [ref=e1790]: January 7, 2026
+                    - generic [ref=e1791]:
+                      - img [ref=e1792]
+                      - generic [ref=e1795]: 6:30 PM
+                  - link "Start Consultation" [ref=e1797]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301983
+                    - img [ref=e1799]
+                    - text: Start Consultation
+              - button "Medication Refill 301982 Jumeirah Follow-up Closed November 27, 2025 8:10 AM Start Consultation" [ref=e1801] [cursor=pointer]:
+                - generic [ref=e1802]:
+                  - generic [ref=e1803]:
+                    - generic [ref=e1804]:
+                      - generic [ref=e1805]:
+                        - heading "Medication Refill" [level=3] [ref=e1806]
+                        - generic [ref=e1807]: "301982"
+                      - generic [ref=e1808]:
+                        - generic [ref=e1809]: Jumeirah
+                        - generic [ref=e1810]: Follow-up
+                    - generic [ref=e1811]: Closed
+                  - generic [ref=e1813]:
+                    - generic [ref=e1814]:
+                      - img [ref=e1815]
+                      - generic [ref=e1817]: November 27, 2025
+                    - generic [ref=e1818]:
+                      - img [ref=e1819]
+                      - generic [ref=e1822]: 8:10 AM
+                  - link "Start Consultation" [ref=e1824]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301982
+                    - img [ref=e1826]
+                    - text: Start Consultation
+              - button "— 187132 Jumeirah Closed September 20, 2025 2:31 PM Start Consultation" [ref=e1828] [cursor=pointer]:
+                - generic [ref=e1829]:
+                  - generic [ref=e1830]:
+                    - generic [ref=e1831]:
+                      - generic [ref=e1832]:
+                        - heading "—" [level=3] [ref=e1833]
+                        - generic [ref=e1834]: "187132"
+                      - generic [ref=e1836]: Jumeirah
+                    - generic [ref=e1837]: Closed
+                  - generic [ref=e1839]:
+                    - generic [ref=e1840]:
+                      - img [ref=e1841]
+                      - generic [ref=e1843]: September 20, 2025
+                    - generic [ref=e1844]:
+                      - img [ref=e1845]
+                      - generic [ref=e1848]: 2:31 PM
+                  - link "Start Consultation" [ref=e1850]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187132
+                    - img [ref=e1852]
+                    - text: Start Consultation
+              - button "Medication Refill 301981 Jumeirah Closed September 1, 2025 9:20 AM Start Consultation" [ref=e1854] [cursor=pointer]:
+                - generic [ref=e1855]:
+                  - generic [ref=e1856]:
+                    - generic [ref=e1857]:
+                      - generic [ref=e1858]:
+                        - heading "Medication Refill" [level=3] [ref=e1859]
+                        - generic [ref=e1860]: "301981"
+                      - generic [ref=e1862]: Jumeirah
+                    - generic [ref=e1863]: Closed
+                  - generic [ref=e1865]:
+                    - generic [ref=e1866]:
+                      - img [ref=e1867]
+                      - generic [ref=e1869]: September 1, 2025
+                    - generic [ref=e1870]:
+                      - img [ref=e1871]
+                      - generic [ref=e1874]: 9:20 AM
+                  - link "Start Consultation" [ref=e1876]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301981
+                    - img [ref=e1878]
+                    - text: Start Consultation
+              - button "Medication Refill 301987 Jumeirah Follow-up Closed August 24, 2025 2:50 PM Start Consultation" [ref=e1880] [cursor=pointer]:
+                - generic [ref=e1881]:
+                  - generic [ref=e1882]:
+                    - generic [ref=e1883]:
+                      - generic [ref=e1884]:
+                        - heading "Medication Refill" [level=3] [ref=e1885]
+                        - generic [ref=e1886]: "301987"
+                      - generic [ref=e1887]:
+                        - generic [ref=e1888]: Jumeirah
+                        - generic [ref=e1889]: Follow-up
+                    - generic [ref=e1890]: Closed
+                  - generic [ref=e1892]:
+                    - generic [ref=e1893]:
+                      - img [ref=e1894]
+                      - generic [ref=e1896]: August 24, 2025
+                    - generic [ref=e1897]:
+                      - img [ref=e1898]
+                      - generic [ref=e1901]: 2:50 PM
+                  - link "Start Consultation" [ref=e1903]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301987
+                    - img [ref=e1905]
+                    - text: Start Consultation
+              - button "IV Infusion 297802 Jumeirah Follow-up Closed August 24, 2025 2:10 PM Start Consultation" [ref=e1907] [cursor=pointer]:
+                - generic [ref=e1908]:
+                  - generic [ref=e1909]:
+                    - generic [ref=e1910]:
+                      - generic [ref=e1911]:
+                        - heading "IV Infusion" [level=3] [ref=e1912]
+                        - generic [ref=e1913]: "297802"
+                      - generic [ref=e1914]:
+                        - generic [ref=e1915]: Jumeirah
+                        - generic [ref=e1916]: Follow-up
+                    - generic [ref=e1917]: Closed
+                  - generic [ref=e1919]:
+                    - generic [ref=e1920]:
+                      - img [ref=e1921]
+                      - generic [ref=e1923]: August 24, 2025
+                    - generic [ref=e1924]:
+                      - img [ref=e1925]
+                      - generic [ref=e1928]: 2:10 PM
+                  - link "Start Consultation" [ref=e1930]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=297802
+                    - img [ref=e1932]
+                    - text: Start Consultation
+              - button "— 187131 Jumeirah Closed July 16, 2025 2:08 PM Start Consultation" [ref=e1934] [cursor=pointer]:
+                - generic [ref=e1935]:
+                  - generic [ref=e1936]:
+                    - generic [ref=e1937]:
+                      - generic [ref=e1938]:
+                        - heading "—" [level=3] [ref=e1939]
+                        - generic [ref=e1940]: "187131"
+                      - generic [ref=e1942]: Jumeirah
+                    - generic [ref=e1943]: Closed
+                  - generic [ref=e1945]:
+                    - generic [ref=e1946]:
+                      - img [ref=e1947]
+                      - generic [ref=e1949]: July 16, 2025
+                    - generic [ref=e1950]:
+                      - img [ref=e1951]
+                      - generic [ref=e1954]: 2:08 PM
+                  - link "Start Consultation" [ref=e1956]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187131
+                    - img [ref=e1958]
+                    - text: Start Consultation
+              - button "Medication Refill 301988 Jumeirah Follow-up Closed June 12, 2025 3:50 PM Start Consultation" [ref=e1960] [cursor=pointer]:
+                - generic [ref=e1961]:
+                  - generic [ref=e1962]:
+                    - generic [ref=e1963]:
+                      - generic [ref=e1964]:
+                        - heading "Medication Refill" [level=3] [ref=e1965]
+                        - generic [ref=e1966]: "301988"
+                      - generic [ref=e1967]:
+                        - generic [ref=e1968]: Jumeirah
+                        - generic [ref=e1969]: Follow-up
+                    - generic [ref=e1970]: Closed
+                  - generic [ref=e1972]:
+                    - generic [ref=e1973]:
+                      - img [ref=e1974]
+                      - generic [ref=e1976]: June 12, 2025
+                    - generic [ref=e1977]:
+                      - img [ref=e1978]
+                      - generic [ref=e1981]: 3:50 PM
+                  - link "Start Consultation" [ref=e1983]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301988
+                    - img [ref=e1985]
+                    - text: Start Consultation
+              - button "— 187130 Jumeirah Closed May 23, 2025 12:39 PM Start Consultation" [ref=e1987] [cursor=pointer]:
+                - generic [ref=e1988]:
+                  - generic [ref=e1989]:
+                    - generic [ref=e1990]:
+                      - generic [ref=e1991]:
+                        - heading "—" [level=3] [ref=e1992]
+                        - generic [ref=e1993]: "187130"
+                      - generic [ref=e1995]: Jumeirah
+                    - generic [ref=e1996]: Closed
+                  - generic [ref=e1998]:
+                    - generic [ref=e1999]:
+                      - img [ref=e2000]
+                      - generic [ref=e2002]: May 23, 2025
+                    - generic [ref=e2003]:
+                      - img [ref=e2004]
+                      - generic [ref=e2007]: 12:39 PM
+                  - link "Start Consultation" [ref=e2009]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187130
+                    - img [ref=e2011]
+                    - text: Start Consultation
+              - button "— 187129 Jumeirah Closed May 9, 2025 11:37 AM Start Consultation" [ref=e2013] [cursor=pointer]:
+                - generic [ref=e2014]:
+                  - generic [ref=e2015]:
+                    - generic [ref=e2016]:
+                      - generic [ref=e2017]:
+                        - heading "—" [level=3] [ref=e2018]
+                        - generic [ref=e2019]: "187129"
+                      - generic [ref=e2021]: Jumeirah
+                    - generic [ref=e2022]: Closed
+                  - generic [ref=e2024]:
+                    - generic [ref=e2025]:
+                      - img [ref=e2026]
+                      - generic [ref=e2028]: May 9, 2025
+                    - generic [ref=e2029]:
+                      - img [ref=e2030]
+                      - generic [ref=e2033]: 11:37 AM
+                  - link "Start Consultation" [ref=e2035]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187129
+                    - img [ref=e2037]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270488 Jumeirah Follow-up Closed March 9, 2025 3:50 PM Start Consultation" [ref=e2039] [cursor=pointer]:
+                - generic [ref=e2040]:
+                  - generic [ref=e2041]:
+                    - generic [ref=e2042]:
+                      - generic [ref=e2043]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e2044]
+                        - generic [ref=e2045]: "270488"
+                      - generic [ref=e2046]:
+                        - generic [ref=e2047]: Jumeirah
+                        - generic [ref=e2048]: Follow-up
+                    - generic [ref=e2049]: Closed
+                  - generic [ref=e2051]:
+                    - generic [ref=e2052]:
+                      - img [ref=e2053]
+                      - generic [ref=e2055]: March 9, 2025
+                    - generic [ref=e2056]:
+                      - img [ref=e2057]
+                      - generic [ref=e2060]: 3:50 PM
+                  - link "Start Consultation" [ref=e2062]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270488
+                    - img [ref=e2064]
+                    - text: Start Consultation
+              - button "Medication Refill 301993 Jumeirah Follow-up Closed March 8, 2025 4:30 PM Start Consultation" [ref=e2066] [cursor=pointer]:
+                - generic [ref=e2067]:
+                  - generic [ref=e2068]:
+                    - generic [ref=e2069]:
+                      - generic [ref=e2070]:
+                        - heading "Medication Refill" [level=3] [ref=e2071]
+                        - generic [ref=e2072]: "301993"
+                      - generic [ref=e2073]:
+                        - generic [ref=e2074]: Jumeirah
+                        - generic [ref=e2075]: Follow-up
+                    - generic [ref=e2076]: Closed
+                  - generic [ref=e2078]:
+                    - generic [ref=e2079]:
+                      - img [ref=e2080]
+                      - generic [ref=e2082]: March 8, 2025
+                    - generic [ref=e2083]:
+                      - img [ref=e2084]
+                      - generic [ref=e2087]: 4:30 PM
+                  - link "Start Consultation" [ref=e2089]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301993
+                    - img [ref=e2091]
+                    - text: Start Consultation
+              - button "Medication Refill 301992 Jumeirah Follow-up Closed March 4, 2025 3:50 PM Start Consultation" [ref=e2093] [cursor=pointer]:
+                - generic [ref=e2094]:
+                  - generic [ref=e2095]:
+                    - generic [ref=e2096]:
+                      - generic [ref=e2097]:
+                        - heading "Medication Refill" [level=3] [ref=e2098]
+                        - generic [ref=e2099]: "301992"
+                      - generic [ref=e2100]:
+                        - generic [ref=e2101]: Jumeirah
+                        - generic [ref=e2102]: Follow-up
+                    - generic [ref=e2103]: Closed
+                  - generic [ref=e2105]:
+                    - generic [ref=e2106]:
+                      - img [ref=e2107]
+                      - generic [ref=e2109]: March 4, 2025
+                    - generic [ref=e2110]:
+                      - img [ref=e2111]
+                      - generic [ref=e2114]: 3:50 PM
+                  - link "Start Consultation" [ref=e2116]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301992
+                    - img [ref=e2118]
+                    - text: Start Consultation
+              - button "Medication Refill 301991 Jumeirah Follow-up Closed February 12, 2025 3:30 PM Start Consultation" [ref=e2120] [cursor=pointer]:
+                - generic [ref=e2121]:
+                  - generic [ref=e2122]:
+                    - generic [ref=e2123]:
+                      - generic [ref=e2124]:
+                        - heading "Medication Refill" [level=3] [ref=e2125]
+                        - generic [ref=e2126]: "301991"
+                      - generic [ref=e2127]:
+                        - generic [ref=e2128]: Jumeirah
+                        - generic [ref=e2129]: Follow-up
+                    - generic [ref=e2130]: Closed
+                  - generic [ref=e2132]:
+                    - generic [ref=e2133]:
+                      - img [ref=e2134]
+                      - generic [ref=e2136]: February 12, 2025
+                    - generic [ref=e2137]:
+                      - img [ref=e2138]
+                      - generic [ref=e2141]: 3:30 PM
+                  - link "Start Consultation" [ref=e2143]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301991
+                    - img [ref=e2145]
+                    - text: Start Consultation
+              - button "Medication Refill 301990 Jumeirah Follow-up Closed January 22, 2025 7:10 AM Start Consultation" [ref=e2147] [cursor=pointer]:
+                - generic [ref=e2148]:
+                  - generic [ref=e2149]:
+                    - generic [ref=e2150]:
+                      - generic [ref=e2151]:
+                        - heading "Medication Refill" [level=3] [ref=e2152]
+                        - generic [ref=e2153]: "301990"
+                      - generic [ref=e2154]:
+                        - generic [ref=e2155]: Jumeirah
+                        - generic [ref=e2156]: Follow-up
+                    - generic [ref=e2157]: Closed
+                  - generic [ref=e2159]:
+                    - generic [ref=e2160]:
+                      - img [ref=e2161]
+                      - generic [ref=e2163]: January 22, 2025
+                    - generic [ref=e2164]:
+                      - img [ref=e2165]
+                      - generic [ref=e2168]: 7:10 AM
+                  - link "Start Consultation" [ref=e2170]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301990
+                    - img [ref=e2172]
+                    - text: Start Consultation
+              - button "Medication Refill 301989 Jumeirah Follow-up Closed December 20, 2024 7:00 AM Start Consultation" [ref=e2174] [cursor=pointer]:
+                - generic [ref=e2175]:
+                  - generic [ref=e2176]:
+                    - generic [ref=e2177]:
+                      - generic [ref=e2178]:
+                        - heading "Medication Refill" [level=3] [ref=e2179]
+                        - generic [ref=e2180]: "301989"
+                      - generic [ref=e2181]:
+                        - generic [ref=e2182]: Jumeirah
+                        - generic [ref=e2183]: Follow-up
+                    - generic [ref=e2184]: Closed
+                  - generic [ref=e2186]:
+                    - generic [ref=e2187]:
+                      - img [ref=e2188]
+                      - generic [ref=e2190]: December 20, 2024
+                    - generic [ref=e2191]:
+                      - img [ref=e2192]
+                      - generic [ref=e2195]: 7:00 AM
+                  - link "Start Consultation" [ref=e2197]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301989
+                    - img [ref=e2199]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270489 Jumeirah Follow-up Closed December 19, 2024 7:30 AM Start Consultation" [ref=e2201] [cursor=pointer]:
+                - generic [ref=e2202]:
+                  - generic [ref=e2203]:
+                    - generic [ref=e2204]:
+                      - generic [ref=e2205]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e2206]
+                        - generic [ref=e2207]: "270489"
+                      - generic [ref=e2208]:
+                        - generic [ref=e2209]: Jumeirah
+                        - generic [ref=e2210]: Follow-up
+                    - generic [ref=e2211]: Closed
+                  - generic [ref=e2213]:
+                    - generic [ref=e2214]:
+                      - img [ref=e2215]
+                      - generic [ref=e2217]: December 19, 2024
+                    - generic [ref=e2218]:
+                      - img [ref=e2219]
+                      - generic [ref=e2222]: 7:30 AM
+                  - link "Start Consultation" [ref=e2224]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270489
+                    - img [ref=e2226]
+                    - text: Start Consultation
+              - button "Medication Refill 301994 Jumeirah Follow-up Closed December 4, 2024 3:20 PM Start Consultation" [ref=e2228] [cursor=pointer]:
+                - generic [ref=e2229]:
+                  - generic [ref=e2230]:
+                    - generic [ref=e2231]:
+                      - generic [ref=e2232]:
+                        - heading "Medication Refill" [level=3] [ref=e2233]
+                        - generic [ref=e2234]: "301994"
+                      - generic [ref=e2235]:
+                        - generic [ref=e2236]: Jumeirah
+                        - generic [ref=e2237]: Follow-up
+                    - generic [ref=e2238]: Closed
+                  - generic [ref=e2240]:
+                    - generic [ref=e2241]:
+                      - img [ref=e2242]
+                      - generic [ref=e2244]: December 4, 2024
+                    - generic [ref=e2245]:
+                      - img [ref=e2246]
+                      - generic [ref=e2249]: 3:20 PM
+                  - link "Start Consultation" [ref=e2251]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301994
+                    - img [ref=e2253]
+                    - text: Start Consultation
+              - button "— 187128 Jumeirah Closed November 26, 2024 6:47 PM Start Consultation" [ref=e2255] [cursor=pointer]:
+                - generic [ref=e2256]:
+                  - generic [ref=e2257]:
+                    - generic [ref=e2258]:
+                      - generic [ref=e2259]:
+                        - heading "—" [level=3] [ref=e2260]
+                        - generic [ref=e2261]: "187128"
+                      - generic [ref=e2263]: Jumeirah
+                    - generic [ref=e2264]: Closed
+                  - generic [ref=e2266]:
+                    - generic [ref=e2267]:
+                      - img [ref=e2268]
+                      - generic [ref=e2270]: November 26, 2024
+                    - generic [ref=e2271]:
+                      - img [ref=e2272]
+                      - generic [ref=e2275]: 6:47 PM
+                  - link "Start Consultation" [ref=e2277]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187128
+                    - img [ref=e2279]
+                    - text: Start Consultation
+              - button "Ultrasound Abdomen Package 343406 Jumeirah Follow-up Closed November 12, 2024 8:00 AM Start Consultation" [ref=e2281] [cursor=pointer]:
+                - generic [ref=e2282]:
+                  - generic [ref=e2283]:
+                    - generic [ref=e2284]:
+                      - generic [ref=e2285]:
+                        - heading "Ultrasound Abdomen Package" [level=3] [ref=e2286]
+                        - generic [ref=e2287]: "343406"
+                      - generic [ref=e2288]:
+                        - generic [ref=e2289]: Jumeirah
+                        - generic [ref=e2290]: Follow-up
+                    - generic [ref=e2291]: Closed
+                  - generic [ref=e2293]:
+                    - generic [ref=e2294]:
+                      - img [ref=e2295]
+                      - generic [ref=e2297]: November 12, 2024
+                    - generic [ref=e2298]:
+                      - img [ref=e2299]
+                      - generic [ref=e2302]: 8:00 AM
+                  - link "Start Consultation" [ref=e2304]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=343406
+                    - img [ref=e2306]
+                    - text: Start Consultation
+              - button "Diabetologist Consultation ff up repeat 242295 Jumeirah Follow-up Closed November 11, 2024 2:30 PM Start Consultation" [ref=e2308] [cursor=pointer]:
+                - generic [ref=e2309]:
+                  - generic [ref=e2310]:
+                    - generic [ref=e2311]:
+                      - generic [ref=e2312]:
+                        - heading "Diabetologist Consultation ff up repeat" [level=3] [ref=e2313]
+                        - generic [ref=e2314]: "242295"
+                      - generic [ref=e2315]:
+                        - generic [ref=e2316]: Jumeirah
+                        - generic [ref=e2317]: Follow-up
+                    - generic [ref=e2318]: Closed
+                  - generic [ref=e2320]:
+                    - generic [ref=e2321]:
+                      - img [ref=e2322]
+                      - generic [ref=e2324]: November 11, 2024
+                    - generic [ref=e2325]:
+                      - img [ref=e2326]
+                      - generic [ref=e2329]: 2:30 PM
+                  - link "Start Consultation" [ref=e2331]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=242295
+                    - img [ref=e2333]
+                    - text: Start Consultation
+              - button "Diabetologist New Consultation 244858 Jumeirah Follow-up Closed November 7, 2024 8:40 AM Start Consultation" [ref=e2335] [cursor=pointer]:
+                - generic [ref=e2336]:
+                  - generic [ref=e2337]:
+                    - generic [ref=e2338]:
+                      - generic [ref=e2339]:
+                        - heading "Diabetologist New Consultation" [level=3] [ref=e2340]
+                        - generic [ref=e2341]: "244858"
+                      - generic [ref=e2342]:
+                        - generic [ref=e2343]: Jumeirah
+                        - generic [ref=e2344]: Follow-up
+                    - generic [ref=e2345]: Closed
+                  - generic [ref=e2347]:
+                    - generic [ref=e2348]:
+                      - img [ref=e2349]
+                      - generic [ref=e2351]: November 7, 2024
+                    - generic [ref=e2352]:
+                      - img [ref=e2353]
+                      - generic [ref=e2356]: 8:40 AM
+                  - link "Start Consultation" [ref=e2358]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=244858
+                    - img [ref=e2360]
+                    - text: Start Consultation
+              - button "Diabetologist Consultation ff up repeat 242294 Jumeirah Follow-up Closed October 31, 2024 8:20 AM Start Consultation" [ref=e2362] [cursor=pointer]:
+                - generic [ref=e2363]:
+                  - generic [ref=e2364]:
+                    - generic [ref=e2365]:
+                      - generic [ref=e2366]:
+                        - heading "Diabetologist Consultation ff up repeat" [level=3] [ref=e2367]
+                        - generic [ref=e2368]: "242294"
+                      - generic [ref=e2369]:
+                        - generic [ref=e2370]: Jumeirah
+                        - generic [ref=e2371]: Follow-up
+                    - generic [ref=e2372]: Closed
+                  - generic [ref=e2374]:
+                    - generic [ref=e2375]:
+                      - img [ref=e2376]
+                      - generic [ref=e2378]: October 31, 2024
+                    - generic [ref=e2379]:
+                      - img [ref=e2380]
+                      - generic [ref=e2383]: 8:20 AM
+                  - link "Start Consultation" [ref=e2385]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=242294
+                    - img [ref=e2387]
+                    - text: Start Consultation
+              - button "— 187127 Jumeirah Closed October 24, 2024 10:21 AM Start Consultation" [ref=e2389] [cursor=pointer]:
+                - generic [ref=e2390]:
+                  - generic [ref=e2391]:
+                    - generic [ref=e2392]:
+                      - generic [ref=e2393]:
+                        - heading "—" [level=3] [ref=e2394]
+                        - generic [ref=e2395]: "187127"
+                      - generic [ref=e2397]: Jumeirah
+                    - generic [ref=e2398]: Closed
+                  - generic [ref=e2400]:
+                    - generic [ref=e2401]:
+                      - img [ref=e2402]
+                      - generic [ref=e2404]: October 24, 2024
+                    - generic [ref=e2405]:
+                      - img [ref=e2406]
+                      - generic [ref=e2409]: 10:21 AM
+                  - link "Start Consultation" [ref=e2411]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187127
+                    - img [ref=e2413]
+                    - text: Start Consultation
+              - button "Medication Refill 301997 Jumeirah Follow-up Closed October 22, 2024 6:00 PM Start Consultation" [ref=e2415] [cursor=pointer]:
+                - generic [ref=e2416]:
+                  - generic [ref=e2417]:
+                    - generic [ref=e2418]:
+                      - generic [ref=e2419]:
+                        - heading "Medication Refill" [level=3] [ref=e2420]
+                        - generic [ref=e2421]: "301997"
+                      - generic [ref=e2422]:
+                        - generic [ref=e2423]: Jumeirah
+                        - generic [ref=e2424]: Follow-up
+                    - generic [ref=e2425]: Closed
+                  - generic [ref=e2427]:
+                    - generic [ref=e2428]:
+                      - img [ref=e2429]
+                      - generic [ref=e2431]: October 22, 2024
+                    - generic [ref=e2432]:
+                      - img [ref=e2433]
+                      - generic [ref=e2436]: 6:00 PM
+                  - link "Start Consultation" [ref=e2438]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301997
+                    - img [ref=e2440]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270507 Jumeirah Follow-up Closed October 18, 2024 8:00 AM Start Consultation" [ref=e2442] [cursor=pointer]:
+                - generic [ref=e2443]:
+                  - generic [ref=e2444]:
+                    - generic [ref=e2445]:
+                      - generic [ref=e2446]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e2447]
+                        - generic [ref=e2448]: "270507"
+                      - generic [ref=e2449]:
+                        - generic [ref=e2450]: Jumeirah
+                        - generic [ref=e2451]: Follow-up
+                    - generic [ref=e2452]: Closed
+                  - generic [ref=e2454]:
+                    - generic [ref=e2455]:
+                      - img [ref=e2456]
+                      - generic [ref=e2458]: October 18, 2024
+                    - generic [ref=e2459]:
+                      - img [ref=e2460]
+                      - generic [ref=e2463]: 8:00 AM
+                  - link "Start Consultation" [ref=e2465]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270507
+                    - img [ref=e2467]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270506 Jumeirah Follow-up Closed September 11, 2024 12:50 PM Start Consultation" [ref=e2469] [cursor=pointer]:
+                - generic [ref=e2470]:
+                  - generic [ref=e2471]:
+                    - generic [ref=e2472]:
+                      - generic [ref=e2473]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e2474]
+                        - generic [ref=e2475]: "270506"
+                      - generic [ref=e2476]:
+                        - generic [ref=e2477]: Jumeirah
+                        - generic [ref=e2478]: Follow-up
+                    - generic [ref=e2479]: Closed
+                  - generic [ref=e2481]:
+                    - generic [ref=e2482]:
+                      - img [ref=e2483]
+                      - generic [ref=e2485]: September 11, 2024
+                    - generic [ref=e2486]:
+                      - img [ref=e2487]
+                      - generic [ref=e2490]: 12:50 PM
+                  - link "Start Consultation" [ref=e2492]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270506
+                    - img [ref=e2494]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270505 Jumeirah Follow-up Closed July 31, 2024 6:40 AM Start Consultation" [ref=e2496] [cursor=pointer]:
+                - generic [ref=e2497]:
+                  - generic [ref=e2498]:
+                    - generic [ref=e2499]:
+                      - generic [ref=e2500]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e2501]
+                        - generic [ref=e2502]: "270505"
+                      - generic [ref=e2503]:
+                        - generic [ref=e2504]: Jumeirah
+                        - generic [ref=e2505]: Follow-up
+                    - generic [ref=e2506]: Closed
+                  - generic [ref=e2508]:
+                    - generic [ref=e2509]:
+                      - img [ref=e2510]
+                      - generic [ref=e2512]: July 31, 2024
+                    - generic [ref=e2513]:
+                      - img [ref=e2514]
+                      - generic [ref=e2517]: 6:40 AM
+                  - link "Start Consultation" [ref=e2519]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270505
+                    - img [ref=e2521]
+                    - text: Start Consultation
+              - button "Medication Refill GP 313749 Jumeirah Follow-up Closed July 24, 2024 10:00 AM Start Consultation" [ref=e2523] [cursor=pointer]:
+                - generic [ref=e2524]:
+                  - generic [ref=e2525]:
+                    - generic [ref=e2526]:
+                      - generic [ref=e2527]:
+                        - heading "Medication Refill GP" [level=3] [ref=e2528]
+                        - generic [ref=e2529]: "313749"
+                      - generic [ref=e2530]:
+                        - generic [ref=e2531]: Jumeirah
+                        - generic [ref=e2532]: Follow-up
+                    - generic [ref=e2533]: Closed
+                  - generic [ref=e2535]:
+                    - generic [ref=e2536]:
+                      - img [ref=e2537]
+                      - generic [ref=e2539]: July 24, 2024
+                    - generic [ref=e2540]:
+                      - img [ref=e2541]
+                      - generic [ref=e2544]: 10:00 AM
+                  - link "Start Consultation" [ref=e2546]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=313749
+                    - img [ref=e2548]
+                    - text: Start Consultation
+              - button "Medication Refill 301976 Jumeirah Follow-up Closed June 5, 2024 5:00 PM Start Consultation" [ref=e2550] [cursor=pointer]:
+                - generic [ref=e2551]:
+                  - generic [ref=e2552]:
+                    - generic [ref=e2553]:
+                      - generic [ref=e2554]:
+                        - heading "Medication Refill" [level=3] [ref=e2555]
+                        - generic [ref=e2556]: "301976"
+                      - generic [ref=e2557]:
+                        - generic [ref=e2558]: Jumeirah
+                        - generic [ref=e2559]: Follow-up
+                    - generic [ref=e2560]: Closed
+                  - generic [ref=e2562]:
+                    - generic [ref=e2563]:
+                      - img [ref=e2564]
+                      - generic [ref=e2566]: June 5, 2024
+                    - generic [ref=e2567]:
+                      - img [ref=e2568]
+                      - generic [ref=e2571]: 5:00 PM
+                  - link "Start Consultation" [ref=e2573]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301976
+                    - img [ref=e2575]
+                    - text: Start Consultation
+              - button "TMT Stress Test 338137 Jumeirah Follow-up Closed April 7, 2024 1:40 PM Start Consultation" [ref=e2577] [cursor=pointer]:
+                - generic [ref=e2578]:
+                  - generic [ref=e2579]:
+                    - generic [ref=e2580]:
+                      - generic [ref=e2581]:
+                        - heading "TMT Stress Test" [level=3] [ref=e2582]
+                        - generic [ref=e2583]: "338137"
+                      - generic [ref=e2584]:
+                        - generic [ref=e2585]: Jumeirah
+                        - generic [ref=e2586]: Follow-up
+                    - generic [ref=e2587]: Closed
+                  - generic [ref=e2589]:
+                    - generic [ref=e2590]:
+                      - img [ref=e2591]
+                      - generic [ref=e2593]: April 7, 2024
+                    - generic [ref=e2594]:
+                      - img [ref=e2595]
+                      - generic [ref=e2598]: 1:40 PM
+                  - link "Start Consultation" [ref=e2600]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=338137
+                    - img [ref=e2602]
+                    - text: Start Consultation
+              - button "— 187121 Jumeirah Closed March 25, 2024 1:36 PM Start Consultation" [ref=e2604] [cursor=pointer]:
+                - generic [ref=e2605]:
+                  - generic [ref=e2606]:
+                    - generic [ref=e2607]:
+                      - generic [ref=e2608]:
+                        - heading "—" [level=3] [ref=e2609]
+                        - generic [ref=e2610]: "187121"
+                      - generic [ref=e2612]: Jumeirah
+                    - generic [ref=e2613]: Closed
+                  - generic [ref=e2615]:
+                    - generic [ref=e2616]:
+                      - img [ref=e2617]
+                      - generic [ref=e2619]: March 25, 2024
+                    - generic [ref=e2620]:
+                      - img [ref=e2621]
+                      - generic [ref=e2624]: 1:36 PM
+                  - link "Start Consultation" [ref=e2626]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187121
+                    - img [ref=e2628]
+                    - text: Start Consultation
+              - button "— 187120 Jumeirah Closed February 23, 2024 1:16 PM Start Consultation" [ref=e2630] [cursor=pointer]:
+                - generic [ref=e2631]:
+                  - generic [ref=e2632]:
+                    - generic [ref=e2633]:
+                      - generic [ref=e2634]:
+                        - heading "—" [level=3] [ref=e2635]
+                        - generic [ref=e2636]: "187120"
+                      - generic [ref=e2638]: Jumeirah
+                    - generic [ref=e2639]: Closed
+                  - generic [ref=e2641]:
+                    - generic [ref=e2642]:
+                      - img [ref=e2643]
+                      - generic [ref=e2645]: February 23, 2024
+                    - generic [ref=e2646]:
+                      - img [ref=e2647]
+                      - generic [ref=e2650]: 1:16 PM
+                  - link "Start Consultation" [ref=e2652]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187120
+                    - img [ref=e2654]
+                    - text: Start Consultation
+              - button "Medication Refill 301974 Jumeirah Follow-up Closed February 15, 2024 11:00 AM Start Consultation" [ref=e2656] [cursor=pointer]:
+                - generic [ref=e2657]:
+                  - generic [ref=e2658]:
+                    - generic [ref=e2659]:
+                      - generic [ref=e2660]:
+                        - heading "Medication Refill" [level=3] [ref=e2661]
+                        - generic [ref=e2662]: "301974"
+                      - generic [ref=e2663]:
+                        - generic [ref=e2664]: Jumeirah
+                        - generic [ref=e2665]: Follow-up
+                    - generic [ref=e2666]: Closed
+                  - generic [ref=e2668]:
+                    - generic [ref=e2669]:
+                      - img [ref=e2670]
+                      - generic [ref=e2672]: February 15, 2024
+                    - generic [ref=e2673]:
+                      - img [ref=e2674]
+                      - generic [ref=e2677]: 11:00 AM
+                  - link "Start Consultation" [ref=e2679]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301974
+                    - img [ref=e2681]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270511 Jumeirah Follow-up Closed February 7, 2024 7:40 AM Start Consultation" [ref=e2683] [cursor=pointer]:
+                - generic [ref=e2684]:
+                  - generic [ref=e2685]:
+                    - generic [ref=e2686]:
+                      - generic [ref=e2687]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e2688]
+                        - generic [ref=e2689]: "270511"
+                      - generic [ref=e2690]:
+                        - generic [ref=e2691]: Jumeirah
+                        - generic [ref=e2692]: Follow-up
+                    - generic [ref=e2693]: Closed
+                  - generic [ref=e2695]:
+                    - generic [ref=e2696]:
+                      - img [ref=e2697]
+                      - generic [ref=e2699]: February 7, 2024
+                    - generic [ref=e2700]:
+                      - img [ref=e2701]
+                      - generic [ref=e2704]: 7:40 AM
+                  - link "Start Consultation" [ref=e2706]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270511
+                    - img [ref=e2708]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270510 Jumeirah Follow-up Closed January 9, 2024 10:00 AM Start Consultation" [ref=e2710] [cursor=pointer]:
+                - generic [ref=e2711]:
+                  - generic [ref=e2712]:
+                    - generic [ref=e2713]:
+                      - generic [ref=e2714]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e2715]
+                        - generic [ref=e2716]: "270510"
+                      - generic [ref=e2717]:
+                        - generic [ref=e2718]: Jumeirah
+                        - generic [ref=e2719]: Follow-up
+                    - generic [ref=e2720]: Closed
+                  - generic [ref=e2722]:
+                    - generic [ref=e2723]:
+                      - img [ref=e2724]
+                      - generic [ref=e2726]: January 9, 2024
+                    - generic [ref=e2727]:
+                      - img [ref=e2728]
+                      - generic [ref=e2731]: 10:00 AM
+                  - link "Start Consultation" [ref=e2733]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270510
+                    - img [ref=e2735]
+                    - text: Start Consultation
+              - button "Medication Refill 301975 Jumeirah Follow-up Closed December 20, 2023 10:40 AM Start Consultation" [ref=e2737] [cursor=pointer]:
+                - generic [ref=e2738]:
+                  - generic [ref=e2739]:
+                    - generic [ref=e2740]:
+                      - generic [ref=e2741]:
+                        - heading "Medication Refill" [level=3] [ref=e2742]
+                        - generic [ref=e2743]: "301975"
+                      - generic [ref=e2744]:
+                        - generic [ref=e2745]: Jumeirah
+                        - generic [ref=e2746]: Follow-up
+                    - generic [ref=e2747]: Closed
+                  - generic [ref=e2749]:
+                    - generic [ref=e2750]:
+                      - img [ref=e2751]
+                      - generic [ref=e2753]: December 20, 2023
+                    - generic [ref=e2754]:
+                      - img [ref=e2755]
+                      - generic [ref=e2758]: 10:40 AM
+                  - link "Start Consultation" [ref=e2760]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301975
+                    - img [ref=e2762]
+                    - text: Start Consultation
+              - button "— 187119 Jumeirah Closed October 31, 2023 5:49 PM Start Consultation" [ref=e2764] [cursor=pointer]:
+                - generic [ref=e2765]:
+                  - generic [ref=e2766]:
+                    - generic [ref=e2767]:
+                      - generic [ref=e2768]:
+                        - heading "—" [level=3] [ref=e2769]
+                        - generic [ref=e2770]: "187119"
+                      - generic [ref=e2772]: Jumeirah
+                    - generic [ref=e2773]: Closed
+                  - generic [ref=e2775]:
+                    - generic [ref=e2776]:
+                      - img [ref=e2777]
+                      - generic [ref=e2779]: October 31, 2023
+                    - generic [ref=e2780]:
+                      - img [ref=e2781]
+                      - generic [ref=e2784]: 5:49 PM
+                  - link "Start Consultation" [ref=e2786]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187119
+                    - img [ref=e2788]
+                    - text: Start Consultation
+              - button "Medication Refill 301977 Jumeirah Closed October 31, 2023 3:00 PM Start Consultation" [ref=e2790] [cursor=pointer]:
+                - generic [ref=e2791]:
+                  - generic [ref=e2792]:
+                    - generic [ref=e2793]:
+                      - generic [ref=e2794]:
+                        - heading "Medication Refill" [level=3] [ref=e2795]
+                        - generic [ref=e2796]: "301977"
+                      - generic [ref=e2798]: Jumeirah
+                    - generic [ref=e2799]: Closed
+                  - generic [ref=e2801]:
+                    - generic [ref=e2802]:
+                      - img [ref=e2803]
+                      - generic [ref=e2805]: October 31, 2023
+                    - generic [ref=e2806]:
+                      - img [ref=e2807]
+                      - generic [ref=e2810]: 3:00 PM
+                  - link "Start Consultation" [ref=e2812]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301977
+                    - img [ref=e2814]
+                    - text: Start Consultation
+              - button "GluCare Basic Package 270504 Jumeirah Follow-up Closed September 21, 2023 7:40 AM Start Consultation" [ref=e2816] [cursor=pointer]:
+                - generic [ref=e2817]:
+                  - generic [ref=e2818]:
+                    - generic [ref=e2819]:
+                      - generic [ref=e2820]:
+                        - heading "GluCare Basic Package" [level=3] [ref=e2821]
+                        - generic [ref=e2822]: "270504"
+                      - generic [ref=e2823]:
+                        - generic [ref=e2824]: Jumeirah
+                        - generic [ref=e2825]: Follow-up
+                    - generic [ref=e2826]: Closed
+                  - generic [ref=e2828]:
+                    - generic [ref=e2829]:
+                      - img [ref=e2830]
+                      - generic [ref=e2832]: September 21, 2023
+                    - generic [ref=e2833]:
+                      - img [ref=e2834]
+                      - generic [ref=e2837]: 7:40 AM
+                  - link "Start Consultation" [ref=e2839]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=270504
+                    - img [ref=e2841]
+                    - text: Start Consultation
+              - button "— 187118 Jumeirah Closed August 29, 2023 5:31 PM Start Consultation" [ref=e2843] [cursor=pointer]:
+                - generic [ref=e2844]:
+                  - generic [ref=e2845]:
+                    - generic [ref=e2846]:
+                      - generic [ref=e2847]:
+                        - heading "—" [level=3] [ref=e2848]
+                        - generic [ref=e2849]: "187118"
+                      - generic [ref=e2851]: Jumeirah
+                    - generic [ref=e2852]: Closed
+                  - generic [ref=e2854]:
+                    - generic [ref=e2855]:
+                      - img [ref=e2856]
+                      - generic [ref=e2858]: August 29, 2023
+                    - generic [ref=e2859]:
+                      - img [ref=e2860]
+                      - generic [ref=e2863]: 5:31 PM
+                  - link "Start Consultation" [ref=e2865]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187118
+                    - img [ref=e2867]
+                    - text: Start Consultation
+              - button "— 187117 Jumeirah Closed August 8, 2023 5:23 PM Start Consultation" [ref=e2869] [cursor=pointer]:
+                - generic [ref=e2870]:
+                  - generic [ref=e2871]:
+                    - generic [ref=e2872]:
+                      - generic [ref=e2873]:
+                        - heading "—" [level=3] [ref=e2874]
+                        - generic [ref=e2875]: "187117"
+                      - generic [ref=e2877]: Jumeirah
+                    - generic [ref=e2878]: Closed
+                  - generic [ref=e2880]:
+                    - generic [ref=e2881]:
+                      - img [ref=e2882]
+                      - generic [ref=e2884]: August 8, 2023
+                    - generic [ref=e2885]:
+                      - img [ref=e2886]
+                      - generic [ref=e2889]: 5:23 PM
+                  - link "Start Consultation" [ref=e2891]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187117
+                    - img [ref=e2893]
+                    - text: Start Consultation
+              - button "Medication Refill 301978 Jumeirah Follow-up Closed July 25, 2023 2:40 PM Start Consultation" [ref=e2895] [cursor=pointer]:
+                - generic [ref=e2896]:
+                  - generic [ref=e2897]:
+                    - generic [ref=e2898]:
+                      - generic [ref=e2899]:
+                        - heading "Medication Refill" [level=3] [ref=e2900]
+                        - generic [ref=e2901]: "301978"
+                      - generic [ref=e2902]:
+                        - generic [ref=e2903]: Jumeirah
+                        - generic [ref=e2904]: Follow-up
+                    - generic [ref=e2905]: Closed
+                  - generic [ref=e2907]:
+                    - generic [ref=e2908]:
+                      - img [ref=e2909]
+                      - generic [ref=e2911]: July 25, 2023
+                    - generic [ref=e2912]:
+                      - img [ref=e2913]
+                      - generic [ref=e2916]: 2:40 PM
+                  - link "Start Consultation" [ref=e2918]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301978
+                    - img [ref=e2920]
+                    - text: Start Consultation
+              - button "— 187116 Jumeirah Closed June 19, 2023 6:22 PM Start Consultation" [ref=e2922] [cursor=pointer]:
+                - generic [ref=e2923]:
+                  - generic [ref=e2924]:
+                    - generic [ref=e2925]:
+                      - generic [ref=e2926]:
+                        - heading "—" [level=3] [ref=e2927]
+                        - generic [ref=e2928]: "187116"
+                      - generic [ref=e2930]: Jumeirah
+                    - generic [ref=e2931]: Closed
+                  - generic [ref=e2933]:
+                    - generic [ref=e2934]:
+                      - img [ref=e2935]
+                      - generic [ref=e2937]: June 19, 2023
+                    - generic [ref=e2938]:
+                      - img [ref=e2939]
+                      - generic [ref=e2942]: 6:22 PM
+                  - link "Start Consultation" [ref=e2944]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187116
+                    - img [ref=e2946]
+                    - text: Start Consultation
+              - button "Medication Refill 301980 Jumeirah Follow-up Closed May 15, 2023 9:00 AM Start Consultation" [ref=e2948] [cursor=pointer]:
+                - generic [ref=e2949]:
+                  - generic [ref=e2950]:
+                    - generic [ref=e2951]:
+                      - generic [ref=e2952]:
+                        - heading "Medication Refill" [level=3] [ref=e2953]
+                        - generic [ref=e2954]: "301980"
+                      - generic [ref=e2955]:
+                        - generic [ref=e2956]: Jumeirah
+                        - generic [ref=e2957]: Follow-up
+                    - generic [ref=e2958]: Closed
+                  - generic [ref=e2960]:
+                    - generic [ref=e2961]:
+                      - img [ref=e2962]
+                      - generic [ref=e2964]: May 15, 2023
+                    - generic [ref=e2965]:
+                      - img [ref=e2966]
+                      - generic [ref=e2969]: 9:00 AM
+                  - link "Start Consultation" [ref=e2971]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301980
+                    - img [ref=e2973]
+                    - text: Start Consultation
+              - button "Medication Refill 301979 Jumeirah Follow-up Closed March 20, 2023 5:00 PM Start Consultation" [ref=e2975] [cursor=pointer]:
+                - generic [ref=e2976]:
+                  - generic [ref=e2977]:
+                    - generic [ref=e2978]:
+                      - generic [ref=e2979]:
+                        - heading "Medication Refill" [level=3] [ref=e2980]
+                        - generic [ref=e2981]: "301979"
+                      - generic [ref=e2982]:
+                        - generic [ref=e2983]: Jumeirah
+                        - generic [ref=e2984]: Follow-up
+                    - generic [ref=e2985]: Closed
+                  - generic [ref=e2987]:
+                    - generic [ref=e2988]:
+                      - img [ref=e2989]
+                      - generic [ref=e2991]: March 20, 2023
+                    - generic [ref=e2992]:
+                      - img [ref=e2993]
+                      - generic [ref=e2996]: 5:00 PM
+                  - link "Start Consultation" [ref=e2998]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=301979
+                    - img [ref=e3000]
+                    - text: Start Consultation
+              - button "— 187115 Jumeirah Closed February 15, 2023 6:03 PM Start Consultation" [ref=e3002] [cursor=pointer]:
+                - generic [ref=e3003]:
+                  - generic [ref=e3004]:
+                    - generic [ref=e3005]:
+                      - generic [ref=e3006]:
+                        - heading "—" [level=3] [ref=e3007]
+                        - generic [ref=e3008]: "187115"
+                      - generic [ref=e3010]: Jumeirah
+                    - generic [ref=e3011]: Closed
+                  - generic [ref=e3013]:
+                    - generic [ref=e3014]:
+                      - img [ref=e3015]
+                      - generic [ref=e3017]: February 15, 2023
+                    - generic [ref=e3018]:
+                      - img [ref=e3019]
+                      - generic [ref=e3022]: 6:03 PM
+                  - link "Start Consultation" [ref=e3024]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187115
+                    - img [ref=e3026]
+                    - text: Start Consultation
+              - button "— 187114 Jumeirah Closed January 29, 2023 10:43 AM Start Consultation" [ref=e3028] [cursor=pointer]:
+                - generic [ref=e3029]:
+                  - generic [ref=e3030]:
+                    - generic [ref=e3031]:
+                      - generic [ref=e3032]:
+                        - heading "—" [level=3] [ref=e3033]
+                        - generic [ref=e3034]: "187114"
+                      - generic [ref=e3036]: Jumeirah
+                    - generic [ref=e3037]: Closed
+                  - generic [ref=e3039]:
+                    - generic [ref=e3040]:
+                      - img [ref=e3041]
+                      - generic [ref=e3043]: January 29, 2023
+                    - generic [ref=e3044]:
+                      - img [ref=e3045]
+                      - generic [ref=e3048]: 10:43 AM
+                  - link "Start Consultation" [ref=e3050]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187114
+                    - img [ref=e3052]
+                    - text: Start Consultation
+              - button "— 187113 Jumeirah Closed January 20, 2023 4:36 PM Start Consultation" [ref=e3054] [cursor=pointer]:
+                - generic [ref=e3055]:
+                  - generic [ref=e3056]:
+                    - generic [ref=e3057]:
+                      - generic [ref=e3058]:
+                        - heading "—" [level=3] [ref=e3059]
+                        - generic [ref=e3060]: "187113"
+                      - generic [ref=e3062]: Jumeirah
+                    - generic [ref=e3063]: Closed
+                  - generic [ref=e3065]:
+                    - generic [ref=e3066]:
+                      - img [ref=e3067]
+                      - generic [ref=e3069]: January 20, 2023
+                    - generic [ref=e3070]:
+                      - img [ref=e3071]
+                      - generic [ref=e3074]: 4:36 PM
+                  - link "Start Consultation" [ref=e3076]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187113
+                    - img [ref=e3078]
+                    - text: Start Consultation
+              - button "— 187112 Jumeirah Closed December 9, 2022 12:41 PM Start Consultation" [ref=e3080] [cursor=pointer]:
+                - generic [ref=e3081]:
+                  - generic [ref=e3082]:
+                    - generic [ref=e3083]:
+                      - generic [ref=e3084]:
+                        - heading "—" [level=3] [ref=e3085]
+                        - generic [ref=e3086]: "187112"
+                      - generic [ref=e3088]: Jumeirah
+                    - generic [ref=e3089]: Closed
+                  - generic [ref=e3091]:
+                    - generic [ref=e3092]:
+                      - img [ref=e3093]
+                      - generic [ref=e3095]: December 9, 2022
+                    - generic [ref=e3096]:
+                      - img [ref=e3097]
+                      - generic [ref=e3100]: 12:41 PM
+                  - link "Start Consultation" [ref=e3102]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187112
+                    - img [ref=e3104]
+                    - text: Start Consultation
+              - button "Endocrinologist New Consultation 255588 Jumeirah Follow-up Closed November 25, 2022 1:10 PM Start Consultation" [ref=e3106] [cursor=pointer]:
+                - generic [ref=e3107]:
+                  - generic [ref=e3108]:
+                    - generic [ref=e3109]:
+                      - generic [ref=e3110]:
+                        - heading "Endocrinologist New Consultation" [level=3] [ref=e3111]
+                        - generic [ref=e3112]: "255588"
+                      - generic [ref=e3113]:
+                        - generic [ref=e3114]: Jumeirah
+                        - generic [ref=e3115]: Follow-up
+                    - generic [ref=e3116]: Closed
+                  - generic [ref=e3118]:
+                    - generic [ref=e3119]:
+                      - img [ref=e3120]
+                      - generic [ref=e3122]: November 25, 2022
+                    - generic [ref=e3123]:
+                      - img [ref=e3124]
+                      - generic [ref=e3127]: 1:10 PM
+                  - link "Start Consultation" [ref=e3129]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=255588
+                    - img [ref=e3131]
+                    - text: Start Consultation
+              - button "— 187111 Jumeirah Closed October 18, 2022 9:38 AM Start Consultation" [ref=e3133] [cursor=pointer]:
+                - generic [ref=e3134]:
+                  - generic [ref=e3135]:
+                    - generic [ref=e3136]:
+                      - generic [ref=e3137]:
+                        - heading "—" [level=3] [ref=e3138]
+                        - generic [ref=e3139]: "187111"
+                      - generic [ref=e3141]: Jumeirah
+                    - generic [ref=e3142]: Closed
+                  - generic [ref=e3144]:
+                    - generic [ref=e3145]:
+                      - img [ref=e3146]
+                      - generic [ref=e3148]: October 18, 2022
+                    - generic [ref=e3149]:
+                      - img [ref=e3150]
+                      - generic [ref=e3153]: 9:38 AM
+                  - link "Start Consultation" [ref=e3155]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187111
+                    - img [ref=e3157]
+                    - text: Start Consultation
+              - button "— 187110 Jumeirah Closed September 21, 2022 9:57 AM Start Consultation" [ref=e3159] [cursor=pointer]:
+                - generic [ref=e3160]:
+                  - generic [ref=e3161]:
+                    - generic [ref=e3162]:
+                      - generic [ref=e3163]:
+                        - heading "—" [level=3] [ref=e3164]
+                        - generic [ref=e3165]: "187110"
+                      - generic [ref=e3167]: Jumeirah
+                    - generic [ref=e3168]: Closed
+                  - generic [ref=e3170]:
+                    - generic [ref=e3171]:
+                      - img [ref=e3172]
+                      - generic [ref=e3174]: September 21, 2022
+                    - generic [ref=e3175]:
+                      - img [ref=e3176]
+                      - generic [ref=e3179]: 9:57 AM
+                  - link "Start Consultation" [ref=e3181]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187110
+                    - img [ref=e3183]
+                    - text: Start Consultation
+              - button "— 187109 Jumeirah Closed August 22, 2022 9:23 AM Start Consultation" [ref=e3185] [cursor=pointer]:
+                - generic [ref=e3186]:
+                  - generic [ref=e3187]:
+                    - generic [ref=e3188]:
+                      - generic [ref=e3189]:
+                        - heading "—" [level=3] [ref=e3190]
+                        - generic [ref=e3191]: "187109"
+                      - generic [ref=e3193]: Jumeirah
+                    - generic [ref=e3194]: Closed
+                  - generic [ref=e3196]:
+                    - generic [ref=e3197]:
+                      - img [ref=e3198]
+                      - generic [ref=e3200]: August 22, 2022
+                    - generic [ref=e3201]:
+                      - img [ref=e3202]
+                      - generic [ref=e3205]: 9:23 AM
+                  - link "Start Consultation" [ref=e3207]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187109
+                    - img [ref=e3209]
+                    - text: Start Consultation
+              - button "— 187108 Jumeirah Closed July 29, 2022 1:31 PM Start Consultation" [ref=e3211] [cursor=pointer]:
+                - generic [ref=e3212]:
+                  - generic [ref=e3213]:
+                    - generic [ref=e3214]:
+                      - generic [ref=e3215]:
+                        - heading "—" [level=3] [ref=e3216]
+                        - generic [ref=e3217]: "187108"
+                      - generic [ref=e3219]: Jumeirah
+                    - generic [ref=e3220]: Closed
+                  - generic [ref=e3222]:
+                    - generic [ref=e3223]:
+                      - img [ref=e3224]
+                      - generic [ref=e3226]: July 29, 2022
+                    - generic [ref=e3227]:
+                      - img [ref=e3228]
+                      - generic [ref=e3231]: 1:31 PM
+                  - link "Start Consultation" [ref=e3233]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187108
+                    - img [ref=e3235]
+                    - text: Start Consultation
+              - button "— 187107 Jumeirah Closed July 1, 2022 5:26 PM Start Consultation" [ref=e3237] [cursor=pointer]:
+                - generic [ref=e3238]:
+                  - generic [ref=e3239]:
+                    - generic [ref=e3240]:
+                      - generic [ref=e3241]:
+                        - heading "—" [level=3] [ref=e3242]
+                        - generic [ref=e3243]: "187107"
+                      - generic [ref=e3245]: Jumeirah
+                    - generic [ref=e3246]: Closed
+                  - generic [ref=e3248]:
+                    - generic [ref=e3249]:
+                      - img [ref=e3250]
+                      - generic [ref=e3252]: July 1, 2022
+                    - generic [ref=e3253]:
+                      - img [ref=e3254]
+                      - generic [ref=e3257]: 5:26 PM
+                  - link "Start Consultation" [ref=e3259]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187107
+                    - img [ref=e3261]
+                    - text: Start Consultation
+              - button "Pre-Diabetes Package Follow- Up 327811 Jumeirah Follow-up Closed June 7, 2022 10:10 AM Start Consultation" [ref=e3263] [cursor=pointer]:
+                - generic [ref=e3264]:
+                  - generic [ref=e3265]:
+                    - generic [ref=e3266]:
+                      - generic [ref=e3267]:
+                        - heading "Pre-Diabetes Package Follow- Up" [level=3] [ref=e3268]
+                        - generic [ref=e3269]: "327811"
+                      - generic [ref=e3270]:
+                        - generic [ref=e3271]: Jumeirah
+                        - generic [ref=e3272]: Follow-up
+                    - generic [ref=e3273]: Closed
+                  - generic [ref=e3275]:
+                    - generic [ref=e3276]:
+                      - img [ref=e3277]
+                      - generic [ref=e3279]: June 7, 2022
+                    - generic [ref=e3280]:
+                      - img [ref=e3281]
+                      - generic [ref=e3284]: 10:10 AM
+                  - link "Start Consultation" [ref=e3286]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=327811
+                    - img [ref=e3288]
+                    - text: Start Consultation
+              - button "— 187106 Jumeirah Closed April 13, 2022 1:16 PM Start Consultation" [ref=e3290] [cursor=pointer]:
+                - generic [ref=e3291]:
+                  - generic [ref=e3292]:
+                    - generic [ref=e3293]:
+                      - generic [ref=e3294]:
+                        - heading "—" [level=3] [ref=e3295]
+                        - generic [ref=e3296]: "187106"
+                      - generic [ref=e3298]: Jumeirah
+                    - generic [ref=e3299]: Closed
+                  - generic [ref=e3301]:
+                    - generic [ref=e3302]:
+                      - img [ref=e3303]
+                      - generic [ref=e3305]: April 13, 2022
+                    - generic [ref=e3306]:
+                      - img [ref=e3307]
+                      - generic [ref=e3310]: 1:16 PM
+                  - link "Start Consultation" [ref=e3312]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187106
+                    - img [ref=e3314]
+                    - text: Start Consultation
+              - button "— 187105 Jumeirah Closed January 24, 2022 6:01 PM Start Consultation" [ref=e3316] [cursor=pointer]:
+                - generic [ref=e3317]:
+                  - generic [ref=e3318]:
+                    - generic [ref=e3319]:
+                      - generic [ref=e3320]:
+                        - heading "—" [level=3] [ref=e3321]
+                        - generic [ref=e3322]: "187105"
+                      - generic [ref=e3324]: Jumeirah
+                    - generic [ref=e3325]: Closed
+                  - generic [ref=e3327]:
+                    - generic [ref=e3328]:
+                      - img [ref=e3329]
+                      - generic [ref=e3331]: January 24, 2022
+                    - generic [ref=e3332]:
+                      - img [ref=e3333]
+                      - generic [ref=e3336]: 6:01 PM
+                  - link "Start Consultation" [ref=e3338]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187105
+                    - img [ref=e3340]
+                    - text: Start Consultation
+              - button "— 187104 Jumeirah Closed January 11, 2022 6:30 PM Start Consultation" [ref=e3342] [cursor=pointer]:
+                - generic [ref=e3343]:
+                  - generic [ref=e3344]:
+                    - generic [ref=e3345]:
+                      - generic [ref=e3346]:
+                        - heading "—" [level=3] [ref=e3347]
+                        - generic [ref=e3348]: "187104"
+                      - generic [ref=e3350]: Jumeirah
+                    - generic [ref=e3351]: Closed
+                  - generic [ref=e3353]:
+                    - generic [ref=e3354]:
+                      - img [ref=e3355]
+                      - generic [ref=e3357]: January 11, 2022
+                    - generic [ref=e3358]:
+                      - img [ref=e3359]
+                      - generic [ref=e3362]: 6:30 PM
+                  - link "Start Consultation" [ref=e3364]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187104
+                    - img [ref=e3366]
+                    - text: Start Consultation
+              - button "— 187103 Jumeirah Closed January 5, 2022 3:38 PM Start Consultation" [ref=e3368] [cursor=pointer]:
+                - generic [ref=e3369]:
+                  - generic [ref=e3370]:
+                    - generic [ref=e3371]:
+                      - generic [ref=e3372]:
+                        - heading "—" [level=3] [ref=e3373]
+                        - generic [ref=e3374]: "187103"
+                      - generic [ref=e3376]: Jumeirah
+                    - generic [ref=e3377]: Closed
+                  - generic [ref=e3379]:
+                    - generic [ref=e3380]:
+                      - img [ref=e3381]
+                      - generic [ref=e3383]: January 5, 2022
+                    - generic [ref=e3384]:
+                      - img [ref=e3385]
+                      - generic [ref=e3388]: 3:38 PM
+                  - link "Start Consultation" [ref=e3390]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187103
+                    - img [ref=e3392]
+                    - text: Start Consultation
+              - button "Diabetologist New Consultation 244861 Jumeirah Specialist Closed September 9, 2021 2:30 PM Start Consultation" [ref=e3394] [cursor=pointer]:
+                - generic [ref=e3395]:
+                  - generic [ref=e3396]:
+                    - generic [ref=e3397]:
+                      - generic [ref=e3398]:
+                        - heading "Diabetologist New Consultation" [level=3] [ref=e3399]
+                        - generic [ref=e3400]: "244861"
+                      - generic [ref=e3401]:
+                        - generic [ref=e3402]: Jumeirah
+                        - generic [ref=e3403]: Specialist
+                    - generic [ref=e3404]: Closed
+                  - generic [ref=e3406]:
+                    - generic [ref=e3407]:
+                      - img [ref=e3408]
+                      - generic [ref=e3410]: September 9, 2021
+                    - generic [ref=e3411]:
+                      - img [ref=e3412]
+                      - generic [ref=e3415]: 2:30 PM
+                  - link "Start Consultation" [ref=e3417]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=244861
+                    - img [ref=e3419]
+                    - text: Start Consultation
+              - button "Endocrinologist New Consultation 255587 Jumeirah Follow-up Closed July 14, 2021 12:10 PM Start Consultation" [ref=e3421] [cursor=pointer]:
+                - generic [ref=e3422]:
+                  - generic [ref=e3423]:
+                    - generic [ref=e3424]:
+                      - generic [ref=e3425]:
+                        - heading "Endocrinologist New Consultation" [level=3] [ref=e3426]
+                        - generic [ref=e3427]: "255587"
+                      - generic [ref=e3428]:
+                        - generic [ref=e3429]: Jumeirah
+                        - generic [ref=e3430]: Follow-up
+                    - generic [ref=e3431]: Closed
+                  - generic [ref=e3433]:
+                    - generic [ref=e3434]:
+                      - img [ref=e3435]
+                      - generic [ref=e3437]: July 14, 2021
+                    - generic [ref=e3438]:
+                      - img [ref=e3439]
+                      - generic [ref=e3442]: 12:10 PM
+                  - link "Start Consultation" [ref=e3444]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=255587
+                    - img [ref=e3446]
+                    - text: Start Consultation
+              - button "Thyroid Follow Up Bundle Self Pay 334205 Jumeirah Closed June 28, 2021 11:10 AM Start Consultation" [ref=e3448] [cursor=pointer]:
+                - generic [ref=e3449]:
+                  - generic [ref=e3450]:
+                    - generic [ref=e3451]:
+                      - generic [ref=e3452]:
+                        - heading "Thyroid Follow Up Bundle Self Pay" [level=3] [ref=e3453]
+                        - generic [ref=e3454]: "334205"
+                      - generic [ref=e3456]: Jumeirah
+                    - generic [ref=e3457]: Closed
+                  - generic [ref=e3459]:
+                    - generic [ref=e3460]:
+                      - img [ref=e3461]
+                      - generic [ref=e3463]: June 28, 2021
+                    - generic [ref=e3464]:
+                      - img [ref=e3465]
+                      - generic [ref=e3468]: 11:10 AM
+                  - link "Start Consultation" [ref=e3470]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=334205
+                    - img [ref=e3472]
+                    - text: Start Consultation
+              - button "Diabetologist New Consultation 244877 Jumeirah Follow-up Closed April 28, 2021 4:30 PM Start Consultation" [ref=e3474] [cursor=pointer]:
+                - generic [ref=e3475]:
+                  - generic [ref=e3476]:
+                    - generic [ref=e3477]:
+                      - generic [ref=e3478]:
+                        - heading "Diabetologist New Consultation" [level=3] [ref=e3479]
+                        - generic [ref=e3480]: "244877"
+                      - generic [ref=e3481]:
+                        - generic [ref=e3482]: Jumeirah
+                        - generic [ref=e3483]: Follow-up
+                    - generic [ref=e3484]: Closed
+                  - generic [ref=e3486]:
+                    - generic [ref=e3487]:
+                      - img [ref=e3488]
+                      - generic [ref=e3490]: April 28, 2021
+                    - generic [ref=e3491]:
+                      - img [ref=e3492]
+                      - generic [ref=e3495]: 4:30 PM
+                  - link "Start Consultation" [ref=e3497]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=244877
+                    - img [ref=e3499]
+                    - text: Start Consultation
+              - button "Diabetologist New Consultation 244876 Jumeirah Follow-up Closed April 27, 2021 2:30 PM Start Consultation" [ref=e3501] [cursor=pointer]:
+                - generic [ref=e3502]:
+                  - generic [ref=e3503]:
+                    - generic [ref=e3504]:
+                      - generic [ref=e3505]:
+                        - heading "Diabetologist New Consultation" [level=3] [ref=e3506]
+                        - generic [ref=e3507]: "244876"
+                      - generic [ref=e3508]:
+                        - generic [ref=e3509]: Jumeirah
+                        - generic [ref=e3510]: Follow-up
+                    - generic [ref=e3511]: Closed
+                  - generic [ref=e3513]:
+                    - generic [ref=e3514]:
+                      - img [ref=e3515]
+                      - generic [ref=e3517]: April 27, 2021
+                    - generic [ref=e3518]:
+                      - img [ref=e3519]
+                      - generic [ref=e3522]: 2:30 PM
+                  - link "Start Consultation" [ref=e3524]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=244876
+                    - img [ref=e3526]
+                    - text: Start Consultation
+              - button "Diabetologist New Consultation 244874 Jumeirah Follow-up Closed April 20, 2021 12:50 PM Start Consultation" [ref=e3528] [cursor=pointer]:
+                - generic [ref=e3529]:
+                  - generic [ref=e3530]:
+                    - generic [ref=e3531]:
+                      - generic [ref=e3532]:
+                        - heading "Diabetologist New Consultation" [level=3] [ref=e3533]
+                        - generic [ref=e3534]: "244874"
+                      - generic [ref=e3535]:
+                        - generic [ref=e3536]: Jumeirah
+                        - generic [ref=e3537]: Follow-up
+                    - generic [ref=e3538]: Closed
+                  - generic [ref=e3540]:
+                    - generic [ref=e3541]:
+                      - img [ref=e3542]
+                      - generic [ref=e3544]: April 20, 2021
+                    - generic [ref=e3545]:
+                      - img [ref=e3546]
+                      - generic [ref=e3549]: 12:50 PM
+                  - link "Start Consultation" [ref=e3551]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=244874
+                    - img [ref=e3553]
+                    - text: Start Consultation
+              - button "— 187102 Jumeirah Closed March 11, 2021 4:46 PM Start Consultation" [ref=e3555] [cursor=pointer]:
+                - generic [ref=e3556]:
+                  - generic [ref=e3557]:
+                    - generic [ref=e3558]:
+                      - generic [ref=e3559]:
+                        - heading "—" [level=3] [ref=e3560]
+                        - generic [ref=e3561]: "187102"
+                      - generic [ref=e3563]: Jumeirah
+                    - generic [ref=e3564]: Closed
+                  - generic [ref=e3566]:
+                    - generic [ref=e3567]:
+                      - img [ref=e3568]
+                      - generic [ref=e3570]: March 11, 2021
+                    - generic [ref=e3571]:
+                      - img [ref=e3572]
+                      - generic [ref=e3575]: 4:46 PM
+                  - link "Start Consultation" [ref=e3577]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187102
+                    - img [ref=e3579]
+                    - text: Start Consultation
+              - button "Thyroid Package Self Pay 336424 Jumeirah Follow-up Closed January 26, 2021 8:10 AM Start Consultation" [ref=e3581] [cursor=pointer]:
+                - generic [ref=e3582]:
+                  - generic [ref=e3583]:
+                    - generic [ref=e3584]:
+                      - generic [ref=e3585]:
+                        - heading "Thyroid Package Self Pay" [level=3] [ref=e3586]
+                        - generic [ref=e3587]: "336424"
+                      - generic [ref=e3588]:
+                        - generic [ref=e3589]: Jumeirah
+                        - generic [ref=e3590]: Follow-up
+                    - generic [ref=e3591]: Closed
+                  - generic [ref=e3593]:
+                    - generic [ref=e3594]:
+                      - img [ref=e3595]
+                      - generic [ref=e3597]: January 26, 2021
+                    - generic [ref=e3598]:
+                      - img [ref=e3599]
+                      - generic [ref=e3602]: 8:10 AM
+                  - link "Start Consultation" [ref=e3604]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=336424
+                    - img [ref=e3606]
+                    - text: Start Consultation
+              - button "— 187100 Jumeirah Closed January 25, 2021 9:05 AM Start Consultation" [ref=e3608] [cursor=pointer]:
+                - generic [ref=e3609]:
+                  - generic [ref=e3610]:
+                    - generic [ref=e3611]:
+                      - generic [ref=e3612]:
+                        - heading "—" [level=3] [ref=e3613]
+                        - generic [ref=e3614]: "187100"
+                      - generic [ref=e3616]: Jumeirah
+                    - generic [ref=e3617]: Closed
+                  - generic [ref=e3619]:
+                    - generic [ref=e3620]:
+                      - img [ref=e3621]
+                      - generic [ref=e3623]: January 25, 2021
+                    - generic [ref=e3624]:
+                      - img [ref=e3625]
+                      - generic [ref=e3628]: 9:05 AM
+                  - link "Start Consultation" [ref=e3630]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187100
+                    - img [ref=e3632]
+                    - text: Start Consultation
+              - button "— 187099 Jumeirah Closed December 24, 2020 5:39 PM Start Consultation" [ref=e3634] [cursor=pointer]:
+                - generic [ref=e3635]:
+                  - generic [ref=e3636]:
+                    - generic [ref=e3637]:
+                      - generic [ref=e3638]:
+                        - heading "—" [level=3] [ref=e3639]
+                        - generic [ref=e3640]: "187099"
+                      - generic [ref=e3642]: Jumeirah
+                    - generic [ref=e3643]: Closed
+                  - generic [ref=e3645]:
+                    - generic [ref=e3646]:
+                      - img [ref=e3647]
+                      - generic [ref=e3649]: December 24, 2020
+                    - generic [ref=e3650]:
+                      - img [ref=e3651]
+                      - generic [ref=e3654]: 5:39 PM
+                  - link "Start Consultation" [ref=e3656]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187099
+                    - img [ref=e3658]
+                    - text: Start Consultation
+              - button "Diabetologist New Consultation 244878 Jumeirah Follow-up Closed November 29, 2020 7:00 AM Start Consultation" [ref=e3660] [cursor=pointer]:
+                - generic [ref=e3661]:
+                  - generic [ref=e3662]:
+                    - generic [ref=e3663]:
+                      - generic [ref=e3664]:
+                        - heading "Diabetologist New Consultation" [level=3] [ref=e3665]
+                        - generic [ref=e3666]: "244878"
+                      - generic [ref=e3667]:
+                        - generic [ref=e3668]: Jumeirah
+                        - generic [ref=e3669]: Follow-up
+                    - generic [ref=e3670]: Closed
+                  - generic [ref=e3672]:
+                    - generic [ref=e3673]:
+                      - img [ref=e3674]
+                      - generic [ref=e3676]: November 29, 2020
+                    - generic [ref=e3677]:
+                      - img [ref=e3678]
+                      - generic [ref=e3681]: 7:00 AM
+                  - link "Start Consultation" [ref=e3683]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=244878
+                    - img [ref=e3685]
+                    - text: Start Consultation
+              - button "— 187098 Jumeirah Closed November 17, 2020 3:34 PM Start Consultation" [ref=e3687] [cursor=pointer]:
+                - generic [ref=e3688]:
+                  - generic [ref=e3689]:
+                    - generic [ref=e3690]:
+                      - generic [ref=e3691]:
+                        - heading "—" [level=3] [ref=e3692]
+                        - generic [ref=e3693]: "187098"
+                      - generic [ref=e3695]: Jumeirah
+                    - generic [ref=e3696]: Closed
+                  - generic [ref=e3698]:
+                    - generic [ref=e3699]:
+                      - img [ref=e3700]
+                      - generic [ref=e3702]: November 17, 2020
+                    - generic [ref=e3703]:
+                      - img [ref=e3704]
+                      - generic [ref=e3707]: 3:34 PM
+                  - link "Start Consultation" [ref=e3709]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187098
+                    - img [ref=e3711]
+                    - text: Start Consultation
+              - button "— 187097 Jumeirah Closed October 21, 2020 5:58 PM Start Consultation" [ref=e3713] [cursor=pointer]:
+                - generic [ref=e3714]:
+                  - generic [ref=e3715]:
+                    - generic [ref=e3716]:
+                      - generic [ref=e3717]:
+                        - heading "—" [level=3] [ref=e3718]
+                        - generic [ref=e3719]: "187097"
+                      - generic [ref=e3721]: Jumeirah
+                    - generic [ref=e3722]: Closed
+                  - generic [ref=e3724]:
+                    - generic [ref=e3725]:
+                      - img [ref=e3726]
+                      - generic [ref=e3728]: October 21, 2020
+                    - generic [ref=e3729]:
+                      - img [ref=e3730]
+                      - generic [ref=e3733]: 5:58 PM
+                  - link "Start Consultation" [ref=e3735]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187097
+                    - img [ref=e3737]
+                    - text: Start Consultation
+              - button "— 187101 Jumeirah Closed September 7, 2020 6:40 PM Start Consultation" [ref=e3739] [cursor=pointer]:
+                - generic [ref=e3740]:
+                  - generic [ref=e3741]:
+                    - generic [ref=e3742]:
+                      - generic [ref=e3743]:
+                        - heading "—" [level=3] [ref=e3744]
+                        - generic [ref=e3745]: "187101"
+                      - generic [ref=e3747]: Jumeirah
+                    - generic [ref=e3748]: Closed
+                  - generic [ref=e3750]:
+                    - generic [ref=e3751]:
+                      - img [ref=e3752]
+                      - generic [ref=e3754]: September 7, 2020
+                    - generic [ref=e3755]:
+                      - img [ref=e3756]
+                      - generic [ref=e3759]: 6:40 PM
+                  - link "Start Consultation" [ref=e3761]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=187101
+                    - img [ref=e3763]
+                    - text: Start Consultation
+              - button "Ix - Thyroid FNA, ultrasound-guided 298399 Jumeirah First Closed September 3, 2020 1:00 PM Start Consultation" [ref=e3765] [cursor=pointer]:
+                - generic [ref=e3766]:
+                  - generic [ref=e3767]:
+                    - generic [ref=e3768]:
+                      - generic [ref=e3769]:
+                        - heading "Ix - Thyroid FNA, ultrasound-guided" [level=3] [ref=e3770]
+                        - generic [ref=e3771]: "298399"
+                      - generic [ref=e3772]:
+                        - generic [ref=e3773]: Jumeirah
+                        - generic [ref=e3774]: First
+                    - generic [ref=e3775]: Closed
+                  - generic [ref=e3777]:
+                    - generic [ref=e3778]:
+                      - img [ref=e3779]
+                      - generic [ref=e3781]: September 3, 2020
+                    - generic [ref=e3782]:
+                      - img [ref=e3783]
+                      - generic [ref=e3786]: 1:00 PM
+                  - link "Start Consultation" [ref=e3788]:
+                    - /url: /patient/profile/welcomconsultation/1402?visitId=298399
+                    - img [ref=e3790]
+                    - text: Start Consultation
+      - generic [ref=e3792]:
+        - generic [ref=e3793]:
+          - paragraph [ref=e3795]: Chat
+          - button "delete" [ref=e3796] [cursor=pointer]:
+            - img [ref=e3797]
+        - generic [ref=e3801]:
+          - paragraph [ref=e3802] [cursor=pointer]: Metabolic
+          - paragraph [ref=e3803] [cursor=pointer]: Zone
+  - alert [ref=e3804]
+```
+
+# Test source
+
+```ts
+  1  | class VisitsPage {
+  2  | 
+  3  |   constructor(page) {
+  4  |     this.page = page;
+  5  |     this.visitsTab = page.getByRole('link', { name: 'Visits' });
+  6  |   }
+  7  | 
+  8  |   // ── Navigate directly to Visits tab ──────────────────────────
+  9  |   async openVisitsTab(patientId) {
+  10 |     await this.page.goto(`${process.env.BASE_URL}/patient/profile/visits/${patientId}`);
+  11 |     await this.visitsTab.waitFor({ state: 'visible', timeout: 15000 });
+  12 |     await this.page.waitForLoadState('networkidle', { timeout: 10000 }).catch(() => {});
+  13 |   }
+  14 | 
+  15 |   // ── Get count of visit cards visible on the page ─────────────
+  16 |   async getVisitCount() {
+  17 |     return this.page.getByRole('button').filter({ hasText: /Active|Pending|Closed/i }).count();
+  18 |   }
+  19 | 
+  20 |   // ── Open a visit by clicking its "Start Consultation" link ───
+  21 |   // Returns the popup page
+  22 |   async openVisitByIndex(index = 0) {
+  23 |     const links = this.page.getByRole('link', { name: 'Start Consultation' });
+  24 |     const popupPromise = this.page.waitForEvent('popup');
+  25 |     await links.nth(index).click();
+  26 |     const popup = await popupPromise;
+  27 |     await popup.waitForLoadState('domcontentloaded', { timeout: 15000 }).catch(() => {});
+  28 |     return popup;
+  29 |   }
+  30 | 
+  31 |   // ── Open a specific visit directly by visitId ─────────────────
+  32 |   // Returns a new page (popup context reused from openVisitByIndex)
+  33 |   async openVisitDirect(visitPopup, patientId, visitId) {
+  34 |     await visitPopup.goto(
+  35 |       `${process.env.BASE_URL}/patient/profile/welcomconsultation/${patientId}?visitId=${visitId}`
+  36 |     );
+  37 |     await visitPopup.waitForLoadState('domcontentloaded', { timeout: 15000 }).catch(() => {});
+  38 |   }
+  39 | 
+  40 |   // ── Begin consultation on the welcome page popup ──────────────
+  41 |   async beginConsultation(visitPopup) {
+  42 |     const beginBtn = visitPopup.getByRole('button', { name: 'Begin Consultation' });
+  43 |     // Wait for button to be visible AND enabled — it renders disabled while page loads
+  44 |     await beginBtn.waitFor({ state: 'visible', timeout: 45000 });
+> 45 |     await expect(beginBtn).toBeEnabled({ timeout: 30000 });
+     |     ^ ReferenceError: expect is not defined
+  46 |     await beginBtn.click();
+  47 |   }
+  48 | 
+  49 |   // ── Start review after Begin Consultation ────────────────────
+  50 |   async startReview(visitPopup) {
+  51 |     const startBtn = visitPopup.getByRole('button', { name: 'Start Review' });
+  52 |     await startBtn.waitFor({ state: 'visible', timeout: 15000 });
+  53 |     await startBtn.click();
+  54 |   }
+  55 | 
+  56 |   // ── Click Next through all consultation steps ─────────────────
+  57 |   async clickNextUntilEnd(visitPopup, maxSteps = 20) {
+  58 |     let steps = 0;
+  59 |     while (steps < maxSteps) {
+  60 |       const nextBtn = visitPopup.getByRole('button', { name: 'Next' });
+  61 |       const visible = await nextBtn.isVisible({ timeout: 3000 }).catch(() => false);
+  62 |       if (!visible) break;
+  63 |       await nextBtn.click();
+  64 |       await visitPopup.waitForTimeout(400);
+  65 |       steps++;
+  66 |     }
+  67 |     return steps;
+  68 |   }
+  69 | }
+  70 | 
+  71 | module.exports = { VisitsPage };
+```

@@ -19,7 +19,7 @@ test.describe('Documents', () => {
 
     const uploadedName = await docsPage.uploadReport(
       SAMPLE_FILE,
-      'Choose Thursday, June 25th,',
+      null, // date now auto-set to today
       'Misc report'
     );
 
