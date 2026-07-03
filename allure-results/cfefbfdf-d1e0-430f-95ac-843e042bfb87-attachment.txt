@@ -1,1 +1,0 @@
-Wrong PIN message: Coupon redeemed successfullyOkay

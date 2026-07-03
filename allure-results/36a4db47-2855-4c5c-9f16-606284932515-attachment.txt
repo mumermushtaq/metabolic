@@ -1,3 +1,0 @@
-Number of #dropdown-basic elements found: 22
-Element 0: Edit Info visible = false
-Element 1: Edit Info visible = false
