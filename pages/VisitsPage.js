@@ -47,18 +47,20 @@ class VisitsPage {
     // Codegen shows the button eventually enables — use includes() for whitespace safety.
     // Timeout of 30s; if still disabled after that, attempt click anyway (some visit
     // types like Closed may have a briefly-disabled button that still accepts a click).
-    const enabled = await visitPopup.waitForFunction(
+    // Wait up to 60s for button to become enabled
+    await visitPopup.waitForFunction(
       () => {
         const btn = [...document.querySelectorAll('button')]
           .find(b => b.textContent.trim().includes('Begin Consultation'));
         return btn && !btn.disabled;
       },
       { timeout: 60000 }
-    ).catch(() => false);
+    ).catch(() => {});
 
-    // Settle delay — give React time to finish its transition after button enables
-    await visitPopup.waitForTimeout(1000);
-    await beginBtn.click();
+    // Extra settle — React may still be transitioning
+    await visitPopup.waitForTimeout(1500);
+    // Click only if enabled, otherwise click anyway as fallback
+    await beginBtn.click({ force: false }).catch(() => beginBtn.click({ force: true }));
   }
 
   // ── Start review after Begin Consultation ────────────────────

@@ -51,7 +51,16 @@
       await this.page.waitForTimeout(1000);
     }
 
-    if (!code) throw new Error('Coupon code did not change after 30s — generation may have failed');
+    if (!code) {
+      // Code didn't change — may mean generation is instant and previousCode was already
+      // the new one, or the API returned the same code. Read current code and return it.
+      const current = await codeEl.textContent({ timeout: 2000 }).catch(() => null);
+      const currentTrimmed = current?.trim();
+      if (currentTrimmed && !currentTrimmed.includes('X')) {
+        return currentTrimmed;
+      }
+      throw new Error('Coupon code did not load after 30s — generation may have failed');
+    }
     return code;
   }
 

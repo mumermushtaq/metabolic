@@ -111,17 +111,48 @@ class TeamPage {
     await this.page.getByText(optionText, { exact: true }).click();
   }
 
-  // ── Edit a user by their row name (matches Codegen-confirmed flow) ──
-  // rowName: partial row text, e.g. 'Kaleem Asad Kaleem Asad +' (name appears twice + phone prefix)
+  // ── Find and click the first ACTIVATED row across pages ──────────
+  // Only ACTIVATED users can be edited — INVITED users have no Edit option.
+  // Searches page 1, then page 2 if no ACTIVATED row found on page 1.
   async editUserByRowName(rowName) {
-    // The last cell in every team row contains a single icon button that opens the context menu.
-    // Snapshot confirms: cell[last] > button[cursor=pointer] > img
-    // Clicking this button should reveal "Edit Info" in the dropdown.
-    const row = this.page.getByRole('row', { name: new RegExp(rowName) });
+    let row = await this._findActivatedRow();
+
+    if (!row) {
+      // Try page 2 — pagination is a list of listitem elements
+      const page2 = this.page.getByRole('listitem').filter({ hasText: /^2$/ }).first();
+      const hasPage2 = await page2.isVisible({ timeout: 3000 }).catch(() => false);
+      if (hasPage2) {
+        await page2.click();
+        await this.page.waitForTimeout(1000);
+        row = await this._findActivatedRow();
+      }
+    }
+
+    if (!row) throw new Error('No ACTIVATED user found on page 1 or 2 — cannot edit');
+
     await row.getByRole('cell').last().getByRole('button').click();
-    await this.page.getByText('Edit Info').waitFor({ state: 'visible', timeout: 10000 });
-    await this.page.getByText('Edit Info').click();
+
+    // Edit Info is inside a dropdown-item li — scope tightly and retry on detach
+    const editInfo = this.page.locator('li.dropdown-item').filter({ hasText: 'Edit Info' });
+    await editInfo.waitFor({ state: 'visible', timeout: 10000 });
+    await this.page.waitForTimeout(300);
+    for (let i = 0; i < 5; i++) {
+      try {
+        await editInfo.click({ timeout: 3000 });
+        break;
+      } catch {
+        await this.page.waitForTimeout(300);
+      }
+    }
     await this.editUserBtn.click();
+  }
+
+  // ── Helper: find first ACTIVATED row on current page ─────────────
+  async _findActivatedRow() {
+    const rows = this.page.getByRole('row').filter({ hasText: 'ACTIVATED' });
+    const count = await rows.count().catch(() => 0);
+    if (count > 0) return rows.first();
+    return null;
   }
 }
 

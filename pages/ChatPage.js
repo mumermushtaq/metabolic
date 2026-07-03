@@ -9,10 +9,12 @@ class ChatPage {
     // ── Channel list ──────────────────────────────────────────────
     this.channelList = page.getByRole('listbox', { name: 'Channel list' });
 
-    // ── Message input (confirmed via Codegen testid) ───────────────
-    this.messageInput = page.getByTestId('message-input');
-    // Send button has no visible text — empty-text button, scoped by position
-    this.sendBtn = page.getByRole('button').filter({ hasText: /^$/ });
+    // ── Message input ────────────────────────────────────────────────
+    // Snapshot confirms: textbox "Message" — testid may not exist in all convos
+    this.messageInput = page.getByRole('textbox', { name: 'Message' });
+    // Send button is a div[role="button"] with sendMessageBtn class —
+    // only appears in DOM after text is typed into the input
+    this.sendBtn = page.locator('[role="button"][class*="sendMessageBtn"]');
 
     // ── Empty conversation placeholder ──────────────────────────────
     this.messageInputPlaceholder = page.getByText('Send a message');
@@ -67,9 +69,25 @@ class ChatPage {
     await this.messageInput.click();
     await this.messageInput.fill(text);
 
-    // Codegen confirmed: send button is .nth(3) among empty-text buttons.
-    // nth(2) resolves to the hidden file input — nth(3) is the actual send button.
-    await this.sendBtn.nth(3).click();
+    // Send button is a div[role="button"] with sendMessageBtn class
+    await this.sendBtn.waitFor({ state: 'visible', timeout: 10000 });
+    await this.sendBtn.click();
+  }
+
+  // ── Open a conversation with existing messages ──────────────────
+  // Avoids empty conversations where the send button never renders
+  async openKnownConversation() {
+    await this.channelList.waitFor({ state: 'visible', timeout: 15000 });
+    // Find any conversation that already has a message preview (not "Send a message")
+    const withMessages = this.channelList.locator('> div').filter({
+      hasNot: this.page.getByText('Send a message')
+    }).first();
+    const hasOne = await withMessages.isVisible({ timeout: 5000 }).catch(() => false);
+    if (hasOne) {
+      await withMessages.click();
+    } else {
+      await this.channelList.locator('> div').first().click();
+    }
   }
 
   // ── Open a conversation and send a message in one step ───────────

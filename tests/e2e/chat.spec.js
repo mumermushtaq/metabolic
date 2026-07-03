@@ -25,7 +25,9 @@ test.describe('Chat', () => {
     await page.goto(`${process.env.BASE_URL}/chat`);
     await chatPage.openChatTab();
 
-    await chatPage.openFirstConversation();
+    // Use openKnownConversation to avoid empty conversations where
+    // the send button never renders (only appears after typing)
+    await chatPage.openKnownConversation();
     await chatPage.sendMessage(TEST_MESSAGE);
 
     // Message should appear in the conversation thread
@@ -33,3 +35,5 @@ test.describe('Chat', () => {
   });
 
 });
+
+//14 26 27 51 78
